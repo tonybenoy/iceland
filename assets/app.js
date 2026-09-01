@@ -69,6 +69,7 @@ function costBadge(s) {
 
 function renderRoute() {
   const all = D.routes.variants;
+  if (!all[variant]) variant = Object.keys(all)[0];
   const r = all[variant];
   const el = $('#view-route');
   el.innerHTML = `
@@ -341,7 +342,12 @@ Promise.all([
   j('data/routes.json'),
 ]).then(([places, camps, fuel, routes]) => {
   D.places = places; D.camps = camps; D.fuel = fuel; D.routes = routes;
-  if (!routes.variants[variant]) variant = routes.default;
+  // a stored variant from an older build may no longer exist
+  const keys = Object.keys(routes.variants);
+  if (!routes.variants[variant]) {
+    variant = routes.variants[routes.default] ? routes.default : keys[0];
+    try { localStorage.setItem('iceland.variant', variant); } catch (_) {}
+  }
 
   fillSelect($('#fCategory'), places.map((p) => p.category));
   fillSelect($('#fRegion'), places.map((p) => p.region).filter((r) => r && r !== 'Not assessed'));

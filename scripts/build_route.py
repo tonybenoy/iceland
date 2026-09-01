@@ -400,7 +400,7 @@ def main():
     out = {
         "title": "Iceland Ring Road — 6.5 days",
         "start": "Keflavík Airport", "end": "Keflavík Airport",
-        "default": "v1-ring",
+        "default": next(iter(out_variants)),
         "start_date": START_DATE.isoformat(),
         "flight": FLIGHT_HOME,
         "variants": out_variants,
