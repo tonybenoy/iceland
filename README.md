@@ -11,19 +11,34 @@ sees them and nothing is sent anywhere.
 
 ## Three routes — pick one on the site
 
-All start and end in Reykjavík and put every night on an Útilegukortið campsite.
-Reykjavík itself is assumed to be handled before the drive.
+All start and end at **Keflavík Airport** — car collected on arrival, dropped on
+the day you fly. Every night is an Útilegukortið campsite. Reykjavík itself is
+assumed to be handled before the drive.
 
 | | v1 counter-clockwise | v2 clockwise | v3 maximum stops |
 |---|---|---|---|
-| Distance | 1,928 km | 1,957 km | 2,047 km |
-| Driving | 32.2 h | 33.3 h | 35.2 h |
-| **Stops** | 34 | 34 | **57** |
+| Distance | 2,006 km | 2,032 km | 2,175 km |
+| Driving | 33.2 h | 34.3 h | 37.0 h |
+| **Stops** | 34 | 34 | **62** |
 | Longest day | 10.6 h | 11.2 h | **12.5 h** |
-| Final half day | 226 km / 3.4 h | 248 km / **5.6 h** | 231 km / 4.6 h |
+| **Flight day** | 265 km / **5.0 h** | 284 km / **9.3 h** | 320 km / 7.1 h |
 | Golden Circle | yes | **no** | yes |
-| Paid car parks | 9 | 8 | 9 |
+| Reykjanes tip | no | no | **yes** |
 | Per-person tickets | 2 | 2 | 1 |
+
+### Why not clockwise, with a same-day flight
+
+Because the airport is at the *west* end and clockwise saves the south coast —
+the densest, most stop-heavy stretch — for last. Its final day is **9.3 h and
+6.1 h of driving**, ending at a check-in desk. Counter-clockwise's is 5.0 h,
+because it comes in from the empty west. That is the whole argument; direction
+barely changes total distance (2,032 vs 2,006 km).
+
+Dropping at KEF also makes the **Reykjanes tip nearly free** — Brimketill,
+Gunnuhver, Reykjanesviti, Valahnúkamöl and the Bridge Between Continents sit on
+the last 40 km, which every other plan drives straight past. v3 takes them.
+**Check safetravel.is and road.is that morning** — the peninsula has erupted
+repeatedly since 2023 and those roads close at short notice.
 
 **v3 is the one that makes the most of the days.** It adds 23 stops for only
 119 km and 3 h of extra driving, because almost everything added is within a

@@ -27,10 +27,13 @@ DATA = ROOT / "data"
 OSRM = "https://router.project-osrm.org/route/v1/driving/"
 
 REYKJAVIK = (64.1466, -21.9426)
+# Car is collected and dropped at the airport, so the loop starts and ends here.
+AIRPORT = (63.9850, -22.6056)
 
 # Stops that aren't in iceland_places.csv but the route needs.
 EXTRA = {
     "Reykjavík": REYKJAVIK,
+    "Keflavík Airport": AIRPORT,
     "Húsavík harbour": (66.0455, -17.3410),
     "Húsavík Whale Museum": (66.0448, -17.3392),
     "Stuðlagil Canyon": (65.1651, -15.3153),
@@ -57,7 +60,7 @@ COUNTERCLOCKWISE = [
         "title": "Golden Circle",
         "summary": "An easy first day. Three headline stops, all paved, all within an hour of each other.",
         "stops": [
-            ("Reykjavík", "start"),
+            ("Keflavík Airport", "start"),
             ("Þingvellir National Park", "sight"),
             ("Geysir Geothermal Area", "sight"),
             ("Strokkur Geyser", "sight"),
@@ -155,7 +158,7 @@ COUNTERCLOCKWISE = [
         "stops": [
             ("Hraunfossar & Barnafoss", "sight"),
             ("Deildartunguhver", "optional"),
-            ("Reykjavík", "end"),
+            ("Keflavík Airport", "end"),
         ],
         "night": None,
     },
@@ -170,7 +173,7 @@ CLOCKWISE = [
         "note": "Hraunfossar charges for parking; Deildartunguhver itself is free to look at "
                 "(the Krauma spa next to it is not).",
         "stops": [
-            ("Reykjavík", "start"),
+            ("Keflavík Airport", "start"),
             ("Borgarnes", "town"),
             ("Deildartunguhver", "sight"),
             ("Hraunfossar & Barnafoss", "sight"),
@@ -270,7 +273,7 @@ CLOCKWISE = [
             ("Dyrhólaey", "sight"),
             ("Skógafoss", "sight"),
             ("Seljalandsfoss", "sight"),
-            ("Reykjavík", "end"),
+            ("Keflavík Airport", "end"),
         ],
         "night": None,
     },
@@ -293,7 +296,7 @@ MAXIMUM = [
         "note": "Öxarárfoss and Lögberg are inside Þingvellir — you are parked there anyway. "
                 "Efstidalur is an ice cream stop in a working dairy.",
         "stops": [
-            ("Reykjavík", "start"),
+            ("Keflavík Airport", "start"),
             ("Þingvellir National Park", "sight"),
             ("Öxarárfoss", "quick"),
             ("Lögberg", "quick"),
@@ -415,15 +418,25 @@ MAXIMUM = [
     },
     {
         "day": 7,
-        "title": "Reykholt and the lava falls",
-        "summary": "Three stops on the way in, all quick.",
+        "title": "Reykholt, then the Reykjanes tip to the airport",
+        "summary": "Lava falls in the morning, the volcanic tip on the airport's doorstep.",
         "half": True,
-        "note": "Still a genuine half day even with the extra stops.",
+        "note": "Dropping the car at KEF makes the Reykjanes stops nearly free — they sit on the "
+                "last 40 km, a stretch every other plan drives past. CHECK safetravel.is AND "
+                "road.is THE MORNING OF: this peninsula has erupted repeatedly since 2023 and "
+                "the Grindavík roads and the Blue Lagoon close at short notice. If it is shut, "
+                "you lose nothing but an hour and drive straight to the airport.",
         "stops": [
             ("Snorrastofa", "quick"),
             ("Hraunfossar & Barnafoss", "sight"),
             ("Deildartunguhver", "quick"),
-            ("Reykjavík", "end"),
+            # south-west along the tip, then north to KEF
+            ("Brimketill", "quick"),
+            ("Gunnuhver", "quick"),
+            ("Valahnúkamöl", "quick"),
+            ("Reykjanesviti", "quick"),
+            ("Bridge America - Europe", "quick"),
+            ("Keflavík Airport", "end"),
         ],
         "night": None,
     },
@@ -439,8 +452,9 @@ VARIANTS = {
         "label": "Maximum stops (counter-clockwise)",
         "days": MAXIMUM,
         "note": "Same direction, same nights, but every worthwhile quick stop within a few "
-                "kilometres of the road. Long activities are deliberately left out — the extra "
-                "sights cost minutes, not hours. Watch the day length, not the distance.",
+                "kilometres of the road, including the Reykjanes tip on the final run to the "
+                "airport. Long activities are deliberately left out — the extra sights cost "
+                "minutes, not hours. Watch the day length, not the distance.",
     },
     "clockwise": {
         "label": "Clockwise (north first)",
@@ -549,7 +563,7 @@ def main():
 
     out_variants = {}
     for key, spec in VARIANTS.items():
-        days, cursor = [], REYKJAVIK
+        days, cursor = [], AIRPORT
         for d_spec in spec["days"]:
             stops = []
             for name, kind in d_spec["stops"]:
@@ -632,7 +646,7 @@ def main():
 
     out = {
         "title": "Iceland Ring Road — 6.5 days",
-        "start": "Reykjavík", "end": "Reykjavík",
+        "start": "Keflavík Airport", "end": "Keflavík Airport",
         "default": "counter-clockwise",
         "variants": out_variants,
     }
