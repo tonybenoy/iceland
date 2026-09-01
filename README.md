@@ -8,6 +8,12 @@ stops on the same map.
 Star anything and hit **Copy picks** — it copies a plain list to paste into the
 chat. Picks live in your own browser only.
 
+**Installable and works offline.** Open it on your phone and use "Add to Home
+Screen"; a service worker precaches the app and all trip data, and caches map
+tiles as you pan over them. Load the map over wifi the night before and the
+route, campsites and fuel stops stay readable in the fjords where there is no
+signal. Tiles you have never looked at will be blank — everything else works.
+
 ## The plan
 
 Reykjavík is the 11th, before this. Day 1 is an early start from KEF on Saturday
@@ -49,6 +55,23 @@ Three things make it work:
 - **Nights 1, 4, 5 and 6.** OSM records opening hours for only about a third of
   campsites, and mid-September is exactly when small sites close quietly. Skaftafell
   (night 2) is all-year and Berunes (night 3) runs to 1 October.
+
+### Why the Westfjords are not in it
+
+They are not skipped for lack of merit — 27 sights, including Dynjandi — but the
+detour does not fit. Day 6 runs Blönduós to Arnarstapi in **266 km**. Going
+through the Westfjords instead:
+
+```
+Blönduós → Hólmavík → Ísafjörður          415 km   6.0 h
+Ísafjörður → Dynjandi → Patreksfjörður    165 km   2.5 h
+Patreksfjörður → Búðardalur → Arnarstapi  377 km   5.4 h
+                                          957 km  13.9 h
+```
+
+That is **957 km against 266** — roughly two extra days on slow, winding fjord
+roads, and it would cost you Snæfellsnes, which is on the way and is not.
+The Westfjords are their own trip.
 
 ### What it costs
 
