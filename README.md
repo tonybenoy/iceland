@@ -17,48 +17,36 @@ handled separately, before day 1.
 
 | | v1 ring | v2 ring, max stops | v3 west & south |
 |---|---|---|---|
-| Distance | 1,817 km | 2,010 km | **1,514 km** |
-| Driving | 29.7 h | 33.3 h | **28.4 h** |
+| Distance | 1,765 km | 2,045 km | **1,519 km** |
+| Driving | 29.1 h | 34.3 h | **28.5 h** |
 | Stops | 32 | **52** | 41 |
-| Longest day | 9.9 h | **13.1 h** | 10.3 h |
-| Nights off the card | 1 | 1 | **0** |
+| Longest day | **10.0 h** | 11.7 h | 10.3 h |
 | Snæfellsnes | no | no | **yes** |
 | Jökulsárlón | yes | yes | **no** |
 | Whales at Húsavík | yes | yes | **no** |
 
-## Two things the dates changed
+v1 nights: Hvolsvöllur, Kirkjubæjarklaustur, Berunes, Mývatn, Blönduós.
 
-**Four campsites are already shut when you arrive.** Kleifarmörk closed
-31 August, Skjól and Möðrudalur on 10 September, Svartiskógur on the 12th.
-Kleifarmörk was night 2 of the original plan — the trip would have arrived at a
-locked gate. Húsavík, Bragðavellir, Grundarfjörður, Akranes, Stokkseyri and
-Skagaströnd all close on **15 September**, mid-trip. `build_route.py` now parses
-every campsite's season, checks it against the actual date of each night, and
-only ever offers alternatives that are open that night.
+## Not card-only
 
-**Six days is not enough for the ring and Snæfellsnes.** v1 and v2 do the whole
-loop but never linger, and both need one night off the card, because no card
-site between Vík and Djúpivogur is open in mid-September. v3 drops the north and
-east entirely to do Reykjanes, the Golden Circle, the south coast and all of
-Snæfellsnes properly — 300 km less driving, more stops, every night on the card.
-The trade is Jökulsárlón and the Húsavík whales.
+Nights are placed where the driving wants them, using all **215 named campsites
+in Iceland** from OpenStreetMap (`scripts/extract_osm_campsites.py`), with the
+20 card sites flagged. That single change fixed the plan more than any amount of
+re-routing: v1's worst day went from 500 km to 361 km, and no day now runs past
+daylight.
 
-### Day length, not distance
+The card set had made the country look emptier than it is. The stretch between
+Vík and Djúpivogur that I called a "campsite desert" — the thing that forced a
+400 km day — actually has **28 campsites**, including Skaftafell and Vestrahorn
+open all year. Exactly one of them is on the card.
 
-Each day shows real OSRM driving time plus an estimate of time on the ground
-(15 min roadside, 35–45 a proper sight, 90 a hike, 180 the whale boat), and a
-finish time from an 08:30 start. Iceland gives ~13 h of daylight on 12 September
-and ~11.5 h by the 17th, so anything ending after ~20:00 is flagged.
+**Dates still matter, just less.** Four card sites shut before you arrive
+(Kleifarmörk on 31 August — it was night 2 of an earlier draft, so the trip would
+have reached a locked gate) and six more close on 15 September, mid-trip.
+`build_route.py` parses every season, checks it against the actual date of each
+night, and only offers alternatives open that night.
 
-v2's day 4 runs to 13.1 h and ends at 21:00 — that is the honest cost of adding
-20 stops to a loop this tight.
-
-### What things cost
-
-Stops carry a badge: `free`, `car park` (per car, 600–1,000 ISK), or `ticket pp`.
-All the car parks together come to under ~10,000 ISK for the whole trip. The
-per-person tickets are where the money is — one whale trip for three costs more
-than every car park combined.
+## Six days, three shapes
 
 ## Datasets
 

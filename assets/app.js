@@ -336,7 +336,7 @@ const j = (p) => fetch(p).then((r) => { if (!r.ok) throw new Error(`${p}: ${r.st
 
 Promise.all([
   j('data/iceland_places_ranked.json'),
-  j('data/iceland_campsites.json'),
+  j('data/iceland_campsites_all.json'),
   j('data/iceland_gas_stations.json'),
   j('data/routes.json'),
 ]).then(([places, camps, fuel, routes]) => {
@@ -349,10 +349,12 @@ Promise.all([
   renderRoute();
   renderPlaces();
   renderSimple($('#campsList'), camps, layers.camps, '#3f8f4a',
-    (c) => `${esc(c.region)} · open ${esc(c.open || '—')}`,
-    (c) => `<b>${esc(c.name)}</b><br>${esc(c.zip_town)}<br>Open: ${esc(c.open || '—')}<br>
-      ${esc((c.facilities || '').split('; ').slice(0, 6).join(', '))}<br>
-      <a href="${esc(c.page)}" target="_blank" rel="noopener">Details</a>`);
+    (c) => `${c.on_card ? 'on the camping card · ' : ''}${
+      esc(c.card_open || c.opening_hours || 'season not recorded')}`,
+    (c) => `<b>${esc(c.name)}</b>${c.on_card ? ' <i>(camping card)</i>' : ''}<br>
+      ${esc(c.card_open || c.opening_hours || 'season not recorded')}<br>
+      ${c.phone ? esc(c.phone) + '<br>' : ''}
+      <a href="${esc(c.website || c.osm)}" target="_blank" rel="noopener">Details</a>`);
   renderSimple($('#fuelList'), fuel.map((f) => ({ ...f, name: f.brand })), layers.fuel, '#3b6ea5',
     (f) => esc(f.locality || 'rural — no locality in OSM'),
     (f) => `<b>${esc(f.brand)}</b><br>${esc(f.locality || 'rural')}`);

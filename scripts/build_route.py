@@ -107,15 +107,15 @@ RING = [
      "stops": [("Keflavík Airport", "start"), ("Þingvellir National Park", "sight"),
                ("Geysir Geothermal Area", "sight"), ("Strokkur Geyser", "quick"),
                ("Gullfoss", "sight"), ("Kerið", "optional")],
-     "night": "At Faxi"},
+     "night": "Tjaldsvæðið Hvolsvelli"},
     {"day": 2, "title": "South coast waterfalls",
      "summary": "The postcard stretch, ending east of Vík.",
-     "note": "The only night not on the camping card. Kleifarmörk, the one card site out here, "
-             "shut on 31 August — so book the municipal site at Kirkjubæjarklaustur or Vík.",
+     "note": "An easy day now that nights are not limited to the card — the whole south coast "
+             "in 200 km, with time at every stop.",
      "stops": [("Seljalandsfoss", "sight"), ("Gljúfrafoss", "quick"), ("Skógafoss", "sight"),
                ("Dyrhólaey", "sight"), ("Reynisfjara Beach", "sight"), ("Vík í Mýrdal", "town"),
                ("Kirkjubæjarklaustur", "town")],
-     "night": None, "night_offcard": "Kirkjubæjarklaustur (municipal — card sites all shut)"},
+     "night": "Kirkjubær II"},
     {"day": 3, "title": "Glaciers, the lagoon and the east",
      "summary": "The best day of the trip. Leave early.",
      "note": "Bragðavellir closes on 15 September, so this is one of its last nights — ring ahead.",
@@ -123,7 +123,7 @@ RING = [
                ("Skaftafell", "sight"), ("Jökulsárlón Glacial Lagoon", "sight"),
                ("Diamond Beach", "sight"), ("Höfn", "town"),
                ("Stokksnes and Vestrahorn", "optional")],
-     "night": "Tjaldvæðið Bragðavöllum"},
+     "night": "Camping Berunes"},
     {"day": 4, "title": "Stuðlagil, Dettifoss and Mývatn",
      "summary": "Across the top of the country. The longest driving day.",
      "note": "The unavoidable monster. Djúpivogur to Húsavík is 450 km before you stop for "
@@ -132,7 +132,7 @@ RING = [
              "phone ahead before you commit to this plan.",
      "stops": [("Egilsstaðir", "town"), ("Stuðlagil Canyon", "sight"),
                ("Dettifoss", "sight"), ("Hverír", "sight"), ("Dimmuborgir", "sight")],
-     "night": "Húsavík"},
+     "night": "Hlíð"},
     {"day": 5, "title": "Whales, then the long run west",
      "summary": "Split the morning in Húsavík, then transit to the west.",
      "split": {"where": "Húsavík harbour",
@@ -144,7 +144,7 @@ RING = [
                     "duration": "~1.5 h", "book": "Walk in. Roughly a fifth of the boat price."}]},
      "stops": [("Húsavík harbour", "split"), ("Góðafoss", "sight"), ("Akureyri", "town"),
                ("Blönduós", "town")],
-     "night": "Tjaldsvæðið búðardal"},
+     "night": "Blönduós"},
     {"day": 6, "title": "Back to the airport", "half": True,
      "summary": "Short by design — the car has to be back before a 17:00 flight.",
      "note": "Aim to be at KEF by 15:00. Nothing on this leg is worth missing a flight for.",
@@ -199,7 +199,7 @@ WEST_SOUTH = [
                ("Laugarvatn Fontana", "optional"), ("Geysir Geothermal Area", "sight"),
                ("Strokkur Geyser", "quick"), ("Gullfoss", "sight"), ("Brúarhlöð", "quick"),
                ("Kerið", "optional")],
-     "night": "At Faxi"},
+     "night": "Tjaldsvæðið við Faxa"},
     {"day": 3, "title": "South coast and back",
      "summary": "Out to Vík and back — the only out-and-back in any of these plans.",
      "note": "Going only as far as Vík is what buys Snæfellsnes later. Jökulsárlón is another "
@@ -207,7 +207,7 @@ WEST_SOUTH = [
      "stops": [("Urridafoss", "quick"), ("Seljalandsfoss", "sight"), ("Gljúfrafoss", "quick"),
                ("Skógafoss", "sight"), ("Dyrhólaey", "sight"), ("Reynisfjara Beach", "sight"),
                ("Vík í Mýrdal", "town")],
-     "night": "At Faxi"},
+     "night": "Tjaldsvæðið við Faxa"},
     {"day": 4, "title": "North to Snæfellsnes",
      "summary": "Across to Borgarfjörður, then out onto the peninsula.",
      "note": "Grundarfjörður closes on 15 September — tonight is its last. Ring ahead.",
@@ -222,7 +222,7 @@ WEST_SOUTH = [
      "stops": [("Olafsvík", "town"), ("Saxhóll", "quick"), ("Djúpalónssandur", "sight"),
                ("Londrangar Basalt Cliffs", "quick"), ("Arnarstapi", "sight"), ("Hellnar", "quick"),
                ("Rauðfeldsgjá Gorge", "quick"), ("Búðir church", "quick")],
-     "night": "Tjaldsvæðið búðardal"},
+     "night": "Búðardalur"},
     {"day": 6, "title": "Back to the airport", "half": True,
      "summary": "Short by design — the car has to be back before a 17:00 flight.",
      "note": "Aim to be at KEF by 15:00.",
@@ -324,7 +324,7 @@ def main():
     # simplify() recurses once per polyline split; OSRM legs are ~4k points deep.
     sys.setrecursionlimit(20000)
     places = load("iceland_places.csv")
-    camps = load("iceland_campsites.csv")
+    camps = load("iceland_campsites_all.csv")
     camp_pts = {n: (float(c["lat"]), float(c["lon"])) for n, c in camps.items()}
 
     ranked = {}
@@ -376,15 +376,17 @@ def main():
             # only offer alternatives that are actually open that night
             nearby = sorted(
                 ({"name": n, "km": round(haversine(end, p), 1),
-                  "open": camps[n]["open"], "lat": p[0], "lon": p[1]}
-                 for n, p in camp_pts.items() if open_on(camps[n]["open"], date)),
+                  "open": camps[n].get("card_open") or camps[n].get("opening_hours", ""),
+                  "on_card": camps[n].get("on_card", ""), "lat": p[0], "lon": p[1]}
+                 for n, p in camp_pts.items()
+                 if open_on(camps[n].get("card_open"), date) is not False),
                 key=lambda c: c["km"],
             )[:4]
 
             stop_hours = round(sum(s["minutes"] for s in stops) / 60, 1)
             day_hours = round(leg["hours"] + stop_hours, 1)
             finish = DAY_START_HOUR + day_hours
-            night_open = open_on(night["open"], date) if night else None
+            night_open = open_on(night.get("card_open"), date) if night else None
             days.append({
                 **{k: v for k, v in d_spec.items() if k not in ("stops", "night")},
                 "stops": stops,
@@ -402,10 +404,12 @@ def main():
                 "flight_risk": bool(d_spec.get("half")) and finish > LATEST_FINISH_DAY6,
                 "night_offcard": d_spec.get("night_offcard"),
                 "night_open": night_open,
-                "night": ({"name": night["name"], "date": date.isoformat(), "lat": float(night["lat"]),
-                           "lon": float(night["lon"]), "open": night["open"],
-                           "tel": night["tel"], "website": night["website"],
-                           "facilities": night["facilities"], "page": night["page"]}
+                "night": ({"name": night["name"], "date": date.isoformat(),
+                           "lat": float(night["lat"]), "lon": float(night["lon"]),
+                           "open": night.get("card_open") or night.get("opening_hours", ""),
+                           "on_card": night.get("on_card", ""),
+                           "tel": night.get("phone", ""), "website": night.get("website", ""),
+                           "page": night.get("osm", "")}
                           if night else None),
                 "nearby_campsites": nearby,
             })
@@ -427,7 +431,8 @@ def main():
             "note": spec["note"],
             "start_date": START_DATE.isoformat(),
             "flight": FLIGHT_HOME,
-            "offcard_nights": sum(1 for d in days if d.get("night_offcard")),
+            "offcard_nights": sum(1 for d in days
+                                  if d.get("night") and not d["night"].get("on_card")),
             "closed_nights": sum(1 for d in days if d.get("night_open") is False),
             "direction": key,
             "total_km": round(sum(d["km"] for d in days), 1),
