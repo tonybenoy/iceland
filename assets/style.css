@@ -107,6 +107,7 @@ a{color:var(--accent)}
 .day-km{color:var(--ink-2); font-size:.82rem; white-space:nowrap}
 .day-body{padding:.6rem .7rem}
 .long{color:var(--warn); font-weight:600}
+.over{color:#a3252f; font-weight:700}
 .stops{list-style:none; margin:.4rem 0 0; padding:0}
 .stops li{padding:.22rem 0; border:0; display:flex; gap:.5rem}
 .stops .k{color:var(--ink-2); font-size:.78rem; min-width:62px; text-transform:uppercase; letter-spacing:.03em}

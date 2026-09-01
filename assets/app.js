@@ -75,22 +75,25 @@ function renderRoute() {
     <div class="variants">
       ${Object.entries(all).map(([k, v]) => `
         <button class="vbtn ${k === variant ? 'is-on' : ''}" data-variant="${esc(k)}">
-          ${esc(v.label)}<small>${v.total_km.toLocaleString()} km · ${v.total_driving_hours} h</small>
+          ${esc(v.label)}<small>${v.total_km.toLocaleString()} km · ${v.total_stops} stops ·
+            longest day ${v.longest_day_hours} h</small>
         </button>`).join('')}
     </div>
     <p class="count">${r.total_km.toLocaleString()} km · ${r.total_driving_hours} h driving ·
-      ${r.paid_parking_stops} paid car parks · ${r.per_person_ticket_stops} per-person tickets.
+      ${r.total_stops} stops · ${r.paid_parking_stops} paid car parks ·
+      ${r.per_person_ticket_stops} per-person ticket${r.per_person_ticket_stops === 1 ? '' : 's'}.
       Every night is a campsite on the card.</p>
     <p class="note">${esc(r.note)}</p>
-    <p class="note">Driving hours are moving time only — they exclude every stop.
-      Add roughly 30–60 min per sight.</p>
+    <p class="note">"Day" adds an estimate of time on the ground to the driving.
+      Iceland gives you about 13.5 h of daylight in early September and 11.5 h by the end
+      of it, so anything flagged in red needs an early start or a stop dropped.</p>
     ${r.days.map((d, i) => `
       <details class="day" ${i === 0 ? 'open' : ''}>
         <summary>
           <span class="day-n" style="color:${DAY_COLORS[i % DAY_COLORS.length]}">Day ${d.day}${d.half ? '½' : ''}</span>
           <span class="day-t">${esc(d.title)}</span>
-          <span class="day-km ${d.long_day ? 'long' : ''}">${
-            d.no_drive ? 'no driving' : `${d.km} km · ${d.driving_hours} h`}</span>
+          <span class="day-km">${d.km} km · ${d.driving_hours} h drive ·
+            <b class="${d.over_daylight ? 'over' : d.long_day ? 'long' : ''}">${d.day_hours} h day</b></span>
         </summary>
         <div class="day-body">
           <p>${esc(d.summary)}</p>

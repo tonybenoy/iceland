@@ -9,25 +9,42 @@ Star anything you fancy and hit **Copy picks** — it copies a plain list you ca
 paste straight into the chat. Picks live in your own browser only; nobody else
 sees them and nothing is sent anywhere.
 
-## Two routes — pick one on the site
+## Three routes — pick one on the site
 
-Both start and end in Reykjavík and put every night on an Útilegukortið campsite.
+All start and end in Reykjavík and put every night on an Útilegukortið campsite.
+Reykjavík itself is assumed to be handled before the drive.
 
-| | Counter-clockwise (v1) | Clockwise (v2) |
-|---|---|---|
-| Distance | 1,928 km | 1,957 km |
-| Driving | 32.2 h | 33.3 h |
-| Worst day | 403 km / 6.6 h | 414 km / 7.0 h |
-| Final half day | 226 km / 3.4 h | 248 km / **5.6 h** |
-| Golden Circle | yes | **no** |
-| Reykjavík day | no | yes (free, no driving) |
-| Paid car parks | 9 | 8 |
-| Per-person tickets | 2 | 2 |
+| | v1 counter-clockwise | v2 clockwise | v3 maximum stops |
+|---|---|---|---|
+| Distance | 1,928 km | 1,957 km | 2,047 km |
+| Driving | 32.2 h | 33.3 h | 35.2 h |
+| **Stops** | 34 | 34 | **57** |
+| Longest day | 10.6 h | 11.2 h | **12.5 h** |
+| Final half day | 226 km / 3.4 h | 248 km / **5.6 h** | 231 km / 4.6 h |
+| Golden Circle | yes | **no** | yes |
+| Paid car parks | 9 | 8 | 9 |
+| Per-person tickets | 2 | 2 | 1 |
 
-Clockwise buys a relaxed whale day (162 km), a free Reykjavík day, and Ásbyrgi,
-Hvítserkur and the Herring Museum. It costs the Golden Circle — Þingvellir,
-Geysir, Gullfoss, three of them free — and its last day isn't a half day, which
-matters if you're flying out that evening.
+**v3 is the one that makes the most of the days.** It adds 23 stops for only
+119 km and 3 h of extra driving, because almost everything added is within a
+kilometre or two of the road you were already on. Long activities are
+deliberately excluded — no soaking, no glacier hikes, no multi-hour treks.
+
+**Clockwise (v2)** buys a short unhurried whale day (162 km) and picks up
+Ásbyrgi, Hvítserkur and the Herring Museum, but the Golden Circle falls outside
+the loop and the last day stops being a half day. If you take it, do the Golden
+Circle from Reykjavík before you set off — it's a natural day trip from the city.
+
+### Day length, not distance, is the real constraint
+
+Each day shows `driving h` and a `day h` that adds an estimate of time on the
+ground (15 min for a roadside stop, 35–45 for a proper sight, 90 for a hike,
+180 for the whale boat). Iceland gives roughly **13.5 h of daylight in early
+September and 11.5 h by the end of it**, so days over ~11 h are flagged red.
+
+v3's day 3 runs to 12.5 h and is the one to watch — it spans the 330 km with no
+card campsite, so it can't be shortened without breaking the campsite rule.
+A non-card night at Höfn splits it cleanly if you'd rather.
 
 ### Counter-clockwise, day by day
 

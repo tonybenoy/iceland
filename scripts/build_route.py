@@ -90,7 +90,7 @@ COUNTERCLOCKWISE = [
             ("Fjaðrárgljúfur", "sight"),
             ("Kirkjubæjarklaustur", "town"),
             ("Skaftafell", "sight"),
-            ("Svartifoss waterfall (Parking)", "hike"),
+            ("Svartifoss waterfall (Parking)", "optional"),
             ("Jökulsárlón Glacial Lagoon", "sight"),
             ("Diamond Beach", "sight"),
             ("Höfn", "town"),
@@ -163,24 +163,6 @@ COUNTERCLOCKWISE = [
 
 
 CLOCKWISE = [
-    {
-        "day": 0,
-        "title": "Reykjavík on foot",
-        "summary": "Your spare day. The core is walkable and costs nothing but coffee.",
-        "note": "Hallgrímskirkja → Sun Voyager → Harpa is about 2 km along the shore. Grótta at low "
-                "tide or the Videy ferry fills an afternoon. None of it needs a car.",
-        "free_day": True,
-        "stops": [
-            ("Reykjavík city walk", "start"),
-            ("Hallgrimskirkja", "sight"),
-            ("Sólfarið (Sun Voyager)", "sight"),
-            ("Harpa Concert Hall and Conference Centre", "sight"),
-            ("Grótta Island Lighthouse", "optional"),
-            ("Videy", "optional"),
-        ],
-        "night": None,
-        "no_drive": True,
-    },
     {
         "day": 1,
         "title": "North through Borgarfjörður",
@@ -270,7 +252,7 @@ CLOCKWISE = [
             ("Jökulsárlón Glacial Lagoon", "sight"),
             ("Diamond Beach", "sight"),
             ("Skaftafell", "sight"),
-            ("Svartifoss waterfall (Parking)", "hike"),
+            ("Svartifoss waterfall (Parking)", "optional"),
             ("Fjaðrárgljúfur", "sight"),
         ],
         "night": "Kleifarmörk",
@@ -294,17 +276,179 @@ CLOCKWISE = [
     },
 ]
 
+# Rough time on the ground per stop. The point of v3 is that driving stops being
+# the binding constraint -- daylight does -- so days need a length, not just a
+# distance. "quick" is a roadside look or a five-minute walk.
+STOP_MINUTES = {
+    "start": 0, "end": 0, "town": 20, "quick": 15,
+    "sight": 35, "hike": 90, "optional": 30, "split": 180,
+}
+TIER1_SIGHT_MINUTES = 45
+
+MAXIMUM = [
+    {
+        "day": 1,
+        "title": "Golden Circle, every stop on it",
+        "summary": "The classic loop plus the roadside things most people drive past.",
+        "note": "Öxarárfoss and Lögberg are inside Þingvellir — you are parked there anyway. "
+                "Efstidalur is an ice cream stop in a working dairy.",
+        "stops": [
+            ("Reykjavík", "start"),
+            ("Þingvellir National Park", "sight"),
+            ("Öxarárfoss", "quick"),
+            ("Lögberg", "quick"),
+            ("Geysir Geothermal Area", "sight"),
+            ("Strokkur Geyser", "quick"),
+            ("Gullfoss", "sight"),
+            ("Brúarhlöð", "quick"),
+            ("Efstidalur II", "quick"),
+            ("Kerið", "optional"),
+        ],
+        "night": "At Faxi",
+    },
+    {
+        "day": 2,
+        "title": "Every waterfall on the south coast",
+        "summary": "Six waterfalls, two headlands and a black beach.",
+        "note": "Gljúfrafoss is 600 m from Seljalandsfoss and half of people miss it. Skip the "
+                "Skógar museum if you are behind — it is the only slow thing today.",
+        "stops": [
+            ("Urridafoss", "quick"),
+            ("Seljalandsfoss", "sight"),
+            ("Gljúfrafoss", "quick"),
+            ("Skógafoss", "sight"),
+            ("Kvarnarhólsárfoss", "quick"),
+            ("Skógar Folk Museum", "optional"),
+            ("Dyrhólaey", "sight"),
+            ("Dyrhólaey lighthouse", "quick"),
+            ("Reynisfjara Beach", "sight"),
+            ("Vík í Mýrdal", "town"),
+        ],
+        "night": "Kleifarmörk",
+    },
+    {
+        "day": 3,
+        "title": "Klaustur's roadside cluster, then the lagoon",
+        "summary": "Six quick stops around Kirkjubæjarklaustur that cost almost no driving.",
+        "note": "Even trimmed this is the crunch day — leave at 08:00 and expect to drop things. "
+                "The Klaustur cluster is six stops within a kilometre of Route 1, ten minutes "
+                "each, so they are near-free. Stokksnes is deliberately left out — it is a 58 km "
+                "round trip this day cannot afford; take it only if you skip the whole Klaustur "
+                "cluster. Drop in this order if you slip: Svartifoss (a real 1.5 h hike), "
+                "Hofskirkja, Systrafoss, Stjórnarfoss.",
+        "stops": [
+            # ordered west to east along Route 1 -- ordering these by hand saved 45 km
+            ("Fjaðrárgljúfur", "sight"),
+            ("Stjórnarfoss", "quick"),
+            ("Systrafoss", "quick"),
+            ("Kirkjubæjarklaustur", "town"),
+            ("Kirkjugólf", "quick"),
+            ("Foss á Sídu", "quick"),
+            ("Dverghamrar", "quick"),
+            ("Skaftafell", "sight"),
+            ("Svartifoss waterfall (Parking)", "optional"),
+            ("Hofskirkja", "quick"),
+            ("Jökulsárlón Glacial Lagoon", "sight"),
+            ("Diamond Beach", "sight"),
+            ("Höfn", "town"),
+        ],
+        "night": "Tjaldvæðið Bragðavöllum",
+    },
+    {
+        "day": 4,
+        "title": "East fjords, filled in",
+        "summary": "The short day gets the slack: three museums and two waterfalls.",
+        "note": "This day had two hours spare in the other plans, so it absorbs the museums.",
+        "stops": [
+            ("Petra's Stone Collection", "optional"),
+            ("Fáskrúðsfjörður", "town"),
+            ("Icelandic Wartime Museum (Íslenska stríðsárasafnið)", "optional"),
+            ("Reyðarfjörður", "quick"),
+            ("Egilsstaðir", "town"),
+            ("Fardagafoss", "quick"),
+            ("Stuðlagil Canyon", "sight"),
+        ],
+        "night": "Studlagil Canyon",
+    },
+    {
+        "day": 5,
+        "title": "Dettifoss, Krafla and the whole Mývatn loop",
+        "summary": "Everything geothermal, plus the crater and the bird museum.",
+        "note": "Víti crater at Krafla is a ten-minute look from the car park. No soaking today — "
+                "the Nature Baths would cost you two hours and three tickets.",
+        "stops": [
+            ("Dettifoss", "sight"),
+            ("Krafla Power Plant", "quick"),
+            ("Hverír", "sight"),
+            ("Grjótagjá", "quick"),
+            ("Dimmuborgir", "sight"),
+            ("Sigurgeir's Bird Museum", "optional"),
+            ("Mývatn", "quick"),
+        ],
+        "night": "Húsavík",
+    },
+    {
+        "day": 6,
+        "title": "Whales, Goðafoss and the northern back roads",
+        "summary": "The split, then three roadside stops on the long transit west.",
+        "note": "Borgarvirki is a twenty-minute walk up an old fort with the best view of the day. "
+                "Kolugljúfur is 5 km off the ring and almost nobody stops.",
+        "split": {
+            "where": "Húsavík harbour",
+            "note": "Both leave from the same harbour, about 100 m apart — regroup on the quay.",
+            "options": [
+                {"who": "Boat", "what": "Whale watching", "where": "Húsavík harbour",
+                 "duration": "~3 h", "book": "The one long activity kept in this plan, because you asked for it."},
+                {"who": "Museum", "what": "Húsavík Whale Museum", "where": "Hafnarstétt 1",
+                 "duration": "~1.5 h", "book": "Finishes 90 min earlier, which this day needs."},
+            ],
+        },
+        "stops": [
+            ("Húsavík harbour", "split"),
+            ("Góðafoss", "sight"),
+            ("Akureyri", "town"),
+            ("Vatnsdalshólar", "quick"),
+            ("Borgarvirki", "quick"),
+            ("Kolugljúfur", "quick"),
+        ],
+        "night": "Tjaldsvæðið búðardal",
+    },
+    {
+        "day": 7,
+        "title": "Reykholt and the lava falls",
+        "summary": "Three stops on the way in, all quick.",
+        "half": True,
+        "note": "Still a genuine half day even with the extra stops.",
+        "stops": [
+            ("Snorrastofa", "quick"),
+            ("Hraunfossar & Barnafoss", "sight"),
+            ("Deildartunguhver", "quick"),
+            ("Reykjavík", "end"),
+        ],
+        "night": None,
+    },
+]
+
 VARIANTS = {
     "counter-clockwise": {
         "label": "Counter-clockwise (south coast first)",
         "days": COUNTERCLOCKWISE,
         "note": "South coast early, empty north-west transit late. The half day at the end is short.",
     },
+    "maximum": {
+        "label": "Maximum stops (counter-clockwise)",
+        "days": MAXIMUM,
+        "note": "Same direction, same nights, but every worthwhile quick stop within a few "
+                "kilometres of the road. Long activities are deliberately left out — the extra "
+                "sights cost minutes, not hours. Watch the day length, not the distance.",
+    },
     "clockwise": {
         "label": "Clockwise (north first)",
         "days": CLOCKWISE,
-        "note": "North first, south coast last. Includes a free Reykjavík day, but the Golden "
-                "Circle drops out and the final day is not really a half day.",
+        "note": "North first, south coast last. Buys a short, unhurried whale day, but the "
+                "Golden Circle falls outside the loop and the final day is not really a half "
+                "day. If you take this one, do the Golden Circle from Reykjavík before you set "
+                "off — it is a natural day trip from the city.",
     },
 }
 
@@ -418,6 +562,9 @@ def main():
                     "popularity": rk.get("popularity", ""),
                     "tickets": rk.get("tickets", ""),
                     "cost": cost_band(rk.get("tickets")),
+                    "minutes": (TIER1_SIGHT_MINUTES
+                                if kind == "sight" and rk.get("tier", "").startswith("Tier 1")
+                                else STOP_MINUTES.get(kind, 30)),
                 })
 
             night = camps.get(d_spec["night"]) if d_spec["night"] else None
@@ -440,11 +587,16 @@ def main():
                 key=lambda c: c["km"],
             )[:4]
 
+            stop_hours = round(sum(s["minutes"] for s in stops) / 60, 1)
+            day_hours = round(leg["hours"] + stop_hours, 1)
             days.append({
                 **{k: v for k, v in d_spec.items() if k not in ("stops", "night")},
                 "stops": stops,
                 "km": leg["km"],
                 "driving_hours": leg["hours"],
+                "stop_hours": stop_hours,
+                "day_hours": day_hours,
+                "over_daylight": day_hours > 11.0,
                 "geometry": leg["geometry"],
                 "long_day": leg["km"] > 300 or leg["hours"] > 5.0,
                 "night": ({"name": night["name"], "lat": float(night["lat"]),
@@ -455,8 +607,9 @@ def main():
                 "nearby_campsites": nearby,
             })
             cursor = end
-            print(f"  day {d_spec['day']}: {leg['km']:>6.1f} km  {leg['hours']:>4.1f} h  "
-                  f"-> {d_spec['night'] or 'Reykjavík'}")
+            print(f"  day {d_spec['day']}: {leg['km']:>6.1f} km  drive {leg['hours']:>4.1f} h  "
+                  f"stops {stop_hours:>4.1f} h  = {day_hours:>4.1f} h"
+                  f"{'  << over daylight' if day_hours > 11 else ''}")
 
         paid_parking = sum(1 for d in days for s in d["stops"] if s["cost"] == "parking fee (per car)")
         tickets = sum(1 for d in days for s in d["stops"] if s["cost"] == "ticket (per person)")
@@ -466,13 +619,16 @@ def main():
             "direction": key,
             "total_km": round(sum(d["km"] for d in days), 1),
             "total_driving_hours": round(sum(d["driving_hours"] for d in days), 1),
+            "total_stops": sum(len(d["stops"]) for d in days),
+            "longest_day_hours": max(d["day_hours"] for d in days),
             "paid_parking_stops": paid_parking,
             "per_person_ticket_stops": tickets,
             "days": days,
         }
-        print(f"{spec['label']}: {out_variants[key]['total_km']} km / "
-              f"{out_variants[key]['total_driving_hours']} h · "
-              f"{paid_parking} paid car parks, {tickets} per-person tickets\n")
+        v = out_variants[key]
+        print(f"{spec['label']}: {v['total_km']} km / {v['total_driving_hours']} h driving · "
+              f"{v['total_stops']} stops · longest day {v['longest_day_hours']} h · "
+              f"{paid_parking} car parks, {tickets} tickets\n")
 
     out = {
         "title": "Iceland Ring Road — 6.5 days",
