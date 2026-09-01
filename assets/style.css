@@ -105,6 +105,12 @@ a{color:var(--accent)}
 .day-n{font-weight:700}
 .day-t{font-weight:600; flex:1}
 .day-km{color:var(--ink-2); font-size:.82rem; white-space:nowrap}
+.day-date{color:var(--ink-2); font-size:.78rem; font-variant-numeric:tabular-nums}
+.vtag{
+  display:inline-block; background:var(--accent); color:#fff; border-radius:4px;
+  padding:0 .3rem; font-size:.72rem; margin-right:.25rem; vertical-align:1px;
+}
+.night.warn{background:var(--warn-bg); border-left:3px solid var(--warn)}
 .day-body{padding:.6rem .7rem}
 .long{color:var(--warn); font-weight:600}
 .over{color:#a3252f; font-weight:700}

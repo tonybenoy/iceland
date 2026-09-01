@@ -21,6 +21,7 @@ import sys
 import pathlib
 import time
 import urllib.request
+import datetime
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -29,6 +30,44 @@ OSRM = "https://router.project-osrm.org/route/v1/driving/"
 REYKJAVIK = (64.1466, -21.9426)
 # Car is collected and dropped at the airport, so the loop starts and ends here.
 AIRPORT = (63.9850, -22.6056)
+
+# Road trip runs day 1 to day 6; the outbound flight is 17:00 on day 6, so the
+# car has to be back at KEF by about 15:00. Reykjavik is handled before day 1.
+START_DATE = datetime.date(2026, 9, 12)
+FLIGHT_HOME = "17:00 on day 6"
+DAY_START_HOUR = 8.5
+LATEST_FINISH_DAY6 = 15.0
+
+_MONTHS = {**{m: i for i, m in enumerate(
+    ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], 1)},
+    **{m: i for i, m in enumerate(
+    ["jan", "feb", "mar", "apr", "maí", "jún", "júl", "ágú", "sep", "okt", "nóv", "des"], 1)}}
+
+
+def season(text):
+    """Parse a campsite's opening season. The field is hand-typed in a mix of
+    English and Icelandic ("1st of June - 30th of September", "23. maí -
+    31. ágúst", "all year round"), so match day/month pairs in either order."""
+    t = (text or "").lower().replace("–", "-").replace("—", "-")
+    if "all year" in t:
+        return (1, 1), (31, 12)
+    found = []
+    for a, b, c, d in re.findall(
+            r"(\d{1,2})\s*(?:st|nd|rd|th|\.)?\s*(?:of\s+)?([a-záéíóúýþæö]{3,})"
+            r"|([a-záéíóúýþæö]{3,})\s*\.?\s*(\d{1,2})", t):
+        day, mon = (a, b) if a else (d, c)
+        if mon[:3] in _MONTHS:
+            found.append((int(day), _MONTHS[mon[:3]]))
+    return (found[0], found[1]) if len(found) >= 2 else None
+
+
+def open_on(camp_open, date):
+    """True/False if the season parses, None if it does not."""
+    sp = season(camp_open)
+    if not sp:
+        return None
+    (d1, m1), (d2, m2) = sp
+    return datetime.date(date.year, m1, d1) <= date <= datetime.date(date.year, m2, d2)
 
 # Stops that aren't in iceland_places.csv but the route needs.
 EXTRA = {
@@ -53,417 +92,156 @@ EXTRA = {
 }
 
 # stop = (name, kind). kind drives the icon/treatment on the site.
-COUNTERCLOCKWISE = [
-    {
-        "day": 1,
-        "note": "Easiest day of the trip. If you land late, this is the one to compress.",
-        "title": "Golden Circle",
-        "summary": "An easy first day. Three headline stops, all paved, all within an hour of each other.",
-        "stops": [
-            ("Keflavík Airport", "start"),
-            ("Þingvellir National Park", "sight"),
-            ("Geysir Geothermal Area", "sight"),
-            ("Strokkur Geyser", "sight"),
-            ("Gullfoss", "sight"),
-            ("Kerið", "optional"),
-        ],
-        "night": "At Faxi",
-    },
-    {
-        "day": 2,
-        "note": "Kleifarmörk is 37 km up a slow road off the ring — about an hour each way. It is the only card campsite between Vík and Djúpivogur, so the detour buys the card night. Camping at Vík instead saves roughly 73 km and 2 h across today and tomorrow.",
-        "title": "South coast waterfalls to Vík",
-        "summary": "The postcard stretch. Short walks, black sand, and the two waterfalls everyone knows.",
-        "stops": [
-            ("Seljalandsfoss", "sight"),
-            ("Gljúfrafoss", "sight"),
-            ("Skógafoss", "sight"),
-            ("Dyrhólaey", "sight"),
-            ("Reynisfjara Beach", "sight"),
-            ("Vík í Mýrdal", "town"),
-        ],
-        "night": "Kleifarmörk",
-    },
-    {
-        "day": 3,
-        "note": "The long one. Leave by 08:00. The card network has no site for the 330 km between Vík and Djúpivogur, which is exactly why this day is oversized — a non-card site at Höfn would split it neatly if you would rather.",
-        "title": "Glaciers and the lagoon",
-        "summary": "The longest driving day, and the best one. Start early.",
-        "stops": [
-            ("Fjaðrárgljúfur", "sight"),
-            ("Kirkjubæjarklaustur", "town"),
-            ("Skaftafell", "sight"),
-            ("Svartifoss waterfall (Parking)", "optional"),
-            ("Jökulsárlón Glacial Lagoon", "sight"),
-            ("Diamond Beach", "sight"),
-            ("Höfn", "town"),
-        ],
-        "night": "Tjaldvæðið Bragðavöllum",
-    },
-    {
-        "day": 4,
-        "note": "Deliberately short to recover from day 3. Slack here if you want to add Petra\u2019s Stone Collection or a fjord swim.",
-        "title": "East fjords to Stuðlagil",
-        "summary": "Quiet fjord road, then inland to the basalt canyon.",
-        "stops": [
-            ("Fáskrúðsfjörður", "town"),
-            ("Egilsstaðir", "town"),
-            ("Stuðlagil Canyon", "sight"),
-        ],
-        "night": "Studlagil Canyon",
-    },
-    {
-        "day": 5,
-        "note": "Mývatn midges are gone by September but the smell at Hverir is not. Nature Baths take a booking.",
-        "title": "Dettifoss and Mývatn",
-        "summary": "Iceland's most powerful waterfall, then the geothermal lake district.",
-        "stops": [
-            ("Dettifoss", "sight"),
-            ("Hverír", "sight"),
-            ("Grjótagjá", "sight"),
-            ("Dimmuborgir", "sight"),
-            ("Myvatn Nature Baths", "optional"),
-        ],
-        "night": "Húsavík",
-    },
-    {
-        "day": 6,
-        "note": "Long transit after the whales. Whale watching (~3 h) versus the museum (~1.5 h) shifts your departure by over an hour — agree a regroup time at the harbour before you split.",
-        "title": "Húsavík whales, then west",
-        "summary": "Split the morning in Húsavík, regroup at the harbour, then the long transit west.",
-        "split": {
-            "where": "Húsavík harbour",
-            "note": "Both options leave from the same harbour, about 100 m apart — regroup on the quay.",
-            "options": [
-                {"who": "Boat", "what": "Whale watching", "where": "Húsavík harbour",
-                 "duration": "~3 h", "book": "Book ahead; sailings are weather-dependent."},
-                {"who": "Museum", "what": "Húsavík Whale Museum", "where": "Hafnarstétt 1",
-                 "duration": "~1.5 h", "book": "Walk in. Leaves time for the town and a coffee."},
-            ],
-        },
-        "stops": [
-            ("Húsavík harbour", "split"),
-            ("Góðafoss", "sight"),
-            ("Akureyri", "town"),
-            ("Blönduós", "town"),
-        ],
-        "night": "Tjaldsvæðið búðardal",
-    },
-    {
-        "day": 7,
-        "note": "Kept short on purpose so it cannot threaten a flight. Both stops are optional if you are tight.",
-        "title": "Half day back to Reykjavík",
-        "summary": "Deliberately short so it can't threaten a flight. Two stops, then the city.",
-        "half": True,
-        "stops": [
-            ("Hraunfossar & Barnafoss", "sight"),
-            ("Deildartunguhver", "optional"),
-            ("Keflavík Airport", "end"),
-        ],
-        "night": None,
-    },
-]
-
-
-CLOCKWISE = [
-    {
-        "day": 1,
-        "title": "North through Borgarfjörður",
-        "summary": "Out of the city the quiet way, up the west coast.",
-        "note": "Hraunfossar charges for parking; Deildartunguhver itself is free to look at "
-                "(the Krauma spa next to it is not).",
-        "stops": [
-            ("Keflavík Airport", "start"),
-            ("Borgarnes", "town"),
-            ("Deildartunguhver", "sight"),
-            ("Hraunfossar & Barnafoss", "sight"),
-        ],
-        "night": "Tjaldsvæðið búðardal",
-    },
-    {
-        "day": 2,
-        "title": "Vatnsnes and the north coast",
-        "summary": "Empty road, seals, and the horse-shaped sea stack.",
-        "note": "Everything today is free. Longest stretch without a fuel stop on either plan.",
-        "stops": [
-            ("Hvitserkur", "sight"),
-            ("Blönduós", "town"),
-            ("Skagaströnd", "town"),
-            ("Síldarminjasafn Íslands - The Herring Era Museum", "optional"),
-        ],
-        "night": "Siglufjörður",
-    },
-    {
-        "day": 3,
-        "title": "Akureyri, Goðafoss and the whales",
-        "summary": "Short driving day, built around the Húsavík split.",
-        "split": {
-            "where": "Húsavík harbour",
-            "note": "Both leave from the same harbour, about 100 m apart — regroup on the quay.",
-            "options": [
-                {"who": "Boat", "what": "Whale watching", "where": "Húsavík harbour",
-                 "duration": "~3 h", "book": "The single most expensive stop on the trip. Book ahead; weather-dependent."},
-                {"who": "Museum", "what": "Húsavík Whale Museum", "where": "Hafnarstétt 1",
-                 "duration": "~1.5 h", "book": "Walk in, roughly a fifth of the boat price."},
-            ],
-        },
-        "stops": [
-            ("Akureyri", "town"),
-            ("Góðafoss", "sight"),
-            ("Húsavík harbour", "split"),
-        ],
-        "night": "Húsavík",
-    },
-    {
-        "day": 4,
-        "title": "Ásbyrgi, Dettifoss, Mývatn",
-        "summary": "The geothermal day. Free apart from one car park and the optional baths.",
-        "note": "Hverir charges for parking. Mývatn Nature Baths is a per-person ticket — the "
-                "one genuinely optional spend today.",
-        "stops": [
-            ("Ásbyrgi Canyon", "sight"),
-            ("Dettifoss", "sight"),
-            ("Hverír", "sight"),
-            ("Grjótagjá", "sight"),
-            ("Dimmuborgir", "sight"),
-            ("Myvatn Nature Baths", "optional"),
-        ],
-        "night": "Möðrudalur – Fjalladýrð",
-    },
-    {
-        "day": 5,
-        "title": "Stuðlagil and the east fjords",
-        "summary": "Basalt columns, then down the fjord road.",
-        "note": "Stuðlagil is free; the walk from the east-bank car park is the good one.",
-        "stops": [
-            ("Stuðlagil Canyon", "sight"),
-            ("Egilsstaðir", "town"),
-            ("Fáskrúðsfjörður", "town"),
-            ("Petra's Stone Collection", "optional"),
-        ],
-        "night": "Tjaldvæðið Bragðavöllum",
-    },
-    {
-        "day": 6,
-        "title": "Glacier lagoon and Skaftafell",
-        "summary": "The big one, mirrored from the other direction. Start early.",
-        "note": "Four paid car parks in a row today — Jökulsárlón, Diamond Beach, Skaftafell and "
-                "Fjaðrárgljúfur. Same 330 km campsite gap as the other plan, just reversed.",
-        "stops": [
-            ("Stokksnes and Vestrahorn", "optional"),
-            ("Höfn", "town"),
-            ("Jökulsárlón Glacial Lagoon", "sight"),
-            ("Diamond Beach", "sight"),
-            ("Skaftafell", "sight"),
-            ("Svartifoss waterfall (Parking)", "optional"),
-            ("Fjaðrárgljúfur", "sight"),
-        ],
-        "night": "Kleifarmörk",
-    },
-    {
-        "day": 7,
-        "title": "South coast home",
-        "summary": "The postcard run, in reverse, on the way back to the city.",
-        "half": True,
-        "note": "Not really a half day — five headline stops and 4 h of driving. If you are flying "
-                "out this evening, drop Dyrhólaey and Gljúfrafoss.",
-        "stops": [
-            ("Vík í Mýrdal", "town"),
-            ("Reynisfjara Beach", "sight"),
-            ("Dyrhólaey", "sight"),
-            ("Skógafoss", "sight"),
-            ("Seljalandsfoss", "sight"),
-            ("Keflavík Airport", "end"),
-        ],
-        "night": None,
-    },
-]
-
-# Rough time on the ground per stop. The point of v3 is that driving stops being
-# the binding constraint -- daylight does -- so days need a length, not just a
+# Rough time on the ground per stop, so a day has a length and not just a
 # distance. "quick" is a roadside look or a five-minute walk.
 STOP_MINUTES = {
-    "start": 0, "end": 0, "town": 20, "quick": 15,
+    "start": 30, "end": 0, "town": 20, "quick": 15,
     "sight": 35, "hike": 90, "optional": 30, "split": 180,
 }
 TIER1_SIGHT_MINUTES = 45
 
-MAXIMUM = [
-    {
-        "day": 1,
-        "title": "Golden Circle, every stop on it",
-        "summary": "The classic loop plus the roadside things most people drive past.",
-        "note": "Öxarárfoss and Lögberg are inside Þingvellir — you are parked there anyway. "
-                "Efstidalur is an ice cream stop in a working dairy.",
-        "stops": [
-            ("Keflavík Airport", "start"),
-            ("Þingvellir National Park", "sight"),
-            ("Öxarárfoss", "quick"),
-            ("Lögberg", "quick"),
-            ("Geysir Geothermal Area", "sight"),
-            ("Strokkur Geyser", "quick"),
-            ("Gullfoss", "sight"),
-            ("Brúarhlöð", "quick"),
-            ("Efstidalur II", "quick"),
-            ("Kerið", "optional"),
-        ],
-        "night": "At Faxi",
-    },
-    {
-        "day": 2,
-        "title": "Every waterfall on the south coast",
-        "summary": "Six waterfalls, two headlands and a black beach.",
-        "note": "Gljúfrafoss is 600 m from Seljalandsfoss and half of people miss it. Skip the "
-                "Skógar museum if you are behind — it is the only slow thing today.",
-        "stops": [
-            ("Urridafoss", "quick"),
-            ("Seljalandsfoss", "sight"),
-            ("Gljúfrafoss", "quick"),
-            ("Skógafoss", "sight"),
-            ("Kvarnarhólsárfoss", "quick"),
-            ("Skógar Folk Museum", "optional"),
-            ("Dyrhólaey", "sight"),
-            ("Dyrhólaey lighthouse", "quick"),
-            ("Reynisfjara Beach", "sight"),
-            ("Vík í Mýrdal", "town"),
-        ],
-        "night": "Kleifarmörk",
-    },
-    {
-        "day": 3,
-        "title": "Klaustur's roadside cluster, then the lagoon",
-        "summary": "Six quick stops around Kirkjubæjarklaustur that cost almost no driving.",
-        "note": "Even trimmed this is the crunch day — leave at 08:00 and expect to drop things. "
-                "The Klaustur cluster is six stops within a kilometre of Route 1, ten minutes "
-                "each, so they are near-free. Stokksnes is deliberately left out — it is a 58 km "
-                "round trip this day cannot afford; take it only if you skip the whole Klaustur "
-                "cluster. Drop in this order if you slip: Svartifoss (a real 1.5 h hike), "
-                "Hofskirkja, Systrafoss, Stjórnarfoss.",
-        "stops": [
-            # ordered west to east along Route 1 -- ordering these by hand saved 45 km
-            ("Fjaðrárgljúfur", "sight"),
-            ("Stjórnarfoss", "quick"),
-            ("Systrafoss", "quick"),
-            ("Kirkjubæjarklaustur", "town"),
-            ("Kirkjugólf", "quick"),
-            ("Foss á Sídu", "quick"),
-            ("Dverghamrar", "quick"),
-            ("Skaftafell", "sight"),
-            ("Svartifoss waterfall (Parking)", "optional"),
-            ("Hofskirkja", "quick"),
-            ("Jökulsárlón Glacial Lagoon", "sight"),
-            ("Diamond Beach", "sight"),
-            ("Höfn", "town"),
-        ],
-        "night": "Tjaldvæðið Bragðavöllum",
-    },
-    {
-        "day": 4,
-        "title": "East fjords, filled in",
-        "summary": "The short day gets the slack: three museums and two waterfalls.",
-        "note": "This day had two hours spare in the other plans, so it absorbs the museums.",
-        "stops": [
-            ("Petra's Stone Collection", "optional"),
-            ("Fáskrúðsfjörður", "town"),
-            ("Icelandic Wartime Museum (Íslenska stríðsárasafnið)", "optional"),
-            ("Reyðarfjörður", "quick"),
-            ("Egilsstaðir", "town"),
-            ("Fardagafoss", "quick"),
-            ("Stuðlagil Canyon", "sight"),
-        ],
-        "night": "Studlagil Canyon",
-    },
-    {
-        "day": 5,
-        "title": "Dettifoss, Krafla and the whole Mývatn loop",
-        "summary": "Everything geothermal, plus the crater and the bird museum.",
-        "note": "Víti crater at Krafla is a ten-minute look from the car park. No soaking today — "
-                "the Nature Baths would cost you two hours and three tickets.",
-        "stops": [
-            ("Dettifoss", "sight"),
-            ("Krafla Power Plant", "quick"),
-            ("Hverír", "sight"),
-            ("Grjótagjá", "quick"),
-            ("Dimmuborgir", "sight"),
-            ("Sigurgeir's Bird Museum", "optional"),
-            ("Mývatn", "quick"),
-        ],
-        "night": "Húsavík",
-    },
-    {
-        "day": 6,
-        "title": "Whales, Goðafoss and the northern back roads",
-        "summary": "The split, then three roadside stops on the long transit west.",
-        "note": "Borgarvirki is a twenty-minute walk up an old fort with the best view of the day. "
-                "Kolugljúfur is 5 km off the ring and almost nobody stops.",
-        "split": {
-            "where": "Húsavík harbour",
-            "note": "Both leave from the same harbour, about 100 m apart — regroup on the quay.",
-            "options": [
-                {"who": "Boat", "what": "Whale watching", "where": "Húsavík harbour",
-                 "duration": "~3 h", "book": "The one long activity kept in this plan, because you asked for it."},
-                {"who": "Museum", "what": "Húsavík Whale Museum", "where": "Hafnarstétt 1",
-                 "duration": "~1.5 h", "book": "Finishes 90 min earlier, which this day needs."},
-            ],
-        },
-        "stops": [
-            ("Húsavík harbour", "split"),
-            ("Góðafoss", "sight"),
-            ("Akureyri", "town"),
-            ("Vatnsdalshólar", "quick"),
-            ("Borgarvirki", "quick"),
-            ("Kolugljúfur", "quick"),
-        ],
-        "night": "Tjaldsvæðið búðardal",
-    },
-    {
-        "day": 7,
-        "title": "Reykholt, then the Reykjanes tip to the airport",
-        "summary": "Lava falls in the morning, the volcanic tip on the airport's doorstep.",
-        "half": True,
-        "note": "Dropping the car at KEF makes the Reykjanes stops nearly free — they sit on the "
-                "last 40 km, a stretch every other plan drives past. CHECK safetravel.is AND "
-                "road.is THE MORNING OF: this peninsula has erupted repeatedly since 2023 and "
-                "the Grindavík roads and the Blue Lagoon close at short notice. If it is shut, "
-                "you lose nothing but an hour and drive straight to the airport.",
-        "stops": [
-            ("Snorrastofa", "quick"),
-            ("Hraunfossar & Barnafoss", "sight"),
-            ("Deildartunguhver", "quick"),
-            # south-west along the tip, then north to KEF
-            ("Brimketill", "quick"),
-            ("Gunnuhver", "quick"),
-            ("Valahnúkamöl", "quick"),
-            ("Reykjanesviti", "quick"),
-            ("Bridge America - Europe", "quick"),
-            ("Keflavík Airport", "end"),
-        ],
-        "night": None,
-    },
+RING = [
+    {"day": 1, "title": "Airport to the Golden Circle",
+     "summary": "Collect the car, pick up the third of you, and drive straight into the classics.",
+     "note": "Shop in Selfoss — it is the last big supermarket before the south coast.",
+     "stops": [("Keflavík Airport", "start"), ("Þingvellir National Park", "sight"),
+               ("Geysir Geothermal Area", "sight"), ("Strokkur Geyser", "quick"),
+               ("Gullfoss", "sight"), ("Kerið", "optional")],
+     "night": "At Faxi"},
+    {"day": 2, "title": "South coast waterfalls",
+     "summary": "The postcard stretch, ending east of Vík.",
+     "note": "The only night not on the camping card. Kleifarmörk, the one card site out here, "
+             "shut on 31 August — so book the municipal site at Kirkjubæjarklaustur or Vík.",
+     "stops": [("Seljalandsfoss", "sight"), ("Gljúfrafoss", "quick"), ("Skógafoss", "sight"),
+               ("Dyrhólaey", "sight"), ("Reynisfjara Beach", "sight"), ("Vík í Mýrdal", "town"),
+               ("Kirkjubæjarklaustur", "town")],
+     "night": None, "night_offcard": "Kirkjubæjarklaustur (municipal — card sites all shut)"},
+    {"day": 3, "title": "Glaciers, the lagoon and the east",
+     "summary": "The best day of the trip. Leave early.",
+     "note": "Bragðavellir closes on 15 September, so this is one of its last nights — ring ahead.",
+     "stops": [("Fjaðrárgljúfur", "sight"), ("Foss á Sídu", "quick"), ("Dverghamrar", "quick"),
+               ("Skaftafell", "sight"), ("Jökulsárlón Glacial Lagoon", "sight"),
+               ("Diamond Beach", "sight"), ("Höfn", "town"),
+               ("Stokksnes and Vestrahorn", "optional")],
+     "night": "Tjaldvæðið Bragðavöllum"},
+    {"day": 4, "title": "Stuðlagil, Dettifoss and Mývatn",
+     "summary": "Across the top of the country. The longest driving day.",
+     "note": "The unavoidable monster. Djúpivogur to Húsavík is 450 km before you stop for "
+             "anything, and there is no card campsite in between — this is the price of doing the "
+             "whole ring in six days. Húsavík closes on 15 September, so tonight is its last: "
+             "phone ahead before you commit to this plan.",
+     "stops": [("Egilsstaðir", "town"), ("Stuðlagil Canyon", "sight"),
+               ("Dettifoss", "sight"), ("Hverír", "sight"), ("Dimmuborgir", "sight")],
+     "night": "Húsavík"},
+    {"day": 5, "title": "Whales, then the long run west",
+     "summary": "Split the morning in Húsavík, then transit to the west.",
+     "split": {"where": "Húsavík harbour",
+               "note": "Both leave from the same harbour, about 100 m apart — regroup on the quay.",
+               "options": [
+                   {"who": "Boat", "what": "Whale watching", "where": "Húsavík harbour",
+                    "duration": "~3 h", "book": "Book ahead; sailings are weather-dependent."},
+                   {"who": "Museum", "what": "Húsavík Whale Museum", "where": "Hafnarstétt 1",
+                    "duration": "~1.5 h", "book": "Walk in. Roughly a fifth of the boat price."}]},
+     "stops": [("Húsavík harbour", "split"), ("Góðafoss", "sight"), ("Akureyri", "town"),
+               ("Blönduós", "town")],
+     "night": "Tjaldsvæðið búðardal"},
+    {"day": 6, "title": "Back to the airport", "half": True,
+     "summary": "Short by design — the car has to be back before a 17:00 flight.",
+     "note": "Aim to be at KEF by 15:00. Nothing on this leg is worth missing a flight for.",
+     "stops": [("Borgarnes", "town"), ("Keflavík Airport", "end")],
+     "night": None},
+]
+
+RING_MAX = [
+    {**RING[0], "title": "Airport to the Golden Circle, every stop",
+     "stops": [("Keflavík Airport", "start"), ("Þingvellir National Park", "sight"),
+               ("Öxarárfoss", "quick"), ("Lögberg", "quick"), ("Geysir Geothermal Area", "sight"),
+               ("Strokkur Geyser", "quick"), ("Gullfoss", "sight"), ("Brúarhlöð", "quick"),
+               ("Efstidalur II", "quick"), ("Kerið", "optional")]},
+    {**RING[1], "title": "Every waterfall on the south coast",
+     "stops": [("Urridafoss", "quick"), ("Seljalandsfoss", "sight"), ("Gljúfrafoss", "quick"),
+               ("Skógafoss", "sight"), ("Kvarnarhólsárfoss", "quick"), ("Dyrhólaey", "sight"),
+               ("Dyrhólaey lighthouse", "quick"), ("Reynisfjara Beach", "sight"),
+               ("Vík í Mýrdal", "town"), ("Kirkjubæjarklaustur", "town")]},
+    {**RING[2], "title": "Klaustur's roadside cluster, then the lagoon",
+     "stops": [("Fjaðrárgljúfur", "sight"), ("Stjórnarfoss", "quick"), ("Systrafoss", "quick"),
+               ("Kirkjugólf", "quick"), ("Foss á Sídu", "quick"), ("Dverghamrar", "quick"),
+               ("Skaftafell", "sight"), ("Svartifoss waterfall (Parking)", "optional"),
+               ("Hofskirkja", "quick"), ("Jökulsárlón Glacial Lagoon", "sight"),
+               ("Diamond Beach", "sight"), ("Höfn", "town")]},
+    {**RING[3], "title": "Stuðlagil, Dettifoss and the whole Mývatn loop",
+     "stops": [("Petra's Stone Collection", "optional"), ("Fáskrúðsfjörður", "town"),
+               ("Egilsstaðir", "town"), ("Fardagafoss", "quick"), ("Stuðlagil Canyon", "sight"),
+               ("Dettifoss", "sight"), ("Krafla Power Plant", "quick"), ("Hverír", "sight"),
+               ("Grjótagjá", "quick"), ("Dimmuborgir", "sight")]},
+    {**RING[4], "title": "Whales, Goðafoss and the northern back roads",
+     "stops": [("Húsavík harbour", "split"), ("Góðafoss", "sight"), ("Akureyri", "town"),
+               ("Vatnsdalshólar", "quick"), ("Borgarvirki", "quick"), ("Kolugljúfur", "quick")]},
+    {**RING[5], "title": "Reykholt and Borgarnes on the way to the plane",
+     "stops": [("Snorrastofa", "quick"), ("Borgarnes", "town"),
+               ("The Settlement Center", "optional"), ("Keflavík Airport", "end")]},
+]
+
+WEST_SOUTH = [
+    {"day": 1, "title": "Reykjanes, on the airport's doorstep",
+     "summary": "The volcanic tip starts 20 minutes from the car hire desk.",
+     "note": "CHECK safetravel.is AND road.is THIS MORNING — Reykjanes has erupted repeatedly "
+             "since 2023 and these roads close at short notice. If shut, drive on to Seltún.",
+     "stops": [("Keflavík Airport", "start"), ("Bridge America - Europe", "quick"),
+               ("Gunnuhver", "quick"), ("Reykjanesviti", "quick"), ("Valahnúkamöl", "quick"),
+               ("Brimketill", "quick"), ("Seltún Geothermal Area", "sight"),
+               ("Kleifarvatn", "quick")],
+     "night": "Stokkseyri"},
+    {"day": 2, "title": "Golden Circle at its own pace",
+     "summary": "The loop with time to spare, rather than a dash.",
+     "note": "Þingvellir rewards an hour on foot rather than twenty minutes at the viewpoint.",
+     "stops": [("Þingvellir National Park", "sight"), ("Öxarárfoss", "quick"), ("Lögberg", "quick"),
+               ("Laugarvatn Fontana", "optional"), ("Geysir Geothermal Area", "sight"),
+               ("Strokkur Geyser", "quick"), ("Gullfoss", "sight"), ("Brúarhlöð", "quick"),
+               ("Kerið", "optional")],
+     "night": "At Faxi"},
+    {"day": 3, "title": "South coast and back",
+     "summary": "Out to Vík and back — the only out-and-back in any of these plans.",
+     "note": "Going only as far as Vík is what buys Snæfellsnes later. Jökulsárlón is another "
+             "190 km east of the turnaround and simply does not fit this shape.",
+     "stops": [("Urridafoss", "quick"), ("Seljalandsfoss", "sight"), ("Gljúfrafoss", "quick"),
+               ("Skógafoss", "sight"), ("Dyrhólaey", "sight"), ("Reynisfjara Beach", "sight"),
+               ("Vík í Mýrdal", "town")],
+     "night": "At Faxi"},
+    {"day": 4, "title": "North to Snæfellsnes",
+     "summary": "Across to Borgarfjörður, then out onto the peninsula.",
+     "note": "Grundarfjörður closes on 15 September — tonight is its last. Ring ahead.",
+     "stops": [("Hraunfossar & Barnafoss", "sight"), ("Deildartunguhver", "quick"),
+               ("Borgarnes", "town"), ("Gerduberg Cliffs", "quick"), ("Eldborg Crater", "optional"),
+               ("Kirkjufell", "sight"), ("Kirkjufellsfoss", "quick")],
+     "night": "Grundarfjörður"},
+    {"day": 5, "title": "The whole Snæfellsnes loop",
+     "summary": "The peninsula every 6-day ring plan skips entirely.",
+     "note": "Snæfellsjökull's road is the one thing here that can be weather-closed; the coast "
+             "road is fine.",
+     "stops": [("Olafsvík", "town"), ("Saxhóll", "quick"), ("Djúpalónssandur", "sight"),
+               ("Londrangar Basalt Cliffs", "quick"), ("Arnarstapi", "sight"), ("Hellnar", "quick"),
+               ("Rauðfeldsgjá Gorge", "quick"), ("Búðir church", "quick")],
+     "night": "Tjaldsvæðið búðardal"},
+    {"day": 6, "title": "Back to the airport", "half": True,
+     "summary": "Short by design — the car has to be back before a 17:00 flight.",
+     "note": "Aim to be at KEF by 15:00.",
+     "stops": [("Borgarnes", "town"), ("Keflavík Airport", "end")],
+     "night": None},
 ]
 
 VARIANTS = {
-    "counter-clockwise": {
-        "label": "Counter-clockwise (south coast first)",
-        "days": COUNTERCLOCKWISE,
-        "note": "South coast early, empty north-west transit late. The half day at the end is short.",
-    },
-    "maximum": {
-        "label": "Maximum stops (counter-clockwise)",
-        "days": MAXIMUM,
-        "note": "Same direction, same nights, but every worthwhile quick stop within a few "
-                "kilometres of the road, including the Reykjanes tip on the final run to the "
-                "airport. Long activities are deliberately left out — the extra sights cost "
-                "minutes, not hours. Watch the day length, not the distance.",
-    },
-    "clockwise": {
-        "label": "Clockwise (north first)",
-        "days": CLOCKWISE,
-        "note": "North first, south coast last. Buys a short, unhurried whale day, but the "
-                "Golden Circle falls outside the loop and the final day is not really a half "
-                "day. If you take this one, do the Golden Circle from Reykjavík before you set "
-                "off — it is a natural day trip from the city.",
-    },
+    "v1-ring": {"version": "v1", "label": "Ring road, counter-clockwise", "days": RING,
+                "note": "The classic loop in six days. Covers the whole country but never "
+                        "lingers, and one night falls outside the camping card."},
+    "v2-ring-max": {"version": "v2", "label": "Ring road, maximum stops", "days": RING_MAX,
+                    "note": "Same loop and same nights, with every worthwhile quick stop within "
+                            "a couple of kilometres of the road. Long activities left out on "
+                            "purpose — the extra sights cost minutes, not hours."},
+    "v3-west-south": {"version": "v3", "label": "West and south, no ring", "days": WEST_SOUTH,
+                      "note": "Drops the north and east to do Reykjanes, the Golden Circle, the "
+                              "south coast and all of Snæfellsnes properly. Far less driving, "
+                              "more stops, every night on the card. No Jökulsárlón, no whales."},
 }
 
 
@@ -581,6 +359,7 @@ def main():
                                 else STOP_MINUTES.get(kind, 30)),
                 })
 
+            date = START_DATE + datetime.timedelta(days=d_spec["day"] - 1)
             night = camps.get(d_spec["night"]) if d_spec["night"] else None
 
             if d_spec.get("no_drive"):
@@ -594,15 +373,18 @@ def main():
                 time.sleep(1.0)  # be polite to the public OSRM server
                 end = waypoints[-1]
 
+            # only offer alternatives that are actually open that night
             nearby = sorted(
                 ({"name": n, "km": round(haversine(end, p), 1),
                   "open": camps[n]["open"], "lat": p[0], "lon": p[1]}
-                 for n, p in camp_pts.items()),
+                 for n, p in camp_pts.items() if open_on(camps[n]["open"], date)),
                 key=lambda c: c["km"],
             )[:4]
 
             stop_hours = round(sum(s["minutes"] for s in stops) / 60, 1)
             day_hours = round(leg["hours"] + stop_hours, 1)
+            finish = DAY_START_HOUR + day_hours
+            night_open = open_on(night["open"], date) if night else None
             days.append({
                 **{k: v for k, v in d_spec.items() if k not in ("stops", "night")},
                 "stops": stops,
@@ -613,7 +395,14 @@ def main():
                 "over_daylight": day_hours > 11.0,
                 "geometry": leg["geometry"],
                 "long_day": leg["km"] > 300 or leg["hours"] > 5.0,
-                "night": ({"name": night["name"], "lat": float(night["lat"]),
+                "date": date.isoformat(),
+                "date_label": f"{date:%a %-d %b}",
+                "starts": f"{int(DAY_START_HOUR):02d}:{int(DAY_START_HOUR % 1 * 60):02d}",
+                "finishes": f"{int(finish):02d}:{int(finish % 1 * 60):02d}",
+                "flight_risk": bool(d_spec.get("half")) and finish > LATEST_FINISH_DAY6,
+                "night_offcard": d_spec.get("night_offcard"),
+                "night_open": night_open,
+                "night": ({"name": night["name"], "date": date.isoformat(), "lat": float(night["lat"]),
                            "lon": float(night["lon"]), "open": night["open"],
                            "tel": night["tel"], "website": night["website"],
                            "facilities": night["facilities"], "page": night["page"]}
@@ -621,15 +410,25 @@ def main():
                 "nearby_campsites": nearby,
             })
             cursor = end
-            print(f"  day {d_spec['day']}: {leg['km']:>6.1f} km  drive {leg['hours']:>4.1f} h  "
-                  f"stops {stop_hours:>4.1f} h  = {day_hours:>4.1f} h"
-                  f"{'  << over daylight' if day_hours > 11 else ''}")
+            flag = ""
+            if night and night_open is False:
+                flag = f"  *** {d_spec['night']} CLOSED ***"
+            elif day_hours > 11:
+                flag = "  << over daylight"
+            print(f"  day {d_spec['day']} {date:%d %b}: {leg['km']:>6.1f} km  "
+                  f"drive {leg['hours']:>4.1f} h  stops {stop_hours:>4.1f} h  "
+                  f"= {day_hours:>4.1f} h  ends {int(DAY_START_HOUR + day_hours):02d}:00{flag}")
 
         paid_parking = sum(1 for d in days for s in d["stops"] if s["cost"] == "parking fee (per car)")
         tickets = sum(1 for d in days for s in d["stops"] if s["cost"] == "ticket (per person)")
         out_variants[key] = {
             "label": spec["label"],
+            "version": spec["version"],
             "note": spec["note"],
+            "start_date": START_DATE.isoformat(),
+            "flight": FLIGHT_HOME,
+            "offcard_nights": sum(1 for d in days if d.get("night_offcard")),
+            "closed_nights": sum(1 for d in days if d.get("night_open") is False),
             "direction": key,
             "total_km": round(sum(d["km"] for d in days), 1),
             "total_driving_hours": round(sum(d["driving_hours"] for d in days), 1),
@@ -647,7 +446,9 @@ def main():
     out = {
         "title": "Iceland Ring Road — 6.5 days",
         "start": "Keflavík Airport", "end": "Keflavík Airport",
-        "default": "counter-clockwise",
+        "default": "v1-ring",
+        "start_date": START_DATE.isoformat(),
+        "flight": FLIGHT_HOME,
         "variants": out_variants,
     }
     (DATA / "routes.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")

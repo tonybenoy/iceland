@@ -1,105 +1,64 @@
-# Iceland — 6.5 days
+# Iceland — 12–17 September
 
-A browsable trip plan for three people: a Ring Road route, 325 sights, 30
-campsites and 31 fuel stops, all on one map.
+Three six-day road trips from Keflavík, plus 325 sights, 30 campsites and 31
+fuel stops on one map.
 
 **→ https://tonybenoy.github.io/iceland/**
 
 Star anything you fancy and hit **Copy picks** — it copies a plain list you can
-paste straight into the chat. Picks live in your own browser only; nobody else
-sees them and nothing is sent anywhere.
+paste into the chat. Picks live in your own browser only.
 
-## Three routes — pick one on the site
+## The shape of the trip
 
-All start and end at **Keflavík Airport** — car collected on arrival, dropped on
-the day you fly. Every night is an Útilegukortið campsite. Reykjavík itself is
-assumed to be handled before the drive.
+Day 1 starts at KEF on the morning of the 12th (collect the car, pick up the
+third of you). The flight home is **17:00 on day 6**, so the car is back at the
+airport by 15:00. Five nights: 12, 13, 14, 15, 16 September. Reykjavík is
+handled separately, before day 1.
 
-| | v1 counter-clockwise | v2 clockwise | v3 maximum stops |
+| | v1 ring | v2 ring, max stops | v3 west & south |
 |---|---|---|---|
-| Distance | 2,006 km | 2,032 km | 2,175 km |
-| Driving | 33.2 h | 34.3 h | 37.0 h |
-| **Stops** | 34 | 34 | **62** |
-| Longest day | 10.6 h | 11.2 h | **12.5 h** |
-| **Flight day** | 265 km / **5.0 h** | 284 km / **9.3 h** | 320 km / 7.1 h |
-| Golden Circle | yes | **no** | yes |
-| Reykjanes tip | no | no | **yes** |
-| Per-person tickets | 2 | 2 | 1 |
+| Distance | 1,817 km | 2,010 km | **1,514 km** |
+| Driving | 29.7 h | 33.3 h | **28.4 h** |
+| Stops | 32 | **52** | 41 |
+| Longest day | 9.9 h | **13.1 h** | 10.3 h |
+| Nights off the card | 1 | 1 | **0** |
+| Snæfellsnes | no | no | **yes** |
+| Jökulsárlón | yes | yes | **no** |
+| Whales at Húsavík | yes | yes | **no** |
 
-### Why not clockwise, with a same-day flight
+## Two things the dates changed
 
-Because the airport is at the *west* end and clockwise saves the south coast —
-the densest, most stop-heavy stretch — for last. Its final day is **9.3 h and
-6.1 h of driving**, ending at a check-in desk. Counter-clockwise's is 5.0 h,
-because it comes in from the empty west. That is the whole argument; direction
-barely changes total distance (2,032 vs 2,006 km).
+**Four campsites are already shut when you arrive.** Kleifarmörk closed
+31 August, Skjól and Möðrudalur on 10 September, Svartiskógur on the 12th.
+Kleifarmörk was night 2 of the original plan — the trip would have arrived at a
+locked gate. Húsavík, Bragðavellir, Grundarfjörður, Akranes, Stokkseyri and
+Skagaströnd all close on **15 September**, mid-trip. `build_route.py` now parses
+every campsite's season, checks it against the actual date of each night, and
+only ever offers alternatives that are open that night.
 
-Dropping at KEF also makes the **Reykjanes tip nearly free** — Brimketill,
-Gunnuhver, Reykjanesviti, Valahnúkamöl and the Bridge Between Continents sit on
-the last 40 km, which every other plan drives straight past. v3 takes them.
-**Check safetravel.is and road.is that morning** — the peninsula has erupted
-repeatedly since 2023 and those roads close at short notice.
+**Six days is not enough for the ring and Snæfellsnes.** v1 and v2 do the whole
+loop but never linger, and both need one night off the card, because no card
+site between Vík and Djúpivogur is open in mid-September. v3 drops the north and
+east entirely to do Reykjanes, the Golden Circle, the south coast and all of
+Snæfellsnes properly — 300 km less driving, more stops, every night on the card.
+The trade is Jökulsárlón and the Húsavík whales.
 
-**v3 is the one that makes the most of the days.** It adds 23 stops for only
-119 km and 3 h of extra driving, because almost everything added is within a
-kilometre or two of the road you were already on. Long activities are
-deliberately excluded — no soaking, no glacier hikes, no multi-hour treks.
+### Day length, not distance
 
-**Clockwise (v2)** buys a short unhurried whale day (162 km) and picks up
-Ásbyrgi, Hvítserkur and the Herring Museum, but the Golden Circle falls outside
-the loop and the last day stops being a half day. If you take it, do the Golden
-Circle from Reykjavík before you set off — it's a natural day trip from the city.
+Each day shows real OSRM driving time plus an estimate of time on the ground
+(15 min roadside, 35–45 a proper sight, 90 a hike, 180 the whale boat), and a
+finish time from an 08:30 start. Iceland gives ~13 h of daylight on 12 September
+and ~11.5 h by the 17th, so anything ending after ~20:00 is flagged.
 
-### Day length, not distance, is the real constraint
-
-Each day shows `driving h` and a `day h` that adds an estimate of time on the
-ground (15 min for a roadside stop, 35–45 for a proper sight, 90 for a hike,
-180 for the whale boat). Iceland gives roughly **13.5 h of daylight in early
-September and 11.5 h by the end of it**, so days over ~11 h are flagged red.
-
-v3's day 3 runs to 12.5 h and is the one to watch — it spans the 330 km with no
-card campsite, so it can't be shortened without breaking the campsite rule.
-A non-card night at Höfn splits it cleanly if you'd rather.
-
-### Counter-clockwise, day by day
-
-| Day | | km | Driving | Night |
-|---|---|---:|---:|---|
-| 1 | Golden Circle | 222 | 3.5 h | At Faxi |
-| 2 | South coast waterfalls to Vík | 221 | 5.1 h | Kleifarmörk |
-| 3 | Glaciers and the lagoon | 403 | 6.6 h | Bragðavellir |
-| 4 | East fjords to Stuðlagil | 225 | 3.5 h | Stuðlagil |
-| 5 | Dettifoss and Mývatn | 275 | 4.8 h | Húsavík |
-| 6 | Húsavík whales, then west | 356 | 5.3 h | Búðardalur |
-| 6½ | Back to Reykjavík | 226 | 3.4 h | — |
-
-Distances are real road routing from OSRM, not straight lines. **Driving hours
-exclude every stop** — budget 30–60 min per sight on top.
+v2's day 4 runs to 13.1 h and ends at 21:00 — that is the honest cost of adding
+20 stops to a loop this tight.
 
 ### What things cost
 
-Stops carry a cost badge from the curated `tickets` field: `free`, `car park`
-(per car), or `ticket pp` (per person).
-
-Car-park fees are 600–1,000 ISK **per car** and total under ~10,000 ISK across
-the whole trip. That's not where the money goes. The per-person tickets are:
-Mývatn Nature Baths, Kerið, whale watching, and the Blue Lagoon if you add it.
-**One whale-watching trip for three people costs more than every car park on the
-route combined** — so that's the decision worth having, not the parking.
-
-Both routes split in Húsavík (day 6 counter-clockwise, day 3 clockwise): whale watching (~3 h) or the Whale Museum (~1.5 h).
-Both leave from the same harbour about 100 m apart, so regrouping is easy —
-but the two options finish over an hour apart, so agree a time first.
-
-### Two honest warnings
-
-**Day 3 is oversized.** The card network has no campsite for the 330 km between
-Vík and Djúpivogur, which is exactly why. A non-card site at Höfn would split it
-neatly.
-
-**Kleifarmörk costs you.** It's 37 km up a slow road off the ring — about an
-hour each way, roughly +73 km and +2 h across days 2 and 3. It buys a card
-night; camping at Vík instead buys back an afternoon.
+Stops carry a badge: `free`, `car park` (per car, 600–1,000 ISK), or `ticket pp`.
+All the car parks together come to under ~10,000 ISK for the whole trip. The
+per-person tickets are where the money is — one whale trip for three costs more
+than every car park combined.
 
 ## Datasets
 

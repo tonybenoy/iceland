@@ -3,7 +3,7 @@
 
 const $ = (s) => document.querySelector(s);
 const D = { places: [], camps: [], fuel: [], routes: null };
-let variant = localStorage.getItem('iceland.variant') || 'counter-clockwise';
+let variant = localStorage.getItem('iceland.variant') || 'v1-ring';
 const PICK_KEY = 'iceland.picks.v1';
 
 /* ---------- picks (local to each viewer's browser) ---------- */
@@ -73,16 +73,19 @@ function renderRoute() {
   const el = $('#view-route');
   el.innerHTML = `
     <div class="variants">
-      ${Object.entries(all).map(([k, v]) => `
+      ${Object.entries(all).sort((a, b) => a[1].version.localeCompare(b[1].version))
+        .map(([k, v]) => `
         <button class="vbtn ${k === variant ? 'is-on' : ''}" data-variant="${esc(k)}">
-          ${esc(v.label)}<small>${v.total_km.toLocaleString()} km · ${v.total_stops} stops ·
+          <b class="vtag">${esc(v.version)}</b> ${esc(v.label)}
+          <small>${v.total_km.toLocaleString()} km · ${v.total_stops} stops ·
             longest day ${v.longest_day_hours} h</small>
         </button>`).join('')}
     </div>
     <p class="count">${r.total_km.toLocaleString()} km · ${r.total_driving_hours} h driving ·
       ${r.total_stops} stops · ${r.paid_parking_stops} paid car parks ·
-      ${r.per_person_ticket_stops} per-person ticket${r.per_person_ticket_stops === 1 ? '' : 's'}.
-      Every night is a campsite on the card.</p>
+      ${r.per_person_ticket_stops} per-person ticket${r.per_person_ticket_stops === 1 ? '' : 's'}
+      · ${r.offcard_nights ? `${r.offcard_nights} night off the card` : 'every night on the card'}.
+      Flight home ${esc(r.flight)}.</p>
     <p class="note">${esc(r.note)}</p>
     <p class="note">"Day" adds an estimate of time on the ground to the driving.
       Iceland gives you about 13.5 h of daylight in early September and 11.5 h by the end
@@ -90,10 +93,12 @@ function renderRoute() {
     ${r.days.map((d, i) => `
       <details class="day" ${i === 0 ? 'open' : ''}>
         <summary>
-          <span class="day-n" style="color:${DAY_COLORS[i % DAY_COLORS.length]}">Day ${d.day}${d.half ? '½' : ''}</span>
+          <span class="day-n" style="color:${DAY_COLORS[i % DAY_COLORS.length]}">Day ${d.day}</span>
+          <span class="day-date">${esc(d.date_label)}</span>
           <span class="day-t">${esc(d.title)}</span>
           <span class="day-km">${d.km} km · ${d.driving_hours} h drive ·
-            <b class="${d.over_daylight ? 'over' : d.long_day ? 'long' : ''}">${d.day_hours} h day</b></span>
+            <b class="${d.over_daylight ? 'over' : d.long_day ? 'long' : ''}">${
+              esc(d.starts)}–${esc(d.finishes)}</b></span>
         </summary>
         <div class="day-body">
           <p>${esc(d.summary)}</p>
@@ -105,13 +110,17 @@ function renderRoute() {
               <span class="li-name" data-focus="${esc(s.name)}">${esc(s.name)}</span>
               ${costBadge(s)}</li>`).join('')}
           </ul>
+          ${d.night_offcard ? `
+            <div class="night warn"><strong>Night ${d.day} — off the card:</strong>
+              ${esc(d.night_offcard)}</div>` : ''}
           ${d.night ? `
-            <div class="night">
-              <strong>Night ${d.day}:</strong>
+            <div class="night${d.night_open === false ? ' warn' : ''}">
+              <strong>Night ${d.day} (${esc(d.date_label)})${
+                d.night_open === false ? ' — CLOSED on this date' : ''}:</strong>
               <span class="li-name" data-focus="${esc(d.night.name)}">${esc(d.night.name)}</span>
               — open ${esc(d.night.open || '—')}
               ${d.night.tel ? ` · ${esc(d.night.tel)}` : ''}
-              <div class="alts">Nearest alternatives:
+              <div class="alts">Nearest alternatives open that night:
                 ${d.nearby_campsites.filter((c) => c.name !== d.night.name).slice(0, 3)
                   .map((c) => `${esc(c.name)} (${c.km} km)`).join(' · ')}</div>
             </div>` : `<div class="night"><strong>${
