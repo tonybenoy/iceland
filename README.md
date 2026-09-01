@@ -29,6 +29,8 @@ Hvítserkur and the Herring Museum. It costs the Golden Circle — Þingvellir,
 Geysir, Gullfoss, three of them free — and its last day isn't a half day, which
 matters if you're flying out that evening.
 
+### Counter-clockwise, day by day
+
 | Day | | km | Driving | Night |
 |---|---|---:|---:|---|
 | 1 | Golden Circle | 222 | 3.5 h | At Faxi |
@@ -53,7 +55,7 @@ Mývatn Nature Baths, Kerið, whale watching, and the Blue Lagoon if you add it.
 **One whale-watching trip for three people costs more than every car park on the
 route combined** — so that's the decision worth having, not the parking.
 
-Day 6 splits in Húsavík: whale watching (~3 h) or the Whale Museum (~1.5 h).
+Both routes split in Húsavík (day 6 counter-clockwise, day 3 clockwise): whale watching (~3 h) or the Whale Museum (~1.5 h).
 Both leave from the same harbour about 100 m apart, so regrouping is easy —
 but the two options finish over an hour apart, so agree a time first.
 
@@ -75,7 +77,7 @@ night; camping at Vík instead buys back an afternoon.
 | `data/iceland_places.csv` / `.json` | 332 | [adventures.com map of Iceland](https://adventures.com/information/map-of-iceland/) (raw) |
 | `data/iceland_campsites.csv` / `.json` | 30 | [utilegukortid.is](https://utilegukortid.is/all-camping-sites/?lang=en) |
 | `data/iceland_gas_stations.csv` / `.json` | 31 | [Google My Map](https://www.google.com/maps/d/u/0/viewer?mid=1wTIeHwmiHN2QQcL_ySY7_rmLaxHkan6o) |
-| `data/route.json` | 7 days | built from the above + OSRM |
+| `data/routes.json` | 2 routes | built from the above + OSRM |
 
 ### Read `confidence` before you trust a row
 
