@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Iceland — 6.5 days</title>
+<meta name="description" content="Ring Road plan, 332 sights, 30 campsites and 31 fuel stops. Pick what you want to see.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <strong>Iceland</strong>
+    <span class="sub">6.5 days · Reykjavík → Reykjavík</span>
+  </div>
+  <nav class="tabs" role="tablist">
+    <button class="tab is-on" data-view="route" role="tab">Route</button>
+    <button class="tab" data-view="places" role="tab">Sights</button>
+    <button class="tab" data-view="table" role="tab">Table</button>
+    <button class="tab" data-view="camps" role="tab">Campsites</button>
+    <button class="tab" data-view="fuel" role="tab">Fuel</button>
+  </nav>
+  <div class="picks">
+    <span id="pickCount">0 picked</span>
+    <button id="copyPicks" class="btn">Copy picks</button>
+    <button id="clearPicks" class="btn btn-quiet">Clear</button>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="panel" id="panel">
+    <div id="view-route" class="view"></div>
+
+    <div id="view-places" class="view" hidden>
+      <div class="filters">
+        <input type="search" id="q" placeholder="Search sights…" autocomplete="off">
+        <select id="fCategory"><option value="">All categories</option></select>
+        <select id="fRegion"><option value="">All regions</option></select>
+        <label class="chk"><input type="checkbox" id="fPicked"> Picked only</label>
+      </div>
+      <p class="count" id="placesCount"></p>
+      <ul class="list" id="placesList"></ul>
+    </div>
+
+    <div id="view-table" class="view" hidden>
+      <div class="filters">
+        <input type="search" id="tq" placeholder="Filter rows…" autocomplete="off">
+        <select id="tConfidence">
+          <option value="">Any confidence</option>
+          <option value="curated">Curated only</option>
+          <option value="not assessed">Not assessed</option>
+        </select>
+        <button class="btn btn-quiet" id="tDownload">Download CSV</button>
+      </div>
+      <p class="count" id="tableCount"></p>
+      <div class="tablewrap"><table id="grid"><thead></thead><tbody></tbody></table></div>
+    </div>
+
+    <div id="view-camps" class="view" hidden>
+      <p class="count">30 campsites on the Útilegukortið card. Nights on the route land at one of these.</p>
+      <ul class="list" id="campsList"></ul>
+    </div>
+
+    <div id="view-fuel" class="view" hidden>
+      <p class="note">A hand-curated subset of 31 stations, not every filling station in Iceland — don't plan a fuel range off it.</p>
+      <ul class="list" id="fuelList"></ul>
+    </div>
+  </section>
+
+  <section class="mapwrap">
+    <div id="map"></div>
+    <div class="overlays">
+      <label><input type="checkbox" id="lyRoute" checked> Route</label>
+      <label><input type="checkbox" id="lyCamps"> Campsites</label>
+      <label><input type="checkbox" id="lyFuel"> Fuel</label>
+      <label><input type="checkbox" id="lyPlaces"> Sights</label>
+    </div>
+  </section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

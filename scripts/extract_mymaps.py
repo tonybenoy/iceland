@@ -21,6 +21,7 @@ Usage:
 
 import argparse
 import csv
+import re
 import json
 import pathlib
 import sys
@@ -30,6 +31,12 @@ import urllib.request
 import xml.etree.ElementTree as ET
 
 NS = {"k": "http://www.opengis.net/kml/2.2"}
+
+
+def clean(s: str) -> str:
+    """Placemark labels carry non-breaking spaces and doubled spaces."""
+    return re.sub(r"\s+", " ", s.replace("\xa0", " ")).strip()
+
 OUT = pathlib.Path(__file__).resolve().parent.parent / "data"
 UA = "iceland-data/1.0 (personal dataset build)"
 
@@ -64,13 +71,13 @@ def parse(kml: bytes, label: str) -> list[dict]:
         sys.exit("KML contains a NetworkLink -- export may be incomplete")
     rows = []
     for folder in doc.findall("k:Folder", NS):
-        category = (folder.findtext("k:name", "", NS) or "").strip()
+        category = clean(folder.findtext("k:name", "", NS) or "")
         for pm in folder.findall("k:Placemark", NS):
             coords = pm.find(".//k:Point/k:coordinates", NS)
             lat = lon = ""
             if coords is not None and coords.text:
                 lon, lat = coords.text.strip().split(",")[:2]
-            name = (pm.findtext("k:name", "", NS) or "").strip()
+            name = clean(pm.findtext("k:name", "", NS) or "")
             row = {"name": name, "lat": lat, "lon": lon}
             if label == "category":
                 row = {"category": category, **row}

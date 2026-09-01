@@ -1,89 +1,113 @@
-# Iceland trip data
+# Iceland — 6.5 days
 
-Structured datasets scraped from three public sources, with the scripts that
-produce them. Everything is stdlib Python 3 — no dependencies.
+A browsable trip plan for three people: a Ring Road route, 325 sights, 30
+campsites and 31 fuel stops, all on one map.
+
+**→ https://tonybenoy.github.io/iceland/**
+
+Star anything you fancy and hit **Copy picks** — it copies a plain list you can
+paste straight into the chat. Picks live in your own browser only; nobody else
+sees them and nothing is sent anywhere.
+
+## The route
+
+Reykjavík → Reykjavík, counter-clockwise (south coast first), **1,928 km and
+32 h of moving time** over 6½ days. Every night lands at a campsite on the
+Útilegukortið card.
+
+| Day | | km | Driving | Night |
+|---|---|---:|---:|---|
+| 1 | Golden Circle | 222 | 3.5 h | At Faxi |
+| 2 | South coast waterfalls to Vík | 221 | 5.1 h | Kleifarmörk |
+| 3 | Glaciers and the lagoon | 403 | 6.6 h | Bragðavellir |
+| 4 | East fjords to Stuðlagil | 225 | 3.5 h | Stuðlagil |
+| 5 | Dettifoss and Mývatn | 275 | 4.8 h | Húsavík |
+| 6 | Húsavík whales, then west | 356 | 5.3 h | Búðardalur |
+| 6½ | Back to Reykjavík | 226 | 3.4 h | — |
+
+Distances are real road routing from OSRM, not straight lines. **Driving hours
+exclude every stop** — budget 30–60 min per sight on top.
+
+Day 6 splits in Húsavík: whale watching (~3 h) or the Whale Museum (~1.5 h).
+Both leave from the same harbour about 100 m apart, so regrouping is easy —
+but the two options finish over an hour apart, so agree a time first.
+
+### Two honest warnings
+
+**Day 3 is oversized.** The card network has no campsite for the 330 km between
+Vík and Djúpivogur, which is exactly why. A non-card site at Höfn would split it
+neatly.
+
+**Kleifarmörk costs you.** It's 37 km up a slow road off the ring — about an
+hour each way, roughly +73 km and +2 h across days 2 and 3. It buys a card
+night; camping at Vík instead buys back an afternoon.
 
 ## Datasets
 
 | File | Rows | Source |
 |---|---|---|
-| `data/iceland_places.csv` / `.json` | 332 | [adventures.com map of Iceland](https://adventures.com/information/map-of-iceland/) |
-| `data/iceland_campsites.csv` / `.json` | 30 | [utilegukortid.is camping sites](https://utilegukortid.is/all-camping-sites/?lang=en) |
-| `data/iceland_gas_stations.csv` / `.json` | 31 | [Google My Map: gas stations](https://www.google.com/maps/d/u/0/viewer?mid=1wTIeHwmiHN2QQcL_ySY7_rmLaxHkan6o) |
+| `data/iceland_places_ranked.csv` / `.json` | 325 | adventures.com map + hand-curated notes |
+| `data/iceland_places.csv` / `.json` | 332 | [adventures.com map of Iceland](https://adventures.com/information/map-of-iceland/) (raw) |
+| `data/iceland_campsites.csv` / `.json` | 30 | [utilegukortid.is](https://utilegukortid.is/all-camping-sites/?lang=en) |
+| `data/iceland_gas_stations.csv` / `.json` | 31 | [Google My Map](https://www.google.com/maps/d/u/0/viewer?mid=1wTIeHwmiHN2QQcL_ySY7_rmLaxHkan6o) |
+| `data/route.json` | 7 days | built from the above + OSRM |
 
-### `iceland_places` — sights and tours
+### Read `confidence` before you trust a row
 
-`category, name, lat, lon`. Categories are the map's own layers:
+Only **43 of 325** places have been assessed by a human. Every other row says
+`Not assessed` rather than guessing, and the table view dims those cells.
 
-| Layer | Count | Layer | Count |
-|---|---|---|---|
-| Points of Interest | 135 | Hot springs | 19 |
-| Hikes / Places to Hike | 46 | Caves | 13 |
-| Cultural Centres & Museums | 42 | Game of Thrones filming locations | 7 |
-| Tours and activities | 36 | The Ultimate Golden Circle Route | 4 |
-| Waterfalls | 28 | The Ring Road | 2 |
+This matters more than it sounds. An earlier version of the ranking filled the
+gaps with cheerful defaults — `Moderate (2WD/Gravel)` on 244 rows and
+`Yes - Fully Open` on 273 — which were indistinguishable from real judgements.
+The effect was that **Herðubreið, Eldgjá and Ófærufoss all read as 2WD-drivable
+and fully open in September** when they sit on F-roads with river crossings that
+typically shut in late September. Curated neighbours like Landmannalaugar and
+Askja carried the correct warnings, so the file looked trustworthy while being
+wrong in exactly the places that could put someone in a river.
 
-### `iceland_campsites` — Útilegukortið camping card network
-
-`name, region, address, zip_town, tel, email, website, open, km_from_reykjavik,
-km_from_seydisfjordur, lat, lon, facilities, maps_url, page`.
-
-Regions: West Iceland (4), Westfjords (6), North Iceland (9), East Iceland (4),
-South Iceland (7). `facilities` is a `; `-separated list drawn from a controlled
-vocabulary of 42 amenities (Toilets, Electricity, Hot tubs, Swimming pool, …).
-
-### `iceland_gas_stations`
-
-`brand, layer, lat, lon, locality`. Pins carry only brand names (`N1` ×15), so
-`locality` is filled in by reverse geocoding — see `--geocode` below.
+The rule now: an unassessed field says so. For anything highland or F-road,
+check [road.is](https://road.is) and [safetravel.is](https://safetravel.is) on
+the day — no static dataset can answer that question.
 
 ## Reproducing
 
 ```sh
-python3 scripts/extract_mymaps.py                      # places + gas stations
-python3 scripts/extract_mymaps.py gas_stations --geocode
-python3 scripts/extract_campsites.py
+python3 scripts/extract_mymaps.py                       # sights + fuel
+python3 scripts/extract_mymaps.py gas_stations --geocode # + localities
+python3 scripts/extract_campsites.py                    # campsites
+python3 scripts/build_places.py                         # ranked table
+python3 scripts/build_route.py                          # itinerary + geometry
+python3 -m http.server                                  # then open localhost:8000
 ```
 
-`--geocode` is opt-in because it contacts OpenStreetMap's Nominatim (throttled
-to ~1 req/s per their usage policy); without it no external service is used
-beyond the map export itself.
+Stdlib Python 3 only, no dependencies. `--geocode` and `build_route.py` contact
+OpenStreetMap's Nominatim and OSRM respectively, both throttled and both
+optional to re-run — their output is committed.
 
 ## How the sources actually work
 
-All three pages render their data client-side, so none of it is in the served
-HTML. The scripts go to the underlying feeds instead:
+All three pages render client-side, so none of the data is in the served HTML:
 
-- **Google My Maps** exposes every layer's placemarks as KML at
-  `/maps/d/kml?mid=<id>`; `forcekml=1` returns plain XML instead of a zipped
-  KMZ. Genuinely large maps get split across `NetworkLink` elements, so
-  `extract_mymaps.py` aborts rather than silently emitting a partial export.
-- **utilegukortid.is** is WordPress. The listing page renders 30 posts behind
-  Divi's AJAX pagination, so `extract_campsites.py` queries the REST API
-  (`/wp-json/wp/v2/posts?categories=46`) and checks the `X-WP-Total` header to
-  confirm nothing is missing.
-- **Coordinates** for campsites come out of the embedded Google Maps URLs,
-  which encode position in the `pb` parameter as `!2d<lon>!3d<lat>` —
-  longitude first.
-- **Campsite amenities** are icon images with no text, but each `<img>` carries
-  a bilingual `alt` (`"Salerni / Toilets"`); the half after the slash gives a
-  clean English vocabulary.
+- **Google My Maps** exposes placemarks as KML at `/maps/d/kml?mid=<id>`;
+  `forcekml=1` returns XML rather than KMZ. Large maps get split across
+  `NetworkLink` elements, so the script aborts rather than emit a partial file.
+- **utilegukortid.is** is WordPress behind Divi's AJAX pagination, so the script
+  queries the REST API and checks `X-WP-Total` to confirm nothing is missing.
+- **Campsite coordinates** come from embedded Google Maps URLs, which encode
+  position in the `pb` parameter as `!2d<lon>!3d<lat>` — longitude first.
+- **Campsite amenities** are untitled icons, but each `<img>` carries a bilingual
+  `alt` (`"Salerni / Toilets"`); the half after the slash is the English name.
+- **Regions** come from Nominatim's `state_district`, giving the eight official
+  Icelandic regions instead of guessing from latitude and longitude.
 
-## Known data quirks
+## Remaining quirks
 
-These come from the sources and are preserved as-is rather than silently fixed:
+- `iceland_places.csv` is the raw scrape and still holds the source map's seven
+  duplicate pins; `build_places.py` collapses them (same name within 2 km).
+- The fuel map is a hand-curated subset, **not** every filling station in
+  Iceland. Don't plan a range off it — use OSM's `amenity=fuel` for that.
+- Campsites are the ~30 the Útilegukortið card covers, not all ~170 in Iceland.
+- Nine fuel points are rural enough that Nominatim returns no locality.
 
-- `iceland_places` contains the map owner's duplicates (Akranes, Ólafsvík,
-  Drangsnes, Landmannalaugar, Snæfellsjökull, Gullfoss, Hellissandur each appear
-  twice), some non-places (`Point 19`, `Hot-dog stand`), and inconsistent
-  transliteration (`Seyðisfjörður` vs `Seydisfjordur`). Its "Tours and
-  activities" layer lists activities rather than places.
-- `iceland_campsites` is the ~30 sites the Útilegukortið camping card covers,
-  **not** every campsite in Iceland (there are ~170 nationwide). Þorlákshöfn's
-  opening season isn't stated parseably on its page; 5 sites omit zip/town and
-  6 omit a website. Akranes lists `48,5` km — an Icelandic decimal comma.
-- `iceland_gas_stations` has one duplicated pin (`64.3098, -20.3017`), and 9
-  rural ring-road points that Nominatim can't resolve to a locality. It is a
-  hand-curated subset, not all Icelandic filling stations.
-
-Data belongs to the respective sources; this repo is just the extraction.
+Data belongs to the respective sources; this repo is the extraction and the plan.
