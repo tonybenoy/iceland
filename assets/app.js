@@ -87,6 +87,8 @@ function renderRoute() {
       · ${r.offcard_nights ? `${r.offcard_nights} night off the card` : 'every night on the card'}.
       Flight home ${esc(r.flight)}.</p>
     <p class="note">${esc(r.note)}</p>
+    ${r.version === 'v3' ? `<p class="note">This one is deliberately <b>not</b> a ring —
+      it doubles back rather than circling the island, which is what buys Snæfellsnes.</p>` : ''}
     <p class="note">"Day" adds an estimate of time on the ground to the driving.
       Iceland gives you about 13.5 h of daylight in early September and 11.5 h by the end
       of it, so anything flagged in red needs an early start or a stop dropped.</p>

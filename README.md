@@ -27,6 +27,26 @@ handled separately, before day 1.
 
 v1 nights: Hvolsvöllur, Kirkjubæjarklaustur, Berunes, Mývatn, Blönduós.
 
+**v3 is not a ring.** It doubles back instead of circling the island — that is
+exactly what buys Snæfellsnes.
+
+### Are we seeing fewer places?
+
+Counting actual sights, ignoring airports and towns driven through:
+
+| | Places | km | Places per 100 km |
+|---|---:|---:|---:|
+| v1 ring | 23 | 1,765 | 1.3 |
+| v2 ring, max stops | **43** | 2,045 | 2.1 |
+| v3 west & south | 35 | **1,519** | **2.3** |
+
+v2 sees **20 more places than v1 for 280 km more driving**. v3 sees 12 more
+than v1 while driving 246 km *less*.
+
+They are not the same 65 places, though. v3 picks up 25 that v1 never reaches
+(all of Snæfellsnes, the Reykjanes tip) and gives up 13 that only the ring
+reaches (Jökulsárlón, Dettifoss, Mývatn, the east fjords, the Húsavík whales).
+
 ## Not card-only
 
 Nights are placed where the driving wants them, using all **215 named campsites
@@ -56,7 +76,9 @@ night, and only offers alternatives open that night.
 | `data/iceland_places.csv` / `.json` | 332 | [adventures.com map of Iceland](https://adventures.com/information/map-of-iceland/) (raw) |
 | `data/iceland_campsites.csv` / `.json` | 30 | [utilegukortid.is](https://utilegukortid.is/all-camping-sites/?lang=en) |
 | `data/iceland_gas_stations.csv` / `.json` | 31 | [Google My Map](https://www.google.com/maps/d/u/0/viewer?mid=1wTIeHwmiHN2QQcL_ySY7_rmLaxHkan6o) |
-| `data/routes.json` | 2 routes | built from the above + OSRM |
+| `data/routes.json` | 3 routes | built from the above + OSRM |
+| `data/route_stops.csv` | 125 rows | every stop in every route, flat, for sorting |
+| `data/iceland_campsites_all.csv` / `.json` | 215 | OpenStreetMap (Overpass) |
 
 ### Read `confidence` before you trust a row
 

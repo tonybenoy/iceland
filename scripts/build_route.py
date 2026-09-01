@@ -231,14 +231,14 @@ WEST_SOUTH = [
 ]
 
 VARIANTS = {
-    "v1-ring": {"version": "v1", "label": "Ring road, counter-clockwise", "days": RING,
+    "v1-ring": {"version": "v1", "label": "Ring road — the full loop", "days": RING,
                 "note": "The classic loop in six days. Covers the whole country but never "
                         "lingers, and one night falls outside the camping card."},
-    "v2-ring-max": {"version": "v2", "label": "Ring road, maximum stops", "days": RING_MAX,
+    "v2-ring-max": {"version": "v2", "label": "Ring road — maximum stops", "days": RING_MAX,
                     "note": "Same loop and same nights, with every worthwhile quick stop within "
                             "a couple of kilometres of the road. Long activities left out on "
                             "purpose — the extra sights cost minutes, not hours."},
-    "v3-west-south": {"version": "v3", "label": "West and south, no ring", "days": WEST_SOUTH,
+    "v3-west-south": {"version": "v3", "label": "West & south — NOT a ring", "days": WEST_SOUTH,
                       "note": "Drops the north and east to do Reykjanes, the Golden Circle, the "
                               "south coast and all of Snæfellsnes properly. Far less driving, "
                               "more stops, every night on the card. No Jökulsárlón, no whales."},
@@ -457,6 +457,30 @@ def main():
         "variants": out_variants,
     }
     (DATA / "routes.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+
+    # flat CSV of every stop in every variant, for sorting in a spreadsheet
+    cols = ["variant", "version", "day", "date", "order", "name", "kind", "category",
+            "tier", "popularity", "cost", "tickets", "minutes", "lat", "lon",
+            "day_km", "day_driving_hours", "day_hours", "night", "night_on_card"]
+    with (DATA / "route_stops.csv").open("w", newline="", encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, fieldnames=cols)
+        w.writeheader()
+        for key, v in out_variants.items():
+            for d in v["days"]:
+                for i, st in enumerate(d["stops"], 1):
+                    w.writerow({
+                        "variant": key, "version": v["version"], "day": d["day"],
+                        "date": d["date"], "order": i, "name": st["name"], "kind": st["kind"],
+                        "category": st["category"], "tier": st["tier"],
+                        "popularity": st["popularity"], "cost": st["cost"],
+                        "tickets": st["tickets"], "minutes": st["minutes"],
+                        "lat": st["lat"], "lon": st["lon"],
+                        "day_km": d["km"], "day_driving_hours": d["driving_hours"],
+                        "day_hours": d["day_hours"],
+                        "night": d["night"]["name"] if d["night"] else "",
+                        "night_on_card": d["night"]["on_card"] if d["night"] else "",
+                    })
+    print(f"written to {DATA / 'route_stops.csv'}")
     print(f"written to {DATA / 'routes.json'}")
 
 

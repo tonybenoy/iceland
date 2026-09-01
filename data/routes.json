@@ -7,7 +7,7 @@
  "flight": "17:00 on day 6",
  "variants": {
   "v1-ring": {
-   "label": "Ring road, counter-clockwise",
+   "label": "Ring road — the full loop",
    "version": "v1",
    "note": "The classic loop in six days. Covers the whole country but never lingers, and one night falls outside the camping card.",
    "start_date": "2026-09-12",
@@ -11315,7 +11315,7 @@
    ]
   },
   "v2-ring-max": {
-   "label": "Ring road, maximum stops",
+   "label": "Ring road — maximum stops",
    "version": "v2",
    "note": "Same loop and same nights, with every worthwhile quick stop within a couple of kilometres of the road. Long activities left out on purpose — the extra sights cost minutes, not hours.",
    "start_date": "2026-09-12",
@@ -24871,7 +24871,7 @@
    ]
   },
   "v3-west-south": {
-   "label": "West and south, no ring",
+   "label": "West & south — NOT a ring",
    "version": "v3",
    "note": "Drops the north and east to do Reykjanes, the Golden Circle, the south coast and all of Snæfellsnes properly. Far less driving, more stops, every night on the card. No Jökulsárlón, no whales.",
    "start_date": "2026-09-12",
