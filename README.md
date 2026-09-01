@@ -1,72 +1,60 @@
-# Iceland — 12–17 September
+# Iceland — 12–18 September
 
-Three six-day road trips from Keflavík, plus 325 sights, 30 campsites and 31
-fuel stops on one map.
+One road trip, everything in it. Plus 325 sights, 215 campsites and 31 fuel
+stops on the same map.
 
 **→ https://tonybenoy.github.io/iceland/**
 
-Star anything you fancy and hit **Copy picks** — it copies a plain list you can
-paste into the chat. Picks live in your own browser only.
+Star anything and hit **Copy picks** — it copies a plain list to paste into the
+chat. Picks live in your own browser only.
 
-## The shape of the trip
+## The plan
 
-Day 1 starts at KEF on the morning of the 12th (collect the car, pick up the
-third of you). The flight home is **17:00 on day 6**, so the car is back at the
-airport by 15:00. Five nights: 12, 13, 14, 15, 16 September. Reykjavík is
-handled separately, before day 1.
+Reykjavík is the 11th, before this. Day 1 is an early start from KEF on Saturday
+the 12th. Six nights. Flight home **17:00 on Friday the 18th**, so the car is
+back at Keflavík by 15:00.
 
-| | v1 ring | v2 ring, max stops | v3 west & south |
-|---|---|---|---|
-| Distance | 1,765 km | 2,045 km | **1,519 km** |
-| Driving | 29.1 h | 34.3 h | **28.5 h** |
-| Stops | 32 | **52** | 41 |
-| Longest day | **10.0 h** | 11.7 h | 10.3 h |
-| Snæfellsnes | no | no | **yes** |
-| Jökulsárlón | yes | yes | **no** |
-| Whales at Húsavík | yes | yes | **no** |
+**2,263 km · 38.4 h driving · 61 stops · longest day 11.7 h · no camping card.**
 
-v1 nights: Hvolsvöllur, Kirkjubæjarklaustur, Berunes, Mývatn, Blönduós.
+| Day | | km | 07:00 → | Night |
+|---|---|---:|---|---|
+| 1 Sat 12 | Golden Circle, then south | 301 | 16:23 | Hvolsvöllur |
+| 2 Sun 13 | Every waterfall on the south coast | 263 | 18:24 | Skaftafell |
+| 3 Mon 14 | Glacier lagoon and the south-east | 279 | 15:54 | Berunes |
+| 4 Tue 15 | East fjords, Stuðlagil and Mývatn | 366 | 17:18 | Hlíð (Mývatn) |
+| 5 Wed 16 | Dettifoss, the whales, then west | 387 | 17:36 | Blönduós |
+| 6 Thu 17 | North coast to Snæfellsnes | 425 | 18:42 | Arnarstapi |
+| 7 Fri 18 | Snæfellsnes south, then the plane | 241 | 12:06 | — |
 
-**v3 is not a ring.** It doubles back instead of circling the island — that is
-exactly what buys Snæfellsnes.
+Everything you asked for is in it: **south, east, north and west including all
+of Snæfellsnes**, and the **Húsavík whale boat** on day 5. Nothing finishes after
+dark (sunset is ~20:20 on the 12th, ~20:00 on the 18th).
 
-### Are we seeing fewer places?
+### How it fits
 
-Counting actual sights, ignoring airports and towns driven through:
+Three things make it work:
 
-| | Places | km | Places per 100 km |
-|---|---:|---:|---:|
-| v1 ring | 23 | 1,765 | 1.3 |
-| v2 ring, max stops | **43** | 2,045 | 2.1 |
-| v3 west & south | 35 | **1,519** | **2.3** |
+- **Camping in Skaftafell on night 2** puts Svartifoss at your tent, so day 3
+  starts with the hike before anyone else is there.
+- **The Mývatn cluster moves to day 4 evening**, not day 5. Day 4 had slack; that
+  one change cut day 6 from 581 km to 425.
+- **Night 6 at Arnarstapi**, on the south side of Snæfellsnes. Grundarfjörður on
+  the north side shut on 15 September anyway, and the south side leaves a
+  241 km run to the airport — done by lunchtime.
 
-v2 sees **20 more places than v1 for 280 km more driving**. v3 sees 12 more
-than v1 while driving 246 km *less*.
+### Booking now, not later
 
-They are not the same 65 places, though. v3 picks up 25 that v1 never reaches
-(all of Snæfellsnes, the Reykjanes tip) and gives up 13 that only the ring
-reaches (Jökulsárlón, Dettifoss, Mývatn, the east fjords, the Húsavík whales).
+- **The whale trip.** September sailings fill and get cancelled for weather.
+  The Whale Museum is the fallback and is on the same quay.
+- **Nights 1, 4, 5 and 6.** OSM records opening hours for only about a third of
+  campsites, and mid-September is exactly when small sites close quietly. Skaftafell
+  (night 2) is all-year and Berunes (night 3) runs to 1 October.
 
-## Not card-only
+### What it costs
 
-Nights are placed where the driving wants them, using all **215 named campsites
-in Iceland** from OpenStreetMap (`scripts/extract_osm_campsites.py`), with the
-20 card sites flagged. That single change fixed the plan more than any amount of
-re-routing: v1's worst day went from 500 km to 361 km, and no day now runs past
-daylight.
-
-The card set had made the country look emptier than it is. The stretch between
-Vík and Djúpivogur that I called a "campsite desert" — the thing that forced a
-400 km day — actually has **28 campsites**, including Skaftafell and Vestrahorn
-open all year. Exactly one of them is on the card.
-
-**Dates still matter, just less.** Four card sites shut before you arrive
-(Kleifarmörk on 31 August — it was night 2 of an earlier draft, so the trip would
-have reached a locked gate) and six more close on 15 September, mid-trip.
-`build_route.py` parses every season, checks it against the actual date of each
-night, and only offers alternatives open that night.
-
-## Six days, three shapes
+10 paid car parks (600–1,000 ISK each, **per car**, under ~10,000 ISK for the
+whole week) and 2 per-person tickets. One whale trip for three costs more than
+every car park combined — that is the only real money decision.
 
 ## Datasets
 

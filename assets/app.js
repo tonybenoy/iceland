@@ -3,7 +3,7 @@
 
 const $ = (s) => document.querySelector(s);
 const D = { places: [], camps: [], fuel: [], routes: null };
-let variant = localStorage.getItem('iceland.variant') || 'v1-ring';
+let variant = localStorage.getItem('iceland.variant') || 'final';
 const PICK_KEY = 'iceland.picks.v1';
 
 /* ---------- picks (local to each viewer's browser) ---------- */
@@ -84,14 +84,12 @@ function renderRoute() {
     <p class="count">${r.total_km.toLocaleString()} km · ${r.total_driving_hours} h driving ·
       ${r.total_stops} stops · ${r.paid_parking_stops} paid car parks ·
       ${r.per_person_ticket_stops} per-person ticket${r.per_person_ticket_stops === 1 ? '' : 's'}
-      · ${r.offcard_nights ? `${r.offcard_nights} night off the card` : 'every night on the card'}.
-      Flight home ${esc(r.flight)}.</p>
+      · ${r.nights} nights. Flight home ${esc(r.flight)}.</p>
     <p class="note">${esc(r.note)}</p>
-    ${r.version === 'v3' ? `<p class="note">This one is deliberately <b>not</b> a ring —
-      it doubles back rather than circling the island, which is what buys Snæfellsnes.</p>` : ''}
+
     <p class="note">"Day" adds an estimate of time on the ground to the driving.
-      Iceland gives you about 13.5 h of daylight in early September and 11.5 h by the end
-      of it, so anything flagged in red needs an early start or a stop dropped.</p>
+      Days start at 07:00. The sun sets about 20:20 on the 12th and 20:00 on the 18th,
+      so anything flagged red finishes in the dark — fine on Route 1, less fun on gravel.</p>
     ${r.days.map((d, i) => `
       <details class="day" ${i === 0 ? 'open' : ''}>
         <summary>
