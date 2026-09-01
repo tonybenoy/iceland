@@ -1,0 +1,219 @@
+[
+ {
+  "brand": "Orkan X",
+  "layer": "GASOLINERAS",
+  "lat": "64.1320606",
+  "lon": "-21.8933032",
+  "locality": "Reykjavíkurborg"
+ },
+ {
+  "brand": "Orkan",
+  "layer": "GASOLINERAS",
+  "lat": "64.2794582",
+  "lon": "-20.4433804",
+  "locality": ""
+ },
+ {
+  "brand": "Orkan",
+  "layer": "GASOLINERAS",
+  "lat": "63.9724563",
+  "lon": "-22.5429919000001",
+  "locality": "Keflavík"
+ },
+ {
+  "brand": "Olís",
+  "layer": "GASOLINERAS",
+  "lat": "63.9796615",
+  "lon": "-22.5467161",
+  "locality": "Keflavík"
+ },
+ {
+  "brand": "N1",
+  "layer": "GASOLINERAS",
+  "lat": "63.9367431",
+  "lon": "-20.98752",
+  "locality": "Selfoss"
+ },
+ {
+  "brand": "N1 Árnes",
+  "layer": "GASOLINERAS",
+  "lat": "64.0413197",
+  "lon": "-20.2510317",
+  "locality": "Árnes"
+ },
+ {
+  "brand": "Olís Hrauneyjar",
+  "layer": "GASOLINERAS",
+  "lat": "64.1968409",
+  "lon": "-19.2848425",
+  "locality": ""
+ },
+ {
+  "brand": "N1",
+  "layer": "GASOLINERAS",
+  "lat": "64.3098133",
+  "lon": "-20.3016619",
+  "locality": ""
+ },
+ {
+  "brand": "Víkurskáli",
+  "layer": "GASOLINERAS",
+  "lat": "63.417702",
+  "lon": "-19.0014553",
+  "locality": "Vík"
+ },
+ {
+  "brand": "N1",
+  "layer": "GASOLINERAS",
+  "lat": "63.7496513",
+  "lon": "-20.2340412999999",
+  "locality": "Hvolsvöllur"
+ },
+ {
+  "brand": "N1",
+  "layer": "GASOLINERAS",
+  "lat": "63.7939154",
+  "lon": "-18.0399282",
+  "locality": "Kirkjubæjarklaustur"
+ },
+ {
+  "brand": "N1 (self-service only)",
+  "layer": "GASOLINERAS",
+  "lat": "63.8813746",
+  "lon": "-16.6458302",
+  "locality": ""
+ },
+ {
+  "brand": "N1",
+  "layer": "GASOLINERAS",
+  "lat": "64.2589969",
+  "lon": "-15.2062823",
+  "locality": "Höfn"
+ },
+ {
+  "brand": "N1",
+  "layer": "GASOLINERAS",
+  "lat": "64.6561149",
+  "lon": "-14.2862537",
+  "locality": "Djúpivogur"
+ },
+ {
+  "brand": "N1 Gas Station",
+  "layer": "GASOLINERAS",
+  "lat": "65.2604544",
+  "lon": "-14.4077681",
+  "locality": "Egilsstaðir"
+ },
+ {
+  "brand": "N1",
+  "layer": "GASOLINERAS",
+  "lat": "65.641715",
+  "lon": "-16.9111693",
+  "locality": "Vogar við Mývatn"
+ },
+ {
+  "brand": "N1",
+  "layer": "GASOLINERAS",
+  "lat": "65.7208589",
+  "lon": "-17.3721324000001",
+  "locality": "Laugar"
+ },
+ {
+  "brand": "N1 petrol",
+  "layer": "GASOLINERAS",
+  "lat": "65.6862178",
+  "lon": "-17.5389188",
+  "locality": ""
+ },
+ {
+  "brand": "N1",
+  "layer": "GASOLINERAS",
+  "lat": "65.6602025",
+  "lon": "-20.2758694",
+  "locality": "Blönduós"
+ },
+ {
+  "brand": "N1 Gas station",
+  "layer": "GASOLINERAS",
+  "lat": "65.1077809",
+  "lon": "-21.7636401",
+  "locality": "Búðardalur"
+ },
+ {
+  "brand": "Orkan",
+  "layer": "GASOLINERAS",
+  "lat": "64.921536",
+  "lon": "-23.2466547",
+  "locality": "Grundarfjarðarbær"
+ },
+ {
+  "brand": "N1",
+  "layer": "GASOLINERAS",
+  "lat": "64.843602",
+  "lon": "-22.6536312000001",
+  "locality": ""
+ },
+ {
+  "brand": "Orkan",
+  "layer": "GASOLINERAS",
+  "lat": "64.5436993",
+  "lon": "-21.9085937",
+  "locality": "Borgarbyggð"
+ },
+ {
+  "brand": "N1",
+  "layer": "GASOLINERAS",
+  "lat": "64.1659938",
+  "lon": "-21.6955519000001",
+  "locality": "Mosfellsbær"
+ },
+ {
+  "brand": "N1",
+  "layer": "GASOLINERAS",
+  "lat": "64.1384148",
+  "lon": "-21.7721129",
+  "locality": "Reykjavíkurborg"
+ },
+ {
+  "brand": "N1",
+  "layer": "GASOLINERAS",
+  "lat": "65.5280412",
+  "lon": "-13.8171516",
+  "locality": "Bakkagerði"
+ },
+ {
+  "brand": "N1",
+  "layer": "GASOLINERAS",
+  "lat": "65.927642",
+  "lon": "-22.4287911",
+  "locality": ""
+ },
+ {
+  "brand": "N1 Flókalundur (Self-Service)",
+  "layer": "GASOLINERAS",
+  "lat": "65.5760686",
+  "lon": "-23.1678486",
+  "locality": ""
+ },
+ {
+  "brand": "N1 Hellissandur",
+  "layer": "GASOLINERAS",
+  "lat": "64.915017",
+  "lon": "-23.8842111",
+  "locality": "Hellissandur"
+ },
+ {
+  "brand": "N1 Grundarfjörður",
+  "layer": "GASOLINERAS",
+  "lat": "64.9250386",
+  "lon": "-23.2603529",
+  "locality": "Grundarfjarðarbær"
+ },
+ {
+  "brand": "N1",
+  "layer": "GASOLINERAS",
+  "lat": "64.3098133",
+  "lon": "-20.3016619",
+  "locality": ""
+ }
+]
