@@ -2,7 +2,8 @@
    Picks are per-viewer in localStorage — nothing is shared or sent anywhere. */
 
 const $ = (s) => document.querySelector(s);
-const D = { places: [], camps: [], fuel: [], route: null };
+const D = { places: [], camps: [], fuel: [], routes: null };
+let variant = localStorage.getItem('iceland.variant') || 'counter-clockwise';
 const PICK_KEY = 'iceland.picks.v1';
 
 /* ---------- picks (local to each viewer's browser) ---------- */
@@ -54,20 +55,42 @@ function starBtn(name) {
 
 const DAY_COLORS = ['#d1495b', '#e07a1f', '#c9a227', '#3f8f4a', '#1f6f6b', '#3b6ea5', '#7a4fa3'];
 
+const COST_LABEL = {
+  'free': 'free',
+  'parking fee (per car)': 'car park',
+  'ticket (per person)': 'ticket pp',
+};
+
+function costBadge(s) {
+  if (!s.cost || s.cost === 'unknown') return '';
+  const cls = s.cost === 'free' ? 'free' : s.cost.startsWith('ticket') ? 'ticket' : 'park';
+  return `<span class="cost ${cls}" title="${esc(s.tickets || '')}">${COST_LABEL[s.cost]}</span>`;
+}
+
 function renderRoute() {
-  const r = D.route;
+  const all = D.routes.variants;
+  const r = all[variant];
   const el = $('#view-route');
   el.innerHTML = `
+    <div class="variants">
+      ${Object.entries(all).map(([k, v]) => `
+        <button class="vbtn ${k === variant ? 'is-on' : ''}" data-variant="${esc(k)}">
+          ${esc(v.label)}<small>${v.total_km.toLocaleString()} km · ${v.total_driving_hours} h</small>
+        </button>`).join('')}
+    </div>
     <p class="count">${r.total_km.toLocaleString()} km · ${r.total_driving_hours} h driving ·
-      ${r.direction}. Every night is a campsite on the card.</p>
+      ${r.paid_parking_stops} paid car parks · ${r.per_person_ticket_stops} per-person tickets.
+      Every night is a campsite on the card.</p>
+    <p class="note">${esc(r.note)}</p>
     <p class="note">Driving hours are moving time only — they exclude every stop.
       Add roughly 30–60 min per sight.</p>
     ${r.days.map((d, i) => `
       <details class="day" ${i === 0 ? 'open' : ''}>
         <summary>
-          <span class="day-n" style="color:${DAY_COLORS[i]}">Day ${d.day}${d.half ? '½' : ''}</span>
+          <span class="day-n" style="color:${DAY_COLORS[i % DAY_COLORS.length]}">Day ${d.day}${d.half ? '½' : ''}</span>
           <span class="day-t">${esc(d.title)}</span>
-          <span class="day-km ${d.long_day ? 'long' : ''}">${d.km} km · ${d.driving_hours} h</span>
+          <span class="day-km ${d.long_day ? 'long' : ''}">${
+            d.no_drive ? 'no driving' : `${d.km} km · ${d.driving_hours} h`}</span>
         </summary>
         <div class="day-body">
           <p>${esc(d.summary)}</p>
@@ -76,7 +99,8 @@ function renderRoute() {
           <ul class="stops">
             ${d.stops.map((s) => `
               <li><span class="k">${esc(s.kind)}</span>
-              <span class="li-name" data-focus="${esc(s.name)}">${esc(s.name)}</span></li>`).join('')}
+              <span class="li-name" data-focus="${esc(s.name)}">${esc(s.name)}</span>
+              ${costBadge(s)}</li>`).join('')}
           </ul>
           ${d.night ? `
             <div class="night">
@@ -87,19 +111,23 @@ function renderRoute() {
               <div class="alts">Nearest alternatives:
                 ${d.nearby_campsites.filter((c) => c.name !== d.night.name).slice(0, 3)
                   .map((c) => `${esc(c.name)} (${c.km} km)`).join(' · ')}</div>
-            </div>` : '<div class="night"><strong>Back in Reykjavík.</strong></div>'}
+            </div>` : `<div class="night"><strong>${
+              d.no_drive ? 'Your own beds — no driving today.' : 'Back in Reykjavík.'}</strong></div>`}
         </div>
       </details>`).join('')}`;
 
-  // draw
   layers.route.clearLayers();
   r.days.forEach((d, i) => {
-    L.polyline(d.geometry, { color: DAY_COLORS[i], weight: 4, opacity: .85 })
-      .bindPopup(`<b>Day ${d.day}</b> — ${esc(d.title)}<br>${d.km} km · ${d.driving_hours} h`)
-      .addTo(layers.route);
+    const color = DAY_COLORS[i % DAY_COLORS.length];
+    if (d.geometry.length) {
+      L.polyline(d.geometry, { color, weight: 4, opacity: .85 })
+        .bindPopup(`<b>Day ${d.day}</b> — ${esc(d.title)}<br>${d.km} km · ${d.driving_hours} h`)
+        .addTo(layers.route);
+    }
     d.stops.forEach((s) => {
-      const m = L.circleMarker([s.lat, s.lon], dot(DAY_COLORS[i], s.kind === 'optional' ? 4 : 6))
-        .bindPopup(`<b>${esc(s.name)}</b><br>Day ${d.day} · ${esc(s.kind)}`);
+      const m = L.circleMarker([s.lat, s.lon], dot(color, s.kind === 'optional' ? 4 : 6))
+        .bindPopup(`<b>${esc(s.name)}</b><br>Day ${d.day} · ${esc(s.kind)}${
+          s.cost && s.cost !== 'unknown' ? `<br>${esc(s.tickets)}` : ''}`);
       m.addTo(layers.route);
       markerIndex.set(s.name, m);
     });
@@ -241,6 +269,15 @@ document.addEventListener('click', (e) => {
   if (star) { togglePick(star.dataset.pick); if (!$('#view-places').hidden) renderPlaces(); return; }
   const f = e.target.closest('[data-focus]');
   if (f) return focus(f.dataset.focus);
+  const vb = e.target.closest('[data-variant]');
+  if (vb) {
+    variant = vb.dataset.variant;
+    try { localStorage.setItem('iceland.variant', variant); } catch (_) {}
+    renderRoute();
+    const b = L.latLngBounds(D.routes.variants[variant].days.flatMap((d) => d.geometry));
+    if (b.isValid()) map.fitBounds(b, { padding: [24, 24] });
+    return;
+  }
   const th = e.target.closest('th[data-col]');
   if (th) {
     sortDir = sortCol === th.dataset.col ? -sortDir : 1;
@@ -289,9 +326,10 @@ Promise.all([
   j('data/iceland_places_ranked.json'),
   j('data/iceland_campsites.json'),
   j('data/iceland_gas_stations.json'),
-  j('data/route.json'),
-]).then(([places, camps, fuel, route]) => {
-  D.places = places; D.camps = camps; D.fuel = fuel; D.route = route;
+  j('data/routes.json'),
+]).then(([places, camps, fuel, routes]) => {
+  D.places = places; D.camps = camps; D.fuel = fuel; D.routes = routes;
+  if (!routes.variants[variant]) variant = routes.default;
 
   fillSelect($('#fCategory'), places.map((p) => p.category));
   fillSelect($('#fRegion'), places.map((p) => p.region).filter((r) => r && r !== 'Not assessed'));
@@ -309,7 +347,7 @@ Promise.all([
 
   savePicks();
   showView(location.hash.slice(1) || 'route', false);
-  const b = L.latLngBounds(route.days.flatMap((d) => d.geometry));
+  const b = L.latLngBounds(routes.variants[variant].days.flatMap((d) => d.geometry));
   map.fitBounds(b, { padding: [24, 24] });
 }).catch((err) => {
   $('#view-route').innerHTML =

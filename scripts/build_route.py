@@ -14,7 +14,9 @@ can offer alternatives when the planned one is shut for the season.
 
 import csv
 import json
+import unicodedata
 import math
+import re
 import sys
 import pathlib
 import time
@@ -39,10 +41,16 @@ EXTRA = {
     "Egilsstaðir": (65.2605, -14.4078),
     "Blönduós": (65.6602, -20.2759),
     "Deildartunguhver": (64.6634, -21.4114),
+    "Borgarnes": (64.5383, -21.9224),
+    "Siglufjörður": (66.1496, -18.9127),
+    "Skagaströnd": (65.8292, -20.3147),
+    "Möðrudalur": (65.3682, -15.9177),
+    "Fáskrúðsfjörður": (64.9333, -14.0167),
+    "Reykjavík city walk": (64.1426, -21.9264),
 }
 
 # stop = (name, kind). kind drives the icon/treatment on the site.
-ITINERARY = [
+COUNTERCLOCKWISE = [
     {
         "day": 1,
         "note": "Easiest day of the trip. If you land late, this is the one to compress.",
@@ -154,6 +162,153 @@ ITINERARY = [
 ]
 
 
+CLOCKWISE = [
+    {
+        "day": 0,
+        "title": "Reykjavík on foot",
+        "summary": "Your spare day. The core is walkable and costs nothing but coffee.",
+        "note": "Hallgrímskirkja → Sun Voyager → Harpa is about 2 km along the shore. Grótta at low "
+                "tide or the Videy ferry fills an afternoon. None of it needs a car.",
+        "free_day": True,
+        "stops": [
+            ("Reykjavík city walk", "start"),
+            ("Hallgrimskirkja", "sight"),
+            ("Sólfarið (Sun Voyager)", "sight"),
+            ("Harpa Concert Hall and Conference Centre", "sight"),
+            ("Grótta Island Lighthouse", "optional"),
+            ("Videy", "optional"),
+        ],
+        "night": None,
+        "no_drive": True,
+    },
+    {
+        "day": 1,
+        "title": "North through Borgarfjörður",
+        "summary": "Out of the city the quiet way, up the west coast.",
+        "note": "Hraunfossar charges for parking; Deildartunguhver itself is free to look at "
+                "(the Krauma spa next to it is not).",
+        "stops": [
+            ("Reykjavík", "start"),
+            ("Borgarnes", "town"),
+            ("Deildartunguhver", "sight"),
+            ("Hraunfossar & Barnafoss", "sight"),
+        ],
+        "night": "Tjaldsvæðið búðardal",
+    },
+    {
+        "day": 2,
+        "title": "Vatnsnes and the north coast",
+        "summary": "Empty road, seals, and the horse-shaped sea stack.",
+        "note": "Everything today is free. Longest stretch without a fuel stop on either plan.",
+        "stops": [
+            ("Hvitserkur", "sight"),
+            ("Blönduós", "town"),
+            ("Skagaströnd", "town"),
+            ("Síldarminjasafn Íslands - The Herring Era Museum", "optional"),
+        ],
+        "night": "Siglufjörður",
+    },
+    {
+        "day": 3,
+        "title": "Akureyri, Goðafoss and the whales",
+        "summary": "Short driving day, built around the Húsavík split.",
+        "split": {
+            "where": "Húsavík harbour",
+            "note": "Both leave from the same harbour, about 100 m apart — regroup on the quay.",
+            "options": [
+                {"who": "Boat", "what": "Whale watching", "where": "Húsavík harbour",
+                 "duration": "~3 h", "book": "The single most expensive stop on the trip. Book ahead; weather-dependent."},
+                {"who": "Museum", "what": "Húsavík Whale Museum", "where": "Hafnarstétt 1",
+                 "duration": "~1.5 h", "book": "Walk in, roughly a fifth of the boat price."},
+            ],
+        },
+        "stops": [
+            ("Akureyri", "town"),
+            ("Góðafoss", "sight"),
+            ("Húsavík harbour", "split"),
+        ],
+        "night": "Húsavík",
+    },
+    {
+        "day": 4,
+        "title": "Ásbyrgi, Dettifoss, Mývatn",
+        "summary": "The geothermal day. Free apart from one car park and the optional baths.",
+        "note": "Hverir charges for parking. Mývatn Nature Baths is a per-person ticket — the "
+                "one genuinely optional spend today.",
+        "stops": [
+            ("Ásbyrgi Canyon", "sight"),
+            ("Dettifoss", "sight"),
+            ("Hverír", "sight"),
+            ("Grjótagjá", "sight"),
+            ("Dimmuborgir", "sight"),
+            ("Myvatn Nature Baths", "optional"),
+        ],
+        "night": "Möðrudalur – Fjalladýrð",
+    },
+    {
+        "day": 5,
+        "title": "Stuðlagil and the east fjords",
+        "summary": "Basalt columns, then down the fjord road.",
+        "note": "Stuðlagil is free; the walk from the east-bank car park is the good one.",
+        "stops": [
+            ("Stuðlagil Canyon", "sight"),
+            ("Egilsstaðir", "town"),
+            ("Fáskrúðsfjörður", "town"),
+            ("Petra's Stone Collection", "optional"),
+        ],
+        "night": "Tjaldvæðið Bragðavöllum",
+    },
+    {
+        "day": 6,
+        "title": "Glacier lagoon and Skaftafell",
+        "summary": "The big one, mirrored from the other direction. Start early.",
+        "note": "Four paid car parks in a row today — Jökulsárlón, Diamond Beach, Skaftafell and "
+                "Fjaðrárgljúfur. Same 330 km campsite gap as the other plan, just reversed.",
+        "stops": [
+            ("Stokksnes and Vestrahorn", "optional"),
+            ("Höfn", "town"),
+            ("Jökulsárlón Glacial Lagoon", "sight"),
+            ("Diamond Beach", "sight"),
+            ("Skaftafell", "sight"),
+            ("Svartifoss waterfall (Parking)", "hike"),
+            ("Fjaðrárgljúfur", "sight"),
+        ],
+        "night": "Kleifarmörk",
+    },
+    {
+        "day": 7,
+        "title": "South coast home",
+        "summary": "The postcard run, in reverse, on the way back to the city.",
+        "half": True,
+        "note": "Not really a half day — five headline stops and 4 h of driving. If you are flying "
+                "out this evening, drop Dyrhólaey and Gljúfrafoss.",
+        "stops": [
+            ("Vík í Mýrdal", "town"),
+            ("Reynisfjara Beach", "sight"),
+            ("Dyrhólaey", "sight"),
+            ("Skógafoss", "sight"),
+            ("Seljalandsfoss", "sight"),
+            ("Reykjavík", "end"),
+        ],
+        "night": None,
+    },
+]
+
+VARIANTS = {
+    "counter-clockwise": {
+        "label": "Counter-clockwise (south coast first)",
+        "days": COUNTERCLOCKWISE,
+        "note": "South coast early, empty north-west transit late. The half day at the end is short.",
+    },
+    "clockwise": {
+        "label": "Clockwise (north first)",
+        "days": CLOCKWISE,
+        "note": "North first, south coast last. Includes a free Reykjavík day, but the Golden "
+                "Circle drops out and the final day is not really a half day.",
+    },
+}
+
+
 def haversine(a, b):
     r = 6371.0
     dlat, dlon = math.radians(b[0] - a[0]), math.radians(b[1] - a[1])
@@ -206,12 +361,40 @@ def osrm(points):
     }
 
 
+def nkey(s):
+    s = unicodedata.normalize("NFC", str(s)).replace("\xa0", " ")
+    return re.sub(r"\s+", " ", s).casefold().strip()
+
+
+def cost_band(tickets):
+    """Group the curated tickets field into something you can budget against.
+
+    Car-park fees are per car and small; the per-person tickets are where the
+    money actually goes, so they are kept separate rather than lumped as 'paid'.
+    """
+    t = (tickets or "").lower()
+    if not t or "not assessed" in t:
+        return "unknown"
+    if "free" in t and "tour fee" not in t:
+        return "free"
+    if "parking" in t or "shuttle" in t:
+        return "parking fee (per car)"
+    if "pre-booking" in t or "entrance" in t or "tour fee" in t or "reservation" in t:
+        return "ticket (per person)"
+    return "unknown"
+
+
 def main():
     # simplify() recurses once per polyline split; OSRM legs are ~4k points deep.
     sys.setrecursionlimit(20000)
     places = load("iceland_places.csv")
     camps = load("iceland_campsites.csv")
     camp_pts = {n: (float(c["lat"]), float(c["lon"])) for n, c in camps.items()}
+
+    ranked = {}
+    with open(DATA / "iceland_places_ranked.csv", encoding="utf-8") as fh:
+        for r in csv.DictReader(fh):
+            ranked[nkey(r["name"])] = r
 
     def coord(name):
         if name in EXTRA:
@@ -220,61 +403,85 @@ def main():
             return (float(places[name]["lat"]), float(places[name]["lon"]))
         raise SystemExit(f"no coordinates for stop: {name!r}")
 
-    days, cursor = [], REYKJAVIK
-    for spec in ITINERARY:
-        stops = []
-        for name, kind in spec["stops"]:
-            lat, lon = coord(name)
-            src = places.get(name, {})
-            stops.append({"name": name, "kind": kind, "lat": lat, "lon": lon,
-                          "category": src.get("category", "")})
+    out_variants = {}
+    for key, spec in VARIANTS.items():
+        days, cursor = [], REYKJAVIK
+        for d_spec in spec["days"]:
+            stops = []
+            for name, kind in d_spec["stops"]:
+                lat, lon = coord(name)
+                rk = ranked.get(nkey(name), {})
+                stops.append({
+                    "name": name, "kind": kind, "lat": lat, "lon": lon,
+                    "category": rk.get("category", ""),
+                    "tier": rk.get("tier", ""),
+                    "popularity": rk.get("popularity", ""),
+                    "tickets": rk.get("tickets", ""),
+                    "cost": cost_band(rk.get("tickets")),
+                })
 
-        waypoints = [cursor] + [(s["lat"], s["lon"]) for s in stops]
-        night = camps.get(spec["night"]) if spec["night"] else None
-        if night:
-            waypoints.append(camp_pts[spec["night"]])
+            night = camps.get(d_spec["night"]) if d_spec["night"] else None
 
-        leg = osrm(waypoints)
-        time.sleep(1.0)  # be polite to the public OSRM server
+            if d_spec.get("no_drive"):
+                leg = {"km": 0.0, "hours": 0.0, "geometry": []}
+                end = cursor
+            else:
+                waypoints = [cursor] + [(s["lat"], s["lon"]) for s in stops]
+                if night:
+                    waypoints.append(camp_pts[d_spec["night"]])
+                leg = osrm(waypoints)
+                time.sleep(1.0)  # be polite to the public OSRM server
+                end = waypoints[-1]
 
-        end = waypoints[-1]
-        nearby = sorted(
-            ({"name": n, "km": round(haversine(end, p), 1),
-              "open": camps[n]["open"], "lat": p[0], "lon": p[1]}
-             for n, p in camp_pts.items()),
-            key=lambda c: c["km"],
-        )[:4]
+            nearby = sorted(
+                ({"name": n, "km": round(haversine(end, p), 1),
+                  "open": camps[n]["open"], "lat": p[0], "lon": p[1]}
+                 for n, p in camp_pts.items()),
+                key=lambda c: c["km"],
+            )[:4]
 
-        days.append({
-            **{k: v for k, v in spec.items() if k not in ("stops", "night")},
-            "stops": stops,
-            "km": leg["km"],
-            "driving_hours": leg["hours"],
-            "geometry": leg["geometry"],
-            "night": ({"name": night["name"], "lat": float(night["lat"]),
-                       "lon": float(night["lon"]), "open": night["open"],
-                       "tel": night["tel"], "website": night["website"],
-                       "facilities": night["facilities"], "page": night["page"]}
-                      if night else None),
-            "nearby_campsites": nearby,
-        })
-        days[-1]["long_day"] = leg["km"] > 300 or leg["hours"] > 5.0
-        cursor = end
-        print(f"day {spec['day']}: {leg['km']:>6.1f} km  {leg['hours']:>4.1f} h  "
-              f"-> {spec['night'] or 'Reykjavík'}")
+            days.append({
+                **{k: v for k, v in d_spec.items() if k not in ("stops", "night")},
+                "stops": stops,
+                "km": leg["km"],
+                "driving_hours": leg["hours"],
+                "geometry": leg["geometry"],
+                "long_day": leg["km"] > 300 or leg["hours"] > 5.0,
+                "night": ({"name": night["name"], "lat": float(night["lat"]),
+                           "lon": float(night["lon"]), "open": night["open"],
+                           "tel": night["tel"], "website": night["website"],
+                           "facilities": night["facilities"], "page": night["page"]}
+                          if night else None),
+                "nearby_campsites": nearby,
+            })
+            cursor = end
+            print(f"  day {d_spec['day']}: {leg['km']:>6.1f} km  {leg['hours']:>4.1f} h  "
+                  f"-> {d_spec['night'] or 'Reykjavík'}")
+
+        paid_parking = sum(1 for d in days for s in d["stops"] if s["cost"] == "parking fee (per car)")
+        tickets = sum(1 for d in days for s in d["stops"] if s["cost"] == "ticket (per person)")
+        out_variants[key] = {
+            "label": spec["label"],
+            "note": spec["note"],
+            "direction": key,
+            "total_km": round(sum(d["km"] for d in days), 1),
+            "total_driving_hours": round(sum(d["driving_hours"] for d in days), 1),
+            "paid_parking_stops": paid_parking,
+            "per_person_ticket_stops": tickets,
+            "days": days,
+        }
+        print(f"{spec['label']}: {out_variants[key]['total_km']} km / "
+              f"{out_variants[key]['total_driving_hours']} h · "
+              f"{paid_parking} paid car parks, {tickets} per-person tickets\n")
 
     out = {
         "title": "Iceland Ring Road — 6.5 days",
-        "start": "Reykjavík",
-        "end": "Reykjavík",
-        "direction": "counter-clockwise (south coast first)",
-        "total_km": round(sum(d["km"] for d in days), 1),
-        "total_driving_hours": round(sum(d["driving_hours"] for d in days), 1),
-        "days": days,
+        "start": "Reykjavík", "end": "Reykjavík",
+        "default": "counter-clockwise",
+        "variants": out_variants,
     }
-    (DATA / "route.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(f"\ntotal {out['total_km']} km / {out['total_driving_hours']} h driving")
-    print(f"written to {DATA / 'route.json'}")
+    (DATA / "routes.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"written to {DATA / 'routes.json'}")
 
 
 if __name__ == "__main__":

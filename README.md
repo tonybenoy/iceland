@@ -9,11 +9,25 @@ Star anything you fancy and hit **Copy picks** — it copies a plain list you ca
 paste straight into the chat. Picks live in your own browser only; nobody else
 sees them and nothing is sent anywhere.
 
-## The route
+## Two routes — pick one on the site
 
-Reykjavík → Reykjavík, counter-clockwise (south coast first), **1,928 km and
-32 h of moving time** over 6½ days. Every night lands at a campsite on the
-Útilegukortið card.
+Both start and end in Reykjavík and put every night on an Útilegukortið campsite.
+
+| | Counter-clockwise (v1) | Clockwise (v2) |
+|---|---|---|
+| Distance | 1,928 km | 1,957 km |
+| Driving | 32.2 h | 33.3 h |
+| Worst day | 403 km / 6.6 h | 414 km / 7.0 h |
+| Final half day | 226 km / 3.4 h | 248 km / **5.6 h** |
+| Golden Circle | yes | **no** |
+| Reykjavík day | no | yes (free, no driving) |
+| Paid car parks | 9 | 8 |
+| Per-person tickets | 2 | 2 |
+
+Clockwise buys a relaxed whale day (162 km), a free Reykjavík day, and Ásbyrgi,
+Hvítserkur and the Herring Museum. It costs the Golden Circle — Þingvellir,
+Geysir, Gullfoss, three of them free — and its last day isn't a half day, which
+matters if you're flying out that evening.
 
 | Day | | km | Driving | Night |
 |---|---|---:|---:|---|
@@ -27,6 +41,17 @@ Reykjavík → Reykjavík, counter-clockwise (south coast first), **1,928 km and
 
 Distances are real road routing from OSRM, not straight lines. **Driving hours
 exclude every stop** — budget 30–60 min per sight on top.
+
+### What things cost
+
+Stops carry a cost badge from the curated `tickets` field: `free`, `car park`
+(per car), or `ticket pp` (per person).
+
+Car-park fees are 600–1,000 ISK **per car** and total under ~10,000 ISK across
+the whole trip. That's not where the money goes. The per-person tickets are:
+Mývatn Nature Baths, Kerið, whale watching, and the Blue Lagoon if you add it.
+**One whale-watching trip for three people costs more than every car park on the
+route combined** — so that's the decision worth having, not the parking.
 
 Day 6 splits in Húsavík: whale watching (~3 h) or the Whale Museum (~1.5 h).
 Both leave from the same harbour about 100 m apart, so regrouping is easy —
