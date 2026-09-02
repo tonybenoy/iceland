@@ -125,7 +125,8 @@ function renderRoute() {
                 ${d.nearby_campsites.filter((c) => c.name !== d.night.name).slice(0, 3)
                   .map((c) => `${esc(c.name)} (${c.km} km)`).join(' · ')}</div>
             </div>` : `<div class="night"><strong>${
-              d.no_drive ? 'Your own beds — no driving today.' : 'Back in Reykjavík.'}</strong></div>`}
+              d.no_drive ? 'Your own beds — no driving today.'
+                : 'Car back at Keflavík — flight home.'}</strong></div>`}
         </div>
       </details>`).join('')}`;
 

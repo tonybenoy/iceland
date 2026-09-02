@@ -1,7 +1,7 @@
 # Iceland — 12–18 September
 
-One road trip, everything in it. Plus 325 sights, 215 campsites and 31 fuel
-stops on the same map.
+Two road trips, same week and same flight. Plus 325 sights, 215 campsites and
+31 fuel stops on the same map.
 
 **→ https://tonybenoy.github.io/iceland/**
 
@@ -79,6 +79,62 @@ The Westfjords are their own trip.
 whole week) and 2 per-person tickets. One whale trip for three costs more than
 every car park combined — that is the only real money decision.
 
+## The second route — the north coast
+
+Same week, same flight, same six nights. Starts in Reykjavík rather than at the
+airport, and spends the Golden Circle's hours on the north instead.
+
+**2,131 km · 36.3 h driving · 57 stops · longest day 11.5 h · no camping card.**
+
+| Day | | km | 07:00 → | Night |
+|---|---|---:|---|---|
+| 1 Sat 12 | Out of Reykjavík, the whole south coast | 297 | 18:23 | Kirkjubæjarklaustur |
+| 2 Sun 13 | Klaustur cluster, Svartifoss, glacier lagoon | 356 | 18:30 | Berunes |
+| 3 Mon 14 | East fjords, Stuðlagil and Mývatn | 366 | 17:18 | Hlíð (Mývatn) |
+| 4 Tue 15 | Dettifoss, Ásbyrgi and the whales | 239 | 15:35 | Vaglaskógur |
+| 5 Wed 16 | The Tröllaskagi coast | 414 | 16:36 | Borgarnes |
+| 6 Thu 17 | Snæfellsnes, unhurried | 219 | 15:00 | Arnarstapi |
+| 7 Fri 18 | Snæfellsnes south, then the plane | 241 | 12:05 | — |
+
+**Out:** the whole Golden Circle (Þingvellir, Öxarárfoss, Lögberg, Geysir,
+Strokkur, Gullfoss, Brúarhlöð, Kerið) and all of Vatnsnes (Vatnsdalshólar,
+Borgarvirki, Hvítserkur, Kolugljúfur).
+
+**In:** Ásbyrgi, Dalvík, Ólafsfjörður, Siglufjörður, the Hofsós pool,
+Sauðárkrókur, Stykkishólmur and Vatnshellir. 47 stops are common to both.
+
+### Why those two swaps
+
+- **Ásbyrgi is nearly free.** Route 862 is paved the whole way from Route 1
+  north to Route 85, so Dettifoss sits on a through-road, not an out-and-back —
+  and Ásbyrgi is on the exit. It costs **7.5 km and eleven minutes**.
+- **Tröllaskagi is the cheapest unseen ground on the island.** Route 1 does
+  Akureyri to Blönduós in 143 km and shows you nothing; the coast road through
+  Siglufjörður and Hofsós does it in 219 km. **+76 km, +1.4 h** for a fjord town
+  and a seaside pool.
+- **Vatnsnes had to go.** Hvítserkur is a 68 km spur, and bolted onto the
+  Tröllaskagi day it pushed Wednesday to 11.0 h. You cannot have both
+  peninsulas in one day; v4 takes Vatnsnes, v5 takes Tröllaskagi.
+
+### The real difference is the shape, not the length
+
+```
+v4  9.4  11.4  8.9  10.3  10.6  11.7  5.1     hardest day is second-to-last
+v5 11.4  11.5 10.3   8.6   9.6   8.0  5.1     hardest days first, easy back half
+```
+
+Both peak around 11.5 h, so v5 is not the gentler week overall — it front-loads
+the effort and leaves Snæfellsnes a full day and a morning instead of one 11.7 h
+push. It also drives 132 km less in total.
+
+The cost of starting in town rather than at Skaftafell: **Svartifoss stops being
+a dawn walk from your tent** and becomes a mid-morning stop 50 km up the road
+from Kirkjubæjarklaustur, with company. That is the one thing v4 does better.
+
+Akureyri's own campsite is not in the OSM extract, so night 4 is Vaglaskógur in
+the forest 20 km east and Akureyri opens day 5 instead. If you would rather
+sleep in town, book Hamrar direct — it will not appear in the campsite list.
+
 ## Datasets
 
 | File | Rows | Source |
@@ -87,8 +143,8 @@ every car park combined — that is the only real money decision.
 | `data/iceland_places.csv` / `.json` | 332 | [adventures.com map of Iceland](https://adventures.com/information/map-of-iceland/) (raw) |
 | `data/iceland_campsites.csv` / `.json` | 30 | [utilegukortid.is](https://utilegukortid.is/all-camping-sites/?lang=en) |
 | `data/iceland_gas_stations.csv` / `.json` | 31 | [Google My Map](https://www.google.com/maps/d/u/0/viewer?mid=1wTIeHwmiHN2QQcL_ySY7_rmLaxHkan6o) |
-| `data/routes.json` | 3 routes | built from the above + OSRM |
-| `data/route_stops.csv` | 125 rows | every stop in every route, flat, for sorting |
+| `data/routes.json` | 2 routes | built from the above + OSRM |
+| `data/route_stops.csv` | 118 rows | every stop in every route, flat, for sorting |
 | `data/iceland_campsites_all.csv` / `.json` | 215 | OpenStreetMap (Overpass) |
 
 ### Read `confidence` before you trust a row

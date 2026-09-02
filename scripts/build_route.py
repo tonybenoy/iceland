@@ -98,13 +98,7 @@ EXTRA = {
 STOP_MINUTES = {
     "start": 30, "end": 0, "town": 20, "quick": 15,
     "sight": 35, "hike": 90, "optional": 30, "split": 180,
-}
-TIER1_SIGHT_MINUTES = 45
-
-# Rough time on the ground per stop. "quick" is a roadside look or a short walk.
-STOP_MINUTES = {
-    "start": 30, "end": 0, "town": 20, "quick": 15,
-    "sight": 35, "hike": 90, "optional": 30, "split": 180,
+    "swim": 60, "tour": 45,
 }
 TIER1_SIGHT_MINUTES = 45
 
@@ -184,11 +178,105 @@ FINAL = [
      "night": None},
 ]
 
+# Same week, same flight, but the Golden Circle comes out and the hours go into
+# the north instead: Asbyrgi, which is nearly free because Route 862 is a
+# through-road, and the Trollaskagi coast, which costs 1.4 h more than the
+# Route 1 shortcut it replaces. Buys back enough slack to do Snaefellsnes over a
+# day and a morning rather than one 11.7 h push, so nothing finishes after dark.
+NORTH = [
+    {"day": 1, "title": "Out of Reykjavík, the whole south coast",
+     "summary": "Six waterfalls, two headlands, a black beach, finishing at the canyon.",
+     "note": "Gljúfrafoss is 600 m from Seljalandsfoss and half of people miss it. Shop in "
+             "Selfoss — last big supermarket before the south coast.",
+     "stops": [("Reykjavík", "start"), ("Urridafoss", "quick"), ("Seljalandsfoss", "sight"),
+               ("Gljúfrafoss", "quick"), ("Skógafoss", "sight"), ("Kvarnarhólsárfoss", "quick"),
+               ("Dyrhólaey", "sight"), ("Dyrhólaey lighthouse", "quick"),
+               ("Reynisfjara Beach", "sight"), ("Vík í Mýrdal", "town"),
+               ("Fjaðrárgljúfur", "sight")],
+     "night": "Kirkjubær II"},
+    {"day": 2, "title": "Klaustur cluster, Svartifoss and the glacier lagoon",
+     "summary": "Five stops within a kilometre of the road, then the park, the lagoon, Vestrahorn.",
+     "note": "The five stops around Kirkjubæjarklaustur are ten minutes each. Svartifoss is a "
+             "45-minute walk up from the Skaftafell car park — you are not camped at the foot of "
+             "it in this version, so expect company. Stokksnes is private land, about 1,000 ISK.",
+     "stops": [("Stjórnarfoss", "quick"), ("Systrafoss", "quick"), ("Kirkjugólf", "quick"),
+               ("Foss á Sídu", "quick"), ("Dverghamrar", "quick"),
+               ("Svartifoss waterfall (Parking)", "hike"), ("Hofskirkja", "quick"),
+               ("Jökulsárlón Glacial Lagoon", "sight"), ("Diamond Beach", "sight"),
+               ("Höfn", "town"), ("Stokksnes and Vestrahorn", "sight")],
+     "night": "Camping Berunes"},
+    {"day": 3, "title": "East fjords, Stuðlagil and Mývatn",
+     "summary": "The fjord road, the basalt canyon, then the whole geothermal lake in the evening.",
+     "note": "Stuðlagil's east-bank car park is the one with the good walk down, and the 38 km "
+             "round trip down Jökuldalur is the most expensive single detour in the week — it is "
+             "the first thing to drop if the weather turns.",
+     "stops": [("Petra's Stone Collection", "optional"), ("Fáskrúðsfjörður", "town"),
+               ("Reyðarfjörður", "quick"), ("Egilsstaðir", "town"), ("Fardagafoss", "quick"),
+               ("Stuðlagil Canyon", "sight"), ("Krafla Power Plant", "quick"),
+               ("Hverír", "sight"), ("Grjótagjá", "quick"), ("Dimmuborgir", "sight")],
+     "night": "Hlíð"},
+    {"day": 4, "title": "Dettifoss, Ásbyrgi and the whales",
+     "summary": "The Diamond Circle done properly, including the canyon most people drive past.",
+     "note": "Route 862 is paved the whole way from Route 1 north to Route 85, so Dettifoss and "
+             "Ásbyrgi sit on a through-road rather than an out-and-back — Ásbyrgi costs eleven "
+             "minutes of driving. Book the whale trip now; September sailings fill and get "
+             "cancelled for weather. Akureyri's own campsite is not in the OSM extract, so "
+             "tonight is Vaglaskógur in the forest 20 km east, and Akureyri opens tomorrow.",
+     "split": {"where": "Húsavík harbour",
+               "note": "Both leave from the same harbour, about 100 m apart — regroup on the quay.",
+               "options": [
+                   {"who": "Boat", "what": "Whale watching", "where": "Húsavík harbour",
+                    "duration": "~3 h", "book": "Book ahead. The one big spend of the trip."},
+                   {"who": "Museum", "what": "Húsavík Whale Museum", "where": "Hafnarstétt 1",
+                    "duration": "~1.5 h", "book": "For anyone not sailing, or if it blows out."}]},
+     "stops": [("Dettifoss", "sight"), ("Ásbyrgi Canyon", "sight"),
+               ("Húsavík harbour", "split"), ("Góðafoss", "sight")],
+     "night": "Vaglaskógur"},
+    {"day": 5, "title": "The Tröllaskagi coast",
+     "summary": "Akureyri, then the north coast road instead of Route 1 — Siglufjörður and a swim.",
+     "note": "Route 1 does Akureyri to Blönduós in two hours and shows you nothing. The coast "
+             "road costs about 78 km and 1.4 h more and is the cheapest unseen ground on the "
+             "trip. Hofsós is 1,400 ISK a head and runs 07:00–20:00 on weekdays until "
+             "20 September — after that it shuts 13:00–17:00 and this stop stops working. "
+             "Bring your own towels; rental is 852 ISK each. No Vatnsnes today: Hvítserkur is a "
+             "68 km spur and you cannot have both peninsulas in one day. v4 takes that one.",
+     "stops": [("Akureyri", "town"), ("Dalvik", "town"), ("Ólafsfjarðar", "quick"),
+               ("Siglufjördur", "sight"), ("Geothermal pool in Hofsós", "swim"),
+               ("Sauðárkrókur", "town"), ("Borgarnes", "town")],
+     "night": "Tjaldsvæðið Borgarnesi"},
+    {"day": 6, "title": "Snæfellsnes, unhurried",
+     "summary": "The whole peninsula with time to stop — Stykkishólmur, Kirkjufell, a lava tube.",
+     "note": "v4 covers this same ground in one 11.7 h push; here it gets a day and a morning. "
+             "Vatnshellir is a guided 45-minute descent on a fixed tour schedule, about "
+             "5,900 ISK a head — turn up for a departure, you cannot just walk in. "
+             "Grundarfjörður's campsite shut on 15 September, so tonight is Arnarstapi on the "
+             "south side — which also makes the flight morning short.",
+     "stops": [("Gerduberg Cliffs", "quick"), ("Stykkishólmur", "town"), ("Kirkjufell", "sight"),
+               ("Kirkjufellsfoss", "quick"), ("Olafsvík", "town"), ("Saxhóll", "quick"),
+               ("Djúpalónssandur", "sight"), ("Vatnshellir", "tour"),
+               ("Londrangar Basalt Cliffs", "quick")],
+     "night": "Tjaldsvæðið á Arnastapa"},
+    {"day": 7, "title": "Snæfellsnes south, then the plane", "half": True,
+     "summary": "Three stops on the doorstep, then a clear run to Keflavík.",
+     "note": "Deliberately short. Aim to be at KEF by 15:00 for the 17:00 flight — you should "
+             "manage it by lunchtime with an early start.",
+     "stops": [("Arnarstapi", "sight"), ("Rauðfeldsgjá Gorge", "quick"), ("Búðir church", "quick"),
+               ("Borgarnes", "town"), ("Keflavík Airport", "end")],
+     "night": None},
+]
+
 VARIANTS = {
     "final": {"version": "v4", "label": "The whole island — 12–18 September", "days": FINAL,
               "note": "South, east, north and west including all of Snæfellsnes, with the "
                       "Húsavík whale boat. Six nights, no camping card, early starts. Day 6 "
                       "finishes after dark on purpose."},
+    "north": {"version": "v5", "label": "The north coast — 12–18 September", "days": NORTH,
+              "start": REYKJAVIK,
+              "note": "No Golden Circle in this one, and no Vatnsnes. Those hours go north "
+                      "instead — Ásbyrgi, which is eleven minutes of driving, and the "
+                      "Tröllaskagi coast with Siglufjörður and the Hofsós pool. Starts in "
+                      "Reykjavík, and Snæfellsnes gets a day and a morning rather than one "
+                      "long push, so nothing finishes in the dark."},
 }
 
 
@@ -288,7 +376,8 @@ def main():
 
     out_variants = {}
     for key, spec in VARIANTS.items():
-        days, cursor = [], AIRPORT
+        # most variants collect the car at KEF; one starts from town instead
+        days, cursor = [], spec.get("start", AIRPORT)
         for d_spec in spec["days"]:
             stops = []
             for name, kind in d_spec["stops"]:
