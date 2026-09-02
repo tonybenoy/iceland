@@ -3,7 +3,7 @@
 
 const $ = (s) => document.querySelector(s);
 const D = { places: [], camps: [], fuel: [], routes: null };
-let variant = localStorage.getItem('iceland.variant') || 'final';
+let variant = localStorage.getItem('iceland.variant') || '';
 const PICK_KEY = 'iceland.picks.v1';
 
 /* ---------- picks (local to each viewer's browser) ---------- */
@@ -69,7 +69,7 @@ function costBadge(s) {
 
 function renderRoute() {
   const all = D.routes.variants;
-  if (!all[variant]) variant = Object.keys(all)[0];
+  if (!all[variant]) variant = all[D.routes.default] ? D.routes.default : Object.keys(all)[0];
   const r = all[variant];
   const el = $('#view-route');
   el.innerHTML = `
@@ -343,11 +343,12 @@ Promise.all([
   j('data/routes.json'),
 ]).then(([places, camps, fuel, routes]) => {
   D.places = places; D.camps = camps; D.fuel = fuel; D.routes = routes;
-  // a stored variant from an older build may no longer exist
+  // nobody has picked yet, or a stored variant from an older build is gone
   const keys = Object.keys(routes.variants);
   if (!routes.variants[variant]) {
     variant = routes.variants[routes.default] ? routes.default : keys[0];
-    try { localStorage.setItem('iceland.variant', variant); } catch (_) {}
+    // deliberately not stored: an unpicked viewer should follow routes.default
+    // if it changes, and only a click on a variant button is a real choice
   }
 
   fillSelect($('#fCategory'), places.map((p) => p.category));

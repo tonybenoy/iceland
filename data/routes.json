@@ -2,7 +2,7 @@
  "title": "Iceland Ring Road — 6.5 days",
  "start": "Keflavík Airport",
  "end": "Keflavík Airport",
- "default": "final",
+ "default": "north",
  "start_date": "2026-09-12",
  "flight": "17:00 on Fri 18 Sept",
  "variants": {

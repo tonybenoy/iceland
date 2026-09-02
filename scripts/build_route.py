@@ -265,6 +265,9 @@ NORTH = [
      "night": None},
 ]
 
+# which variant the site opens on for a viewer who has never picked one
+DEFAULT_VARIANT = "north"
+
 VARIANTS = {
     "final": {"version": "v4", "label": "The whole island — 12–18 September", "days": FINAL,
               "note": "South, east, north and west including all of Snæfellsnes, with the "
@@ -489,7 +492,7 @@ def main():
     out = {
         "title": "Iceland Ring Road — 6.5 days",
         "start": "Keflavík Airport", "end": "Keflavík Airport",
-        "default": next(iter(out_variants)),
+        "default": DEFAULT_VARIANT,
         "start_date": START_DATE.isoformat(),
         "flight": FLIGHT_HOME,
         "variants": out_variants,
