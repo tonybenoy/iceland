@@ -1,1 +1,1777 @@
-{"63.39975,-19.126": {"region": "", "county": "", "locality": ""}, "63.4024,-19.03974": {"region": "Suðurland", "county": "Mýrdalshreppur", "locality": ""}, "63.40307,-19.11552": {"region": "Suðurland", "county": "Mýrdalshreppur", "locality": ""}, "63.41863,-19.00605": {"region": "Suðurland", "county": "Mýrdalshreppur", "locality": ""}, "63.41928,-18.99562": {"region": "Suðurland", "county": "Mýrdalshreppur", "locality": ""}, "63.42034,-18.74945": {"region": "Suðurland", "county": "Mýrdalshreppur", "locality": ""}, "63.42226,-20.27527": {"region": "Suðurland", "county": "", "locality": "Vestmannaeyjabær"}, "63.43086,-20.2684": {"region": "Suðurland", "county": "", "locality": "Vestmannaeyjabær"}, "63.45909,-19.36468": {"region": "Suðurland", "county": "Mýrdalshreppur", "locality": ""}, "63.50696,-18.90309": {"region": "Suðurland", "county": "Mýrdalshreppur", "locality": ""}, "63.52616,-19.49299": {"region": "Suðurland", "county": "Rangárþing eystra", "locality": ""}, "63.52878,-19.4813": {"region": "Suðurland", "county": "Rangárþing eystra", "locality": ""}, "63.5321,-19.51164": {"region": "Suðurland", "county": "Rangárþing eystra", "locality": ""}, "63.55694,-19.30278": {"region": "Suðurland", "county": "Mýrdalshreppur", "locality": ""}, "63.56599,-19.60862": {"region": "Suðurland", "county": "Rangárþing eystra", "locality": ""}, "63.61549,-19.98833": {"region": "Suðurland", "county": "Rangárþing eystra", "locality": ""}, "63.62125,-19.98812": {"region": "Suðurland", "county": "Rangárþing eystra", "locality": ""}, "63.62201,-19.43072": {"region": "Suðurland", "county": "Rangárþing eystra", "locality": ""}, "63.62733,-19.06291": {"region": "Suðurland", "county": "Mýrdalshreppur", "locality": ""}, "63.63141,-19.60832": {"region": "Suðurland", "county": "Rangárþing eystra", "locality": ""}, "63.6449,-19.03553": {"region": "Suðurland", "county": "Skaftárhreppur", "locality": ""}, "63.64673,-19.13028": {"region": "Suðurland", "county": "Skaftárhreppur", "locality": ""}, "63.66774,-19.85341": {"region": "Suðurland", "county": "Rangárþing eystra", "locality": ""}, "63.67493,-19.55755": {"region": "Suðurland", "county": "Rangárþing eystra", "locality": ""}, "63.70266,-19.42715": {"region": "Suðurland", "county": "Rangárþing eystra", "locality": ""}, "63.72103,-19.89372": {"region": "Suðurland", "county": "Rangárþing eystra", "locality": ""}, "63.75032,-20.20949": {"region": "Suðurland", "county": "Rangárþing eystra", "locality": ""}, "63.75317,-20.23627": {"region": "Suðurland", "county": "Rangárþing eystra", "locality": ""}, "63.76096,-20.16317": {"region": "Suðurland", "county": "Rangárþing eystra", "locality": ""}, "63.77128,-18.17182": {"region": "Suðurland", "county": "Skaftárhreppur", "locality": ""}, "63.78007,-18.08975": {"region": "Suðurland", "county": "Skaftárhreppur", "locality": ""}, "63.78753,-18.05959": {"region": "Suðurland", "county": "Skaftárhreppur", "locality": ""}, "63.79537,-18.04638": {"region": "Suðurland", "county": "Skaftárhreppur", "locality": ""}, "63.79845,-18.05401": {"region": "Suðurland", "county": "Skaftárhreppur", "locality": ""}, "63.79975,-18.0613": {"region": "Suðurland", "county": "Skaftárhreppur", "locality": ""}, "63.8,-16.64": {"region": "Suðurland", "county": "Sveitarfélagið Hornafjörður", "locality": ""}, "63.8125,-22.71562": {"region": "Suðurnes", "county": "", "locality": "Reykjanesbær"}, "63.81364,-22.71472": {"region": "Suðurnes", "county": "", "locality": "Reykjanesbær"}, "63.81798,-22.59891": {"region": "Suðurnes", "county": "Grindavíkurbær", "locality": ""}, "63.81986,-22.6874": {"region": "Suðurnes", "county": "Grindavíkurbær", "locality": ""}, "63.8237,-22.67149": {"region": "Suðurnes", "county": "Grindavíkurbær", "locality": ""}, "63.82736,-22.46754": {"region": "Suðurnes", "county": "Grindavíkurbær", "locality": ""}, "63.83222,-21.68819": {"region": "Suðurland", "county": "Sveitarfélagið Ölfus", "locality": ""}, "63.83551,-21.0559": {"region": "Suðurland", "county": "Sveitarfélagið Árborg", "locality": ""}, "63.83577,-21.70466": {"region": "Suðurland", "county": "Sveitarfélagið Ölfus", "locality": ""}, "63.83593,-21.08833": {"region": "", "county": "", "locality": ""}, "63.83661,-21.06406": {"region": "Suðurland", "county": "Sveitarfélagið Árborg", "locality": ""}, "63.83802,-22.24071": {"region": "Suðurnes", "county": "Grindavíkurbær", "locality": ""}, "63.84005,-22.24514": {"region": "Suðurnes", "county": "Grindavíkurbær", "locality": ""}, "63.84016,-22.54953": {"region": "Suðurnes", "county": "Grindavíkurbær", "locality": ""}, "63.84391,-22.42015": {"region": "Suðurnes", "county": "Grindavíkurbær", "locality": ""}, "63.849,-17.86147": {"region": "Suðurland", "county": "Skaftárhreppur", "locality": ""}, "63.85201,-21.39152": {"region": "Suðurland", "county": "Sveitarfélagið Ölfus", "locality": ""}, "63.85296,-21.38443": {"region": "Suðurland", "county": "Sveitarfélagið Ölfus", "locality": ""}, "63.8537,-17.87208": {"region": "Suðurland", "county": "Skaftárhreppur", "locality": ""}, "63.85446,-22.2964": {"region": "Suðurnes", "county": "Grindavíkurbær", "locality": ""}, "63.8564,-22.53855": {"region": "Suðurnes", "county": "Grindavíkurbær", "locality": ""}, "63.86006,-22.33512": {"region": "Suðurnes", "county": "Grindavíkurbær", "locality": ""}, "63.86395,-20.21746": {"region": "Suðurland", "county": "Rangárþing ytra", "locality": ""}, "63.86522,-22.43692": {"region": "Suðurnes", "county": "Grindavíkurbær", "locality": ""}, "63.86833,-22.6755": {"region": "Suðurnes", "county": "", "locality": "Reykjanesbær"}, "63.88011,-22.44935": {"region": "Suðurnes", "county": "Grindavíkurbær", "locality": ""}, "63.88134,-22.73622": {"region": "Suðurnes", "county": "", "locality": "Reykjanesbær"}, "63.88469,-22.05449": {"region": "Höfuðborgarsvæðið", "county": "", "locality": "Hafnarfjarðarkaupstaður"}, "63.895,-18.75387": {"region": "Suðurland", "county": "Skaftárhreppur", "locality": ""}, "63.89574,-22.05177": {"region": "Höfuðborgarsvæðið", "county": "", "locality": "Hafnarfjarðarkaupstaður"}, "63.89756,-22.28687": {"region": "Suðurnes", "county": "Grindavíkurbær", "locality": ""}, "63.90557,-22.41057": {"region": "Suðurnes", "county": "Grindavíkurbær", "locality": ""}, "63.90697,-16.70695": {"region": "Suðurland", "county": "Sveitarfélagið Hornafjörður", "locality": ""}, "63.91806,-19.38812": {"region": "Suðurland", "county": "Rangárþing ytra", "locality": ""}, "63.92017,-21.98296": {"region": "Suðurnes", "county": "Grindavíkurbær", "locality": ""}, "63.92461,-20.67219": {"region": "Suðurland", "county": "Flóahreppur", "locality": ""}, "63.92573,-21.97159": {"region": "Suðurnes", "county": "Grindavíkurbær", "locality": ""}, "63.93153,-22.10119": {"region": "Suðurnes", "county": "Grindavíkurbær", "locality": ""}, "63.93751,-20.99642": {"region": "Suðurland", "county": "Sveitarfélagið Árborg", "locality": ""}, "63.94064,-21.39707": {"region": "Suðurland", "county": "Sveitarfélagið Ölfus", "locality": ""}, "63.94081,-22.1675": {"region": "Suðurnes", "county": "", "locality": "Sveitarfélagið Vogar"}, "63.96479,-18.61783": {"region": "Suðurland", "county": "Skaftárhreppur", "locality": ""}, "63.97639,-16.77": {"region": "Suðurland", "county": "Sveitarfélagið Hornafjörður", "locality": ""}, "63.97702,-21.60376": {"region": "Suðurland", "county": "Sveitarfélagið Ölfus", "locality": ""}, "63.983,-19.067": {"region": "Suðurland", "county": "Rangárþing ytra", "locality": ""}, "63.99226,-19.66581": {"region": "Suðurland", "county": "Rangárþing ytra", "locality": ""}, "63.99231,-19.05964": {"region": "Suðurland", "county": "Rangárþing ytra", "locality": ""}, "63.99526,-16.97098": {"region": "Suðurland", "county": "Sveitarfélagið Hornafjörður", "locality": ""}, "63.99846,-21.69896": {"region": "Höfuðborgarsvæðið", "county": "", "locality": "Kópavogsbær"}, "64.00102,-21.1872": {"region": "Suðurland", "county": "", "locality": "Hveragerðisbær"}, "64.00321,-21.79516": {"region": "Höfuðborgarsvæðið", "county": "", "locality": "Hafnarfjarðarkaupstaður"}, "64.00547,-22.05288": {"region": "Höfuðborgarsvæðið", "county": "", "locality": "Hafnarfjarðarkaupstaður"}, "64.01859,-16.82148": {"region": "Suðurland", "county": "Sveitarfélagið Hornafjörður", "locality": ""}, "64.02134,-20.25551": {"region": "Suðurland", "county": "Skeiða- og Gnúpverjahreppur", "locality": ""}, "64.02211,-20.52197": {"region": "Suðurland", "county": "Skeiða- og Gnúpverjahreppur", "locality": ""}, "64.02641,-16.97671": {"region": "Suðurland", "county": "Sveitarfélagið Hornafjörður", "locality": ""}, "64.0321,-21.21558": {"region": "Suðurland", "county": "Sveitarfélagið Ölfus", "locality": ""}, "64.0368,-22.68743": {"region": "Suðurnes", "county": "Suðurnesjabær", "locality": ""}, "64.03709,-21.4012": {"region": "Suðurland", "county": "Sveitarfélagið Ölfus", "locality": ""}, "64.03934,-22.69985": {"region": "Suðurnes", "county": "Suðurnesjabær", "locality": ""}, "64.04118,-22.71262": {"region": "Suðurnes", "county": "Suðurnesjabær", "locality": ""}, "64.04128,-20.88514": {"region": "Suðurland", "county": "Grímsnes- og Grafningshreppur", "locality": ""}, "64.04159,-20.25034": {"region": "Suðurland", "county": "Skeiða- og Gnúpverjahreppur", "locality": ""}, "64.04276,-16.18147": {"region": "Suðurland", "county": "Sveitarfélagið Hornafjörður", "locality": ""}, "64.04547,-21.91154": {"region": "Höfuðborgarsvæðið", "county": "", "locality": "Hafnarfjarðarkaupstaður"}, "64.05043,-16.19076": {"region": "Suðurland", "county": "Sveitarfélagið Hornafjörður", "locality": ""}, "64.06471,-22.63809": {"region": "Suðurnes", "county": "Suðurnesjabær", "locality": ""}, "64.06562,-20.64187": {"region": "Suðurland", "county": "Grímsnes- og Grafningshreppur", "locality": ""}, "64.0686,-16.22046": {"region": "Suðurland", "county": "Sveitarfélagið Hornafjörður", "locality": ""}, "64.07041,-16.97518": {"region": "Suðurland", "county": "Sveitarfélagið Hornafjörður", "locality": ""}, "64.07169,-21.89254": {"region": "Höfuðborgarsvæðið", "county": "", "locality": "Garðabær"}, "64.08045,-16.2299": {"region": "Suðurland", "county": "Sveitarfélagið Hornafjörður", "locality": ""}, "64.08233,-22.69037": {"region": "Suðurnes", "county": "Suðurnesjabær", "locality": ""}, "64.08811,-20.43054": {"region": "Suðurland", "county": "Hrunamannahreppur", "locality": ""}, "64.09452,-21.01024": {"region": "Suðurland", "county": "Grímsnes- og Grafningshreppur", "locality": ""}, "64.09556,-21.75167": {"region": "Höfuðborgarsvæðið", "county": "Reykjavíkurborg", "locality": "Reykjavíkurborg"}, "64.10823,-21.25713": {"region": "Suðurland", "county": "Grímsnes- og Grafningshreppur", "locality": ""}, "64.1112,-22.60849": {"region": "", "county": "", "locality": ""}, "64.11574,-20.50344": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.11617,-19.85124": {"region": "Suðurland", "county": "Skeiða- og Gnúpverjahreppur", "locality": ""}, "64.12126,-21.93013": {"region": "", "county": "", "locality": ""}, "64.12529,-20.52444": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.12971,-16.01867": {"region": "Suðurland", "county": "Sveitarfélagið Hornafjörður", "locality": ""}, "64.13365,-22.14072": {"region": "", "county": "", "locality": ""}, "64.13479,-21.75548": {"region": "Höfuðborgarsvæðið", "county": "Reykjavíkurborg", "locality": "Reykjavíkurborg"}, "64.13619,-21.72522": {"region": "Höfuðborgarsvæðið", "county": "Reykjavíkurborg", "locality": "Reykjavíkurborg"}, "64.13789,-20.30986": {"region": "Suðurland", "county": "Hrunamannahreppur", "locality": ""}, "64.14163,-21.88517": {"region": "Höfuðborgarsvæðið", "county": "Reykjavíkurborg", "locality": "Reykjavíkurborg"}, "64.14171,-21.92664": {"region": "Höfuðborgarsvæðið", "county": "Reykjavíkurborg", "locality": "Reykjavíkurborg"}, "64.14303,-21.91564": {"region": "Höfuðborgarsvæðið", "county": "Reykjavíkurborg", "locality": "Reykjavíkurborg"}, "64.14684,-21.71051": {"region": "Höfuðborgarsvæðið", "county": "Reykjavíkurborg", "locality": "Reykjavíkurborg"}, "64.14761,-21.92229": {"region": "Höfuðborgarsvæðið", "county": "Reykjavíkurborg", "locality": "Reykjavíkurborg"}, "64.14824,-21.93783": {"region": "Höfuðborgarsvæðið", "county": "Reykjavíkurborg", "locality": "Reykjavíkurborg"}, "64.15034,-21.9327": {"region": "Höfuðborgarsvæðið", "county": "Reykjavíkurborg", "locality": "Reykjavíkurborg"}, "64.15767,-22.0178": {"region": "Höfuðborgarsvæðið", "county": "", "locality": "Seltjarnarnesbær"}, "64.16238,-22.00827": {"region": "Höfuðborgarsvæðið", "county": "", "locality": "Seltjarnarnesbær"}, "64.1643,-21.8529": {"region": "Höfuðborgarsvæðið", "county": "Reykjavíkurborg", "locality": "Reykjavíkurborg"}, "64.16499,-22.022": {"region": "Höfuðborgarsvæðið", "county": "", "locality": "Seltjarnarnesbær"}, "64.17566,-21.95103": {"region": "", "county": "", "locality": ""}, "64.17836,-20.44781": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.20789,-19.68685": {"region": "Suðurland", "county": "Skeiða- og Gnúpverjahreppur", "locality": ""}, "64.21471,-20.73017": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.22207,-20.73309": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.22641,-20.33962": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.22887,-20.28581": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.24245,-20.55164": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.24407,-14.96484": {"region": "Suðurland", "county": "Sveitarfélagið Hornafjörður", "locality": ""}, "64.24519,-20.40024": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.2497,-15.20201": {"region": "", "county": "", "locality": ""}, "64.25041,-15.20385": {"region": "Suðurland", "county": "Sveitarfélagið Hornafjörður", "locality": ""}, "64.25529,-21.11683": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.25566,-21.13003": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.25712,-21.13071": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.25975,-21.12236": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.26592,-21.1183": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.27043,-21.11065": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.27562,-16.47391": {"region": "Suðurland", "county": "Sveitarfélagið Hornafjörður", "locality": ""}, "64.27915,-20.35827": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.29795,-15.67028": {"region": "Suðurland", "county": "Sveitarfélagið Hornafjörður", "locality": ""}, "64.30138,-20.15528": {"region": "Suðurland", "county": "Hrunamannahreppur", "locality": ""}, "64.30195,-21.86312": {"region": "", "county": "", "locality": ""}, "64.30776,-22.09544": {"region": "Vesturland", "county": "", "locality": "Akraneskaupstaður"}, "64.31118,-20.23383": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.31305,-20.30053": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.31388,-20.29954": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.31989,-22.04508": {"region": "Vesturland", "county": "", "locality": "Akraneskaupstaður"}, "64.32192,-22.07028": {"region": "Vesturland", "county": "", "locality": "Akraneskaupstaður"}, "64.32555,-20.12953": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.32567,-20.41821": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.32586,-20.12659": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.32607,-22.06751": {"region": "Vesturland", "county": "", "locality": "Akraneskaupstaður"}, "64.32737,-20.12135": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.33794,-19.19554": {"region": "Suðurland", "county": "Skeiða- og Gnúpverjahreppur", "locality": ""}, "64.38449,-21.28835": {"region": "Vesturland", "county": "Hvalfjarðarsveit", "locality": ""}, "64.39168,-21.25057": {"region": "Vesturland", "county": "Hvalfjarðarsveit", "locality": ""}, "64.39931,-23.02734": {"region": "", "county": "", "locality": ""}, "64.40613,-15.40695": {"region": "Suðurland", "county": "Sveitarfélagið Hornafjörður", "locality": ""}, "64.41043,-21.61137": {"region": "Vesturland", "county": "Hvalfjarðarsveit", "locality": ""}, "64.47333,-14.93": {"region": "Suðurland", "county": "Sveitarfélagið Hornafjörður", "locality": ""}, "64.53566,-21.92356": {"region": "Vesturland", "county": "", "locality": "Borgarbyggð"}, "64.64405,-14.51658": {"region": "Austurland", "county": "Múlaþing", "locality": ""}, "64.65078,-20.58265": {"region": "Vesturland", "county": "", "locality": "Borgarbyggð"}, "64.65501,-20.24378": {"region": "Vesturland", "county": "", "locality": "Borgarbyggð"}, "64.65619,-20.15315": {"region": "Suðurland", "county": "Bláskógabyggð", "locality": ""}, "64.66503,-21.2911": {"region": "Vesturland", "county": "", "locality": "Borgarbyggð"}, "64.68921,-21.59292": {"region": "Vesturland", "county": "", "locality": "Borgarbyggð"}, "64.70221,-20.9776": {"region": "Vesturland", "county": "", "locality": "Borgarbyggð"}, "64.73545,-23.77562": {"region": "Vesturland", "county": "Snæfellsbær", "locality": ""}, "64.7458,-23.67584": {"region": "Vesturland", "county": "Snæfellsbær", "locality": ""}, "64.74772,-23.81787": {"region": "Vesturland", "county": "Snæfellsbær", "locality": ""}, "64.75031,-20.80191": {"region": "Vesturland", "county": "", "locality": "Borgarbyggð"}, "64.75036,-23.91487": {"region": "Vesturland", "county": "Snæfellsbær", "locality": ""}, "64.76912,-23.6259": {"region": "Vesturland", "county": "Snæfellsbær", "locality": ""}, "64.77881,-18.50098": {"region": "Suðurland", "county": "Skeiða- og Gnúpverjahreppur", "locality": ""}, "64.78151,-20.72382": {"region": "Vesturland", "county": "", "locality": "Borgarbyggð"}, "64.78154,-23.67835": {"region": "Vesturland", "county": "Snæfellsbær", "locality": ""}, "64.79621,-22.32113": {"region": "Vesturland", "county": "", "locality": "Borgarbyggð"}, "64.79923,-23.64682": {"region": "Vesturland", "county": "Snæfellsbær", "locality": ""}, "64.8057,-23.7731": {"region": "Vesturland", "county": "Snæfellsbær", "locality": ""}, "64.81879,-22.41597": {"region": "Vesturland", "county": "Eyja- og Miklaholtshreppur", "locality": ""}, "64.8232,-23.38461": {"region": "Vesturland", "county": "Snæfellsbær", "locality": ""}, "64.82662,-13.8248": {"region": "", "county": "", "locality": ""}, "64.83284,-13.86165": {"region": "Austurland", "county": "Fjarðabyggð", "locality": ""}, "64.83547,-13.88052": {"region": "Austurland", "county": "Fjarðabyggð", "locality": ""}, "64.83646,-22.97561": {"region": "Vesturland", "county": "Snæfellsbær", "locality": ""}, "64.85128,-22.3704": {"region": "Vesturland", "county": "Eyja- og Miklaholtshreppur", "locality": ""}, "64.85162,-23.92655": {"region": "Vesturland", "county": "Snæfellsbær", "locality": ""}, "64.85485,-13.96568": {"region": "Austurland", "county": "Fjarðabyggð", "locality": ""}, "64.86371,-24.03907": {"region": "Vesturland", "county": "Snæfellsbær", "locality": ""}, "64.86725,-19.55": {"region": "Norðurland vestra", "county": "Húnabyggð", "locality": ""}, "64.87592,-14.00469": {"region": "Austurland", "county": "Fjarðabyggð", "locality": ""}, "64.88276,-23.23883": {"region": "Vesturland", "county": "", "locality": "Grundarfjarðarbær"}, "64.88927,-23.68773": {"region": "Vesturland", "county": "Snæfellsbær", "locality": ""}, "64.89558,-22.33875": {"region": "Vesturland", "county": "Eyja- og Miklaholtshreppur", "locality": ""}, "64.89605,-23.70603": {"region": "", "county": "", "locality": ""}, "64.91257,-23.88908": {"region": "Vesturland", "county": "Snæfellsbær", "locality": ""}, "64.91629,-23.87568": {"region": "Vesturland", "county": "Snæfellsbær", "locality": ""}, "64.92341,-13.965": {"region": "Austurland", "county": "Fjarðabyggð", "locality": ""}, "64.92467,-23.26041": {"region": "Vesturland", "county": "", "locality": "Grundarfjarðarbær"}, "64.92616,-23.3114": {"region": "Vesturland", "county": "", "locality": "Grundarfjarðarbær"}, "64.92798,-23.25742": {"region": "", "county": "", "locality": ""}, "64.93659,-14.03585": {"region": "Austurland", "county": "Fjarðabyggð", "locality": ""}, "64.94167,-23.30694": {"region": "Vesturland", "county": "", "locality": "Grundarfjarðarbær"}, "65.01216,-16.74866": {"region": "Norðurland eystra", "county": "Þingeyjarsveit", "locality": ""}, "65.03437,-14.24107": {"region": "Austurland", "county": "Fjarðabyggð", "locality": ""}, "65.03609,-19.58374": {"region": "Norðurland vestra", "county": "Húnabyggð", "locality": ""}, "65.03816,-14.20875": {"region": "Austurland", "county": "Fjarðabyggð", "locality": ""}, "65.04133,-14.33124": {"region": "Austurland", "county": "Fjarðabyggð", "locality": ""}, "65.04142,-14.95327": {"region": "Austurland", "county": "Fljótsdalshreppur", "locality": ""}, "65.04441,-14.00726": {"region": "Austurland", "county": "Fjarðabyggð", "locality": ""}, "65.062,-13.5537": {"region": "Austurland", "county": "Fjarðabyggð", "locality": ""}, "65.06468,-13.7075": {"region": "Austurland", "county": "Fjarðabyggð", "locality": ""}, "65.0729,-22.73573": {"region": "Vesturland", "county": "Sveitarfélagið Stykkishólmur", "locality": ""}, "65.07863,-14.03182": {"region": "Austurland", "county": "Fjarðabyggð", "locality": ""}, "65.09555,-14.89047": {"region": "Austurland", "county": "Fljótsdalshreppur", "locality": ""}, "65.1083,-21.76364": {"region": "Vesturland", "county": "Dalabyggð", "locality": ""}, "65.14728,-13.68863": {"region": "Austurland", "county": "Fjarðabyggð", "locality": ""}, "65.14991,-13.65939": {"region": "Austurland", "county": "Fjarðabyggð", "locality": ""}, "65.15094,-13.65543": {"region": "Austurland", "county": "Fjarðabyggð", "locality": ""}, "65.15095,-13.67918": {"region": "Austurland", "county": "Fjarðabyggð", "locality": ""}, "65.16508,-15.31533": {"region": "Austurland", "county": "Múlaþing", "locality": ""}, "65.17525,-16.34079": {"region": "Norðurland eystra", "county": "Þingeyjarsveit", "locality": ""}, "65.17946,-14.0813": {"region": "Austurland", "county": "Fjarðabyggð", "locality": ""}, "65.18849,-23.51003": {"region": "", "county": "", "locality": ""}, "65.19751,-13.88307": {"region": "Austurland", "county": "Fjarðabyggð", "locality": ""}, "65.24602,-21.80404": {"region": "Vesturland", "county": "Dalabyggð", "locality": ""}, "65.24634,-21.80383": {"region": "Vesturland", "county": "Dalabyggð", "locality": ""}, "65.25985,-14.01012": {"region": "Austurland", "county": "Múlaþing", "locality": ""}, "65.25991,-14.01251": {"region": "Austurland", "county": "Múlaþing", "locality": ""}, "65.26126,-14.0029": {"region": "Austurland", "county": "Múlaþing", "locality": ""}, "65.26153,-13.99864": {"region": "Austurland", "county": "Múlaþing", "locality": ""}, "65.26221,-14.01592": {"region": "Austurland", "county": "Múlaþing", "locality": ""}, "65.26257,-14.39639": {"region": "Austurland", "county": "Múlaþing", "locality": ""}, "65.26492,-14.38083": {"region": "Austurland", "county": "Múlaþing", "locality": ""}, "65.26512,-13.99211": {"region": "Austurland", "county": "Múlaþing", "locality": ""}, "65.27017,-13.57567": {"region": "Austurland", "county": "Fjarðabyggð", "locality": ""}, "65.33145,-15.6837": {"region": "Austurland", "county": "Múlaþing", "locality": ""}, "65.33248,-20.5699": {"region": "Norðurland vestra", "county": "Húnaþing vestra", "locality": ""}, "65.36646,-17.33694": {"region": "Norðurland eystra", "county": "Þingeyjarsveit", "locality": ""}, "65.36815,-15.91769": {"region": "Austurland", "county": "Múlaþing", "locality": ""}, "65.39565,-20.94861": {"region": "Norðurland vestra", "county": "Húnaþing vestra", "locality": ""}, "65.4023,-20.9295": {"region": "Norðurland vestra", "county": "Húnaþing vestra", "locality": ""}, "65.438,-22.2679": {"region": "", "county": "", "locality": ""}, "65.44628,-22.20206": {"region": "Vestfirðir", "county": "Reykhólahreppur", "locality": ""}, "65.4501,-22.20388": {"region": "Vestfirðir", "county": "Reykhólahreppur", "locality": ""}, "65.47502,-20.59518": {"region": "Norðurland vestra", "county": "Húnaþing vestra", "locality": ""}, "65.47508,-23.99161": {"region": "Vestfirðir", "county": "Vesturbyggð", "locality": ""}, "65.47982,-17.10929": {"region": "Norðurland eystra", "county": "Þingeyjarsveit", "locality": ""}, "65.49635,-20.37904": {"region": "Norðurland vestra", "county": "Húnabyggð", "locality": ""}, "65.50255,-24.53247": {"region": "", "county": "", "locality": ""}, "65.51396,-14.56694": {"region": "Austurland", "county": "Múlaþing", "locality": ""}, "65.51443,-13.99064": {"region": "Austurland", "county": "Múlaþing", "locality": ""}, "65.51962,-23.40534": {"region": "Vestfirðir", "county": "Vesturbyggð", "locality": ""}, "65.52109,-24.10447": {"region": "Vestfirðir", "county": "Vesturbyggð", "locality": ""}, "65.52658,-13.8182": {"region": "Austurland", "county": "Múlaþing", "locality": ""}, "65.52946,-19.38263": {"region": "Norðurland vestra", "county": "Skagafjörður", "locality": ""}, "65.55521,-16.72252": {"region": "Norðurland eystra", "county": "Þingeyjarsveit", "locality": ""}, "65.57738,-23.17265": {"region": "Vestfirðir", "county": "Vesturbyggð", "locality": ""}, "65.58604,-16.91431": {"region": "Norðurland eystra", "county": "Þingeyjarsveit", "locality": ""}, "65.60386,-16.99611": {"region": "Norðurland eystra", "county": "Þingeyjarsveit", "locality": ""}, "65.60631,-20.63524": {"region": "", "county": "", "locality": ""}, "65.62303,-24.13479": {"region": "", "county": "", "locality": ""}, "65.62614,-16.86056": {"region": "Norðurland eystra", "county": "Þingeyjarsveit", "locality": ""}, "65.62643,-16.88248": {"region": "Norðurland eystra", "county": "Þingeyjarsveit", "locality": ""}, "65.62647,-23.82954": {"region": "Vestfirðir", "county": "Vesturbyggð", "locality": ""}, "65.62883,-16.99506": {"region": "Norðurland eystra", "county": "Þingeyjarsveit", "locality": ""}, "65.63093,-16.84796": {"region": "Norðurland eystra", "county": "Þingeyjarsveit", "locality": ""}, "65.64093,-16.80934": {"region": "Norðurland eystra", "county": "Þingeyjarsveit", "locality": ""}, "65.64193,-18.0981": {"region": "Norðurland eystra", "county": "Akureyrarbær", "locality": "Akureyrarbær"}, "65.65116,-18.07517": {"region": "Norðurland eystra", "county": "Akureyrarbær", "locality": "Akureyrarbær"}, "65.66084,-21.32272": {"region": "", "county": "", "locality": ""}, "65.66126,-18.08035": {"region": "Norðurland eystra", "county": "Akureyrarbær", "locality": "Akureyrarbær"}, "65.66665,-18.08626": {"region": "Norðurland eystra", "county": "Akureyrarbær", "locality": "Akureyrarbær"}, "65.68031,-18.09193": {"region": "Norðurland eystra", "county": "Akureyrarbær", "locality": "Akureyrarbær"}, "65.68299,-17.55082": {"region": "Norðurland eystra", "county": "Þingeyjarsveit", "locality": ""}, "65.683,-17.55082": {"region": "Norðurland eystra", "county": "Þingeyjarsveit", "locality": ""}, "65.68564,-18.07943": {"region": "Norðurland eystra", "county": "Akureyrarbær", "locality": "Akureyrarbær"}, "65.68667,-23.59769": {"region": "Vestfirðir", "county": "Vesturbyggð", "locality": ""}, "65.68849,-18.12617": {"region": "Norðurland eystra", "county": "Akureyrarbær", "locality": "Akureyrarbær"}, "65.69038,-21.45545": {"region": "Vestfirðir", "county": "Kaldrananeshreppur", "locality": ""}, "65.69105,-21.44274": {"region": "Vestfirðir", "county": "Kaldrananeshreppur", "locality": ""}, "65.69149,-21.43697": {"region": "Vestfirðir", "county": "Kaldrananeshreppur", "locality": ""}, "65.7012,-18.15361": {"region": "Norðurland eystra", "county": "Hörgársveit", "locality": ""}, "65.70317,-16.77518": {"region": "Norðurland eystra", "county": "Þingeyjarsveit", "locality": ""}, "65.70654,-21.66565": {"region": "Vestfirðir", "county": "Strandabyggð", "locality": ""}, "65.71143,-18.09517": {"region": "", "county": "", "locality": ""}, "65.73281,-23.19984": {"region": "Vestfirðir", "county": "Ísafjarðarbær", "locality": ""}, "65.74611,-19.63944": {"region": "Norðurland vestra", "county": "Skagafjörður", "locality": ""}, "65.74888,-19.64764": {"region": "Norðurland vestra", "county": "Skagafjörður", "locality": ""}, "65.74929,-18.07502": {"region": "Norðurland eystra", "county": "Svalbarðsstrandarhreppur", "locality": ""}, "65.75109,-19.64971": {"region": "Norðurland vestra", "county": "Skagafjörður", "locality": ""}, "65.75495,-14.8272": {"region": "Austurland", "county": "Vopnafjarðarhreppur", "locality": ""}, "65.77749,-24.00373": {"region": "Vestfirðir", "county": "Vesturbyggð", "locality": ""}, "65.81467,-16.38458": {"region": "Norðurland eystra", "county": "Norðurþing", "locality": ""}, "65.82229,-20.30419": {"region": "Norðurland vestra", "county": "Sveitarfélagið Skagaströnd", "locality": ""}, "65.8252,-20.2952": {"region": "Norðurland vestra", "county": "Sveitarfélagið Skagaströnd", "locality": ""}, "65.82919,-20.31472": {"region": "Norðurland vestra", "county": "Sveitarfélagið Skagaströnd", "locality": ""}, "65.84396,-22.68005": {"region": "Vestfirðir", "county": "Súðavíkurhreppur", "locality": ""}, "65.84548,-20.24261": {"region": "Norðurland vestra", "county": "Sveitarfélagið Skagaströnd", "locality": ""}, "65.85944,-21.29306": {"region": "Vestfirðir", "county": "Kaldrananeshreppur", "locality": ""}, "65.87986,-23.49546": {"region": "Vestfirðir", "county": "Ísafjarðarbær", "locality": ""}, "65.88842,-17.32085": {"region": "Norðurland eystra", "county": "Norðurþing", "locality": ""}, "65.89418,-18.07245": {"region": "Norðurland eystra", "county": "Grýtubakkahreppur", "locality": ""}, "65.89578,-19.41087": {"region": "Norðurland vestra", "county": "Skagafjörður", "locality": ""}, "65.9239,-18.56873": {"region": "Norðurland eystra", "county": "Dalvíkurbyggð", "locality": ""}, "65.9274,-22.42782": {"region": "Vestfirðir", "county": "Súðavíkurhreppur", "locality": ""}, "65.96716,-23.08558": {"region": "Vestfirðir", "county": "Súðavíkurhreppur", "locality": ""}, "65.9707,-18.53269": {"region": "Norðurland eystra", "county": "Dalvíkurbyggð", "locality": ""}, "66.00286,-22.78908": {"region": "Vestfirðir", "county": "Súðavíkurhreppur", "locality": ""}, "66.01809,-16.50563": {"region": "Norðurland eystra", "county": "Norðurþing", "locality": ""}, "66.03049,-22.9917": {"region": "Vestfirðir", "county": "Súðavíkurhreppur", "locality": ""}, "66.04784,-17.34435": {"region": "Norðurland eystra", "county": "Norðurþing", "locality": ""}, "66.05176,-17.3465": {"region": "Norðurland eystra", "county": "Norðurþing", "locality": ""}, "66.05462,-23.18012": {"region": "Vestfirðir", "county": "Ísafjarðarbær", "locality": ""}, "66.05626,-21.50853": {"region": "Vestfirðir", "county": "Árneshreppur", "locality": ""}, "66.05977,-23.2304": {"region": "Vestfirðir", "county": "Ísafjarðarbær", "locality": ""}, "66.06132,-23.1789": {"region": "Vestfirðir", "county": "Ísafjarðarbær", "locality": ""}, "66.06277,-23.1518": {"region": "", "county": "", "locality": ""}, "66.06331,-23.18373": {"region": "Vestfirðir", "county": "Ísafjarðarbær", "locality": ""}, "66.07,-23.24139": {"region": "Vestfirðir", "county": "Ísafjarðarbær", "locality": ""}, "66.07119,-18.64893": {"region": "Norðurland eystra", "county": "Fjallabyggð", "locality": ""}, "66.08003,-18.72483": {"region": "Norðurland eystra", "county": "Fjallabyggð", "locality": ""}, "66.11769,-15.20608": {"region": "Norðurland eystra", "county": "Langanesbyggð", "locality": ""}, "66.11957,-16.39628": {"region": "Norðurland eystra", "county": "Norðurþing", "locality": ""}, "66.12329,-18.45558": {"region": "", "county": "", "locality": ""}, "66.14699,-18.91323": {"region": "Norðurland eystra", "county": "Fjallabyggð", "locality": ""}, "66.14952,-18.90878": {"region": "Norðurland eystra", "county": "Fjallabyggð", "locality": ""}, "66.14959,-18.91268": {"region": "Norðurland eystra", "county": "Fjallabyggð", "locality": ""}, "66.15501,-23.25336": {"region": "Vestfirðir", "county": "", "locality": "Bolungarvíkurkaupstaður"}, "66.15512,-23.25598": {"region": "Vestfirðir", "county": "", "locality": "Bolungarvíkurkaupstaður"}, "66.17078,-23.28346": {"region": "Vestfirðir", "county": "", "locality": "Bolungarvíkurkaupstaður"}, "66.19742,-15.33508": {"region": "Norðurland eystra", "county": "Langanesbyggð", "locality": ""}, "66.20072,-15.33754": {"region": "Norðurland eystra", "county": "Langanesbyggð", "locality": ""}, "66.25469,-22.08628": {"region": "Vestfirðir", "county": "Ísafjarðarbær", "locality": ""}, "66.30108,-16.45998": {"region": "", "county": "", "locality": ""}, "66.36918,-17.54528": {"region": "", "county": "", "locality": ""}, "66.38181,-22.69034": {"region": "Vestfirðir", "county": "Ísafjarðarbær", "locality": ""}, "66.3859,-14.85699": {"region": "Norðurland eystra", "county": "Langanesbyggð", "locality": ""}}
+{
+ "63.39975,-19.126": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "63.4024,-19.03974": {
+  "region": "Suðurland",
+  "county": "Mýrdalshreppur",
+  "locality": ""
+ },
+ "63.40307,-19.11552": {
+  "region": "Suðurland",
+  "county": "Mýrdalshreppur",
+  "locality": ""
+ },
+ "63.41863,-19.00605": {
+  "region": "Suðurland",
+  "county": "Mýrdalshreppur",
+  "locality": ""
+ },
+ "63.41928,-18.99562": {
+  "region": "Suðurland",
+  "county": "Mýrdalshreppur",
+  "locality": ""
+ },
+ "63.42034,-18.74945": {
+  "region": "Suðurland",
+  "county": "Mýrdalshreppur",
+  "locality": ""
+ },
+ "63.42226,-20.27527": {
+  "region": "Suðurland",
+  "county": "",
+  "locality": "Vestmannaeyjabær"
+ },
+ "63.43086,-20.2684": {
+  "region": "Suðurland",
+  "county": "",
+  "locality": "Vestmannaeyjabær"
+ },
+ "63.45909,-19.36468": {
+  "region": "Suðurland",
+  "county": "Mýrdalshreppur",
+  "locality": ""
+ },
+ "63.50696,-18.90309": {
+  "region": "Suðurland",
+  "county": "Mýrdalshreppur",
+  "locality": ""
+ },
+ "63.52616,-19.49299": {
+  "region": "Suðurland",
+  "county": "Rangárþing eystra",
+  "locality": ""
+ },
+ "63.52878,-19.4813": {
+  "region": "Suðurland",
+  "county": "Rangárþing eystra",
+  "locality": ""
+ },
+ "63.5321,-19.51164": {
+  "region": "Suðurland",
+  "county": "Rangárþing eystra",
+  "locality": ""
+ },
+ "63.55694,-19.30278": {
+  "region": "Suðurland",
+  "county": "Mýrdalshreppur",
+  "locality": ""
+ },
+ "63.56599,-19.60862": {
+  "region": "Suðurland",
+  "county": "Rangárþing eystra",
+  "locality": ""
+ },
+ "63.61549,-19.98833": {
+  "region": "Suðurland",
+  "county": "Rangárþing eystra",
+  "locality": ""
+ },
+ "63.62125,-19.98812": {
+  "region": "Suðurland",
+  "county": "Rangárþing eystra",
+  "locality": ""
+ },
+ "63.62201,-19.43072": {
+  "region": "Suðurland",
+  "county": "Rangárþing eystra",
+  "locality": ""
+ },
+ "63.62733,-19.06291": {
+  "region": "Suðurland",
+  "county": "Mýrdalshreppur",
+  "locality": ""
+ },
+ "63.63141,-19.60832": {
+  "region": "Suðurland",
+  "county": "Rangárþing eystra",
+  "locality": ""
+ },
+ "63.6449,-19.03553": {
+  "region": "Suðurland",
+  "county": "Skaftárhreppur",
+  "locality": ""
+ },
+ "63.64673,-19.13028": {
+  "region": "Suðurland",
+  "county": "Skaftárhreppur",
+  "locality": ""
+ },
+ "63.66774,-19.85341": {
+  "region": "Suðurland",
+  "county": "Rangárþing eystra",
+  "locality": ""
+ },
+ "63.67493,-19.55755": {
+  "region": "Suðurland",
+  "county": "Rangárþing eystra",
+  "locality": ""
+ },
+ "63.70266,-19.42715": {
+  "region": "Suðurland",
+  "county": "Rangárþing eystra",
+  "locality": ""
+ },
+ "63.72103,-19.89372": {
+  "region": "Suðurland",
+  "county": "Rangárþing eystra",
+  "locality": ""
+ },
+ "63.75032,-20.20949": {
+  "region": "Suðurland",
+  "county": "Rangárþing eystra",
+  "locality": ""
+ },
+ "63.75317,-20.23627": {
+  "region": "Suðurland",
+  "county": "Rangárþing eystra",
+  "locality": ""
+ },
+ "63.76096,-20.16317": {
+  "region": "Suðurland",
+  "county": "Rangárþing eystra",
+  "locality": ""
+ },
+ "63.77128,-18.17182": {
+  "region": "Suðurland",
+  "county": "Skaftárhreppur",
+  "locality": ""
+ },
+ "63.78007,-18.08975": {
+  "region": "Suðurland",
+  "county": "Skaftárhreppur",
+  "locality": ""
+ },
+ "63.78753,-18.05959": {
+  "region": "Suðurland",
+  "county": "Skaftárhreppur",
+  "locality": ""
+ },
+ "63.79537,-18.04638": {
+  "region": "Suðurland",
+  "county": "Skaftárhreppur",
+  "locality": ""
+ },
+ "63.79845,-18.05401": {
+  "region": "Suðurland",
+  "county": "Skaftárhreppur",
+  "locality": ""
+ },
+ "63.79975,-18.0613": {
+  "region": "Suðurland",
+  "county": "Skaftárhreppur",
+  "locality": ""
+ },
+ "63.8,-16.64": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Hornafjörður",
+  "locality": ""
+ },
+ "63.8125,-22.71562": {
+  "region": "Suðurnes",
+  "county": "",
+  "locality": "Reykjanesbær"
+ },
+ "63.81364,-22.71472": {
+  "region": "Suðurnes",
+  "county": "",
+  "locality": "Reykjanesbær"
+ },
+ "63.81798,-22.59891": {
+  "region": "Suðurnes",
+  "county": "Grindavíkurbær",
+  "locality": ""
+ },
+ "63.81986,-22.6874": {
+  "region": "Suðurnes",
+  "county": "Grindavíkurbær",
+  "locality": ""
+ },
+ "63.8237,-22.67149": {
+  "region": "Suðurnes",
+  "county": "Grindavíkurbær",
+  "locality": ""
+ },
+ "63.82736,-22.46754": {
+  "region": "Suðurnes",
+  "county": "Grindavíkurbær",
+  "locality": ""
+ },
+ "63.83222,-21.68819": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Ölfus",
+  "locality": ""
+ },
+ "63.83551,-21.0559": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Árborg",
+  "locality": ""
+ },
+ "63.83577,-21.70466": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Ölfus",
+  "locality": ""
+ },
+ "63.83593,-21.08833": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "63.83661,-21.06406": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Árborg",
+  "locality": ""
+ },
+ "63.83802,-22.24071": {
+  "region": "Suðurnes",
+  "county": "Grindavíkurbær",
+  "locality": ""
+ },
+ "63.84005,-22.24514": {
+  "region": "Suðurnes",
+  "county": "Grindavíkurbær",
+  "locality": ""
+ },
+ "63.84016,-22.54953": {
+  "region": "Suðurnes",
+  "county": "Grindavíkurbær",
+  "locality": ""
+ },
+ "63.84391,-22.42015": {
+  "region": "Suðurnes",
+  "county": "Grindavíkurbær",
+  "locality": ""
+ },
+ "63.849,-17.86147": {
+  "region": "Suðurland",
+  "county": "Skaftárhreppur",
+  "locality": ""
+ },
+ "63.85201,-21.39152": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Ölfus",
+  "locality": ""
+ },
+ "63.85296,-21.38443": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Ölfus",
+  "locality": ""
+ },
+ "63.8537,-17.87208": {
+  "region": "Suðurland",
+  "county": "Skaftárhreppur",
+  "locality": ""
+ },
+ "63.85446,-22.2964": {
+  "region": "Suðurnes",
+  "county": "Grindavíkurbær",
+  "locality": ""
+ },
+ "63.8564,-22.53855": {
+  "region": "Suðurnes",
+  "county": "Grindavíkurbær",
+  "locality": ""
+ },
+ "63.86006,-22.33512": {
+  "region": "Suðurnes",
+  "county": "Grindavíkurbær",
+  "locality": ""
+ },
+ "63.86395,-20.21746": {
+  "region": "Suðurland",
+  "county": "Rangárþing ytra",
+  "locality": ""
+ },
+ "63.86522,-22.43692": {
+  "region": "Suðurnes",
+  "county": "Grindavíkurbær",
+  "locality": ""
+ },
+ "63.86833,-22.6755": {
+  "region": "Suðurnes",
+  "county": "",
+  "locality": "Reykjanesbær"
+ },
+ "63.88011,-22.44935": {
+  "region": "Suðurnes",
+  "county": "Grindavíkurbær",
+  "locality": ""
+ },
+ "63.88134,-22.73622": {
+  "region": "Suðurnes",
+  "county": "",
+  "locality": "Reykjanesbær"
+ },
+ "63.88469,-22.05449": {
+  "region": "Höfuðborgarsvæðið",
+  "county": "",
+  "locality": "Hafnarfjarðarkaupstaður"
+ },
+ "63.895,-18.75387": {
+  "region": "Suðurland",
+  "county": "Skaftárhreppur",
+  "locality": ""
+ },
+ "63.89574,-22.05177": {
+  "region": "Höfuðborgarsvæðið",
+  "county": "",
+  "locality": "Hafnarfjarðarkaupstaður"
+ },
+ "63.89756,-22.28687": {
+  "region": "Suðurnes",
+  "county": "Grindavíkurbær",
+  "locality": ""
+ },
+ "63.90557,-22.41057": {
+  "region": "Suðurnes",
+  "county": "Grindavíkurbær",
+  "locality": ""
+ },
+ "63.90697,-16.70695": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Hornafjörður",
+  "locality": ""
+ },
+ "63.91806,-19.38812": {
+  "region": "Suðurland",
+  "county": "Rangárþing ytra",
+  "locality": ""
+ },
+ "63.92017,-21.98296": {
+  "region": "Suðurnes",
+  "county": "Grindavíkurbær",
+  "locality": ""
+ },
+ "63.92461,-20.67219": {
+  "region": "Suðurland",
+  "county": "Flóahreppur",
+  "locality": ""
+ },
+ "63.92573,-21.97159": {
+  "region": "Suðurnes",
+  "county": "Grindavíkurbær",
+  "locality": ""
+ },
+ "63.93153,-22.10119": {
+  "region": "Suðurnes",
+  "county": "Grindavíkurbær",
+  "locality": ""
+ },
+ "63.93751,-20.99642": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Árborg",
+  "locality": ""
+ },
+ "63.94064,-21.39707": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Ölfus",
+  "locality": ""
+ },
+ "63.94081,-22.1675": {
+  "region": "Suðurnes",
+  "county": "",
+  "locality": "Sveitarfélagið Vogar"
+ },
+ "63.96479,-18.61783": {
+  "region": "Suðurland",
+  "county": "Skaftárhreppur",
+  "locality": ""
+ },
+ "63.97639,-16.77": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Hornafjörður",
+  "locality": ""
+ },
+ "63.97702,-21.60376": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Ölfus",
+  "locality": ""
+ },
+ "63.983,-19.067": {
+  "region": "Suðurland",
+  "county": "Rangárþing ytra",
+  "locality": ""
+ },
+ "63.99226,-19.66581": {
+  "region": "Suðurland",
+  "county": "Rangárþing ytra",
+  "locality": ""
+ },
+ "63.99231,-19.05964": {
+  "region": "Suðurland",
+  "county": "Rangárþing ytra",
+  "locality": ""
+ },
+ "63.99526,-16.97098": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Hornafjörður",
+  "locality": ""
+ },
+ "63.99846,-21.69896": {
+  "region": "Höfuðborgarsvæðið",
+  "county": "",
+  "locality": "Kópavogsbær"
+ },
+ "64.00102,-21.1872": {
+  "region": "Suðurland",
+  "county": "",
+  "locality": "Hveragerðisbær"
+ },
+ "64.00321,-21.79516": {
+  "region": "Höfuðborgarsvæðið",
+  "county": "",
+  "locality": "Hafnarfjarðarkaupstaður"
+ },
+ "64.00547,-22.05288": {
+  "region": "Höfuðborgarsvæðið",
+  "county": "",
+  "locality": "Hafnarfjarðarkaupstaður"
+ },
+ "64.01859,-16.82148": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Hornafjörður",
+  "locality": ""
+ },
+ "64.02134,-20.25551": {
+  "region": "Suðurland",
+  "county": "Skeiða- og Gnúpverjahreppur",
+  "locality": ""
+ },
+ "64.02211,-20.52197": {
+  "region": "Suðurland",
+  "county": "Skeiða- og Gnúpverjahreppur",
+  "locality": ""
+ },
+ "64.02641,-16.97671": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Hornafjörður",
+  "locality": ""
+ },
+ "64.0321,-21.21558": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Ölfus",
+  "locality": ""
+ },
+ "64.0368,-22.68743": {
+  "region": "Suðurnes",
+  "county": "Suðurnesjabær",
+  "locality": ""
+ },
+ "64.03709,-21.4012": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Ölfus",
+  "locality": ""
+ },
+ "64.03934,-22.69985": {
+  "region": "Suðurnes",
+  "county": "Suðurnesjabær",
+  "locality": ""
+ },
+ "64.04118,-22.71262": {
+  "region": "Suðurnes",
+  "county": "Suðurnesjabær",
+  "locality": ""
+ },
+ "64.04128,-20.88514": {
+  "region": "Suðurland",
+  "county": "Grímsnes- og Grafningshreppur",
+  "locality": ""
+ },
+ "64.04159,-20.25034": {
+  "region": "Suðurland",
+  "county": "Skeiða- og Gnúpverjahreppur",
+  "locality": ""
+ },
+ "64.04276,-16.18147": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Hornafjörður",
+  "locality": ""
+ },
+ "64.04547,-21.91154": {
+  "region": "Höfuðborgarsvæðið",
+  "county": "",
+  "locality": "Hafnarfjarðarkaupstaður"
+ },
+ "64.05043,-16.19076": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Hornafjörður",
+  "locality": ""
+ },
+ "64.06471,-22.63809": {
+  "region": "Suðurnes",
+  "county": "Suðurnesjabær",
+  "locality": ""
+ },
+ "64.06562,-20.64187": {
+  "region": "Suðurland",
+  "county": "Grímsnes- og Grafningshreppur",
+  "locality": ""
+ },
+ "64.0686,-16.22046": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Hornafjörður",
+  "locality": ""
+ },
+ "64.07041,-16.97518": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Hornafjörður",
+  "locality": ""
+ },
+ "64.07169,-21.89254": {
+  "region": "Höfuðborgarsvæðið",
+  "county": "",
+  "locality": "Garðabær"
+ },
+ "64.08045,-16.2299": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Hornafjörður",
+  "locality": ""
+ },
+ "64.08233,-22.69037": {
+  "region": "Suðurnes",
+  "county": "Suðurnesjabær",
+  "locality": ""
+ },
+ "64.08811,-20.43054": {
+  "region": "Suðurland",
+  "county": "Hrunamannahreppur",
+  "locality": ""
+ },
+ "64.09452,-21.01024": {
+  "region": "Suðurland",
+  "county": "Grímsnes- og Grafningshreppur",
+  "locality": ""
+ },
+ "64.09556,-21.75167": {
+  "region": "Höfuðborgarsvæðið",
+  "county": "Reykjavíkurborg",
+  "locality": "Reykjavíkurborg"
+ },
+ "64.10823,-21.25713": {
+  "region": "Suðurland",
+  "county": "Grímsnes- og Grafningshreppur",
+  "locality": ""
+ },
+ "64.1112,-22.60849": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "64.11574,-20.50344": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.11617,-19.85124": {
+  "region": "Suðurland",
+  "county": "Skeiða- og Gnúpverjahreppur",
+  "locality": ""
+ },
+ "64.12126,-21.93013": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "64.12529,-20.52444": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.12971,-16.01867": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Hornafjörður",
+  "locality": ""
+ },
+ "64.13365,-22.14072": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "64.13479,-21.75548": {
+  "region": "Höfuðborgarsvæðið",
+  "county": "Reykjavíkurborg",
+  "locality": "Reykjavíkurborg"
+ },
+ "64.13619,-21.72522": {
+  "region": "Höfuðborgarsvæðið",
+  "county": "Reykjavíkurborg",
+  "locality": "Reykjavíkurborg"
+ },
+ "64.13789,-20.30986": {
+  "region": "Suðurland",
+  "county": "Hrunamannahreppur",
+  "locality": ""
+ },
+ "64.14163,-21.88517": {
+  "region": "Höfuðborgarsvæðið",
+  "county": "Reykjavíkurborg",
+  "locality": "Reykjavíkurborg"
+ },
+ "64.14171,-21.92664": {
+  "region": "Höfuðborgarsvæðið",
+  "county": "Reykjavíkurborg",
+  "locality": "Reykjavíkurborg"
+ },
+ "64.14303,-21.91564": {
+  "region": "Höfuðborgarsvæðið",
+  "county": "Reykjavíkurborg",
+  "locality": "Reykjavíkurborg"
+ },
+ "64.14684,-21.71051": {
+  "region": "Höfuðborgarsvæðið",
+  "county": "Reykjavíkurborg",
+  "locality": "Reykjavíkurborg"
+ },
+ "64.14761,-21.92229": {
+  "region": "Höfuðborgarsvæðið",
+  "county": "Reykjavíkurborg",
+  "locality": "Reykjavíkurborg"
+ },
+ "64.14824,-21.93783": {
+  "region": "Höfuðborgarsvæðið",
+  "county": "Reykjavíkurborg",
+  "locality": "Reykjavíkurborg"
+ },
+ "64.15034,-21.9327": {
+  "region": "Höfuðborgarsvæðið",
+  "county": "Reykjavíkurborg",
+  "locality": "Reykjavíkurborg"
+ },
+ "64.15767,-22.0178": {
+  "region": "Höfuðborgarsvæðið",
+  "county": "",
+  "locality": "Seltjarnarnesbær"
+ },
+ "64.16238,-22.00827": {
+  "region": "Höfuðborgarsvæðið",
+  "county": "",
+  "locality": "Seltjarnarnesbær"
+ },
+ "64.1643,-21.8529": {
+  "region": "Höfuðborgarsvæðið",
+  "county": "Reykjavíkurborg",
+  "locality": "Reykjavíkurborg"
+ },
+ "64.16499,-22.022": {
+  "region": "Höfuðborgarsvæðið",
+  "county": "",
+  "locality": "Seltjarnarnesbær"
+ },
+ "64.17566,-21.95103": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "64.17836,-20.44781": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.20789,-19.68685": {
+  "region": "Suðurland",
+  "county": "Skeiða- og Gnúpverjahreppur",
+  "locality": ""
+ },
+ "64.21471,-20.73017": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.22207,-20.73309": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.22641,-20.33962": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.22887,-20.28581": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.24245,-20.55164": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.24407,-14.96484": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Hornafjörður",
+  "locality": ""
+ },
+ "64.24519,-20.40024": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.2497,-15.20201": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "64.25041,-15.20385": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Hornafjörður",
+  "locality": ""
+ },
+ "64.25529,-21.11683": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.25566,-21.13003": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.25712,-21.13071": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.25975,-21.12236": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.26592,-21.1183": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.27043,-21.11065": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.27562,-16.47391": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Hornafjörður",
+  "locality": ""
+ },
+ "64.27915,-20.35827": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.29795,-15.67028": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Hornafjörður",
+  "locality": ""
+ },
+ "64.30138,-20.15528": {
+  "region": "Suðurland",
+  "county": "Hrunamannahreppur",
+  "locality": ""
+ },
+ "64.30195,-21.86312": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "64.30776,-22.09544": {
+  "region": "Vesturland",
+  "county": "",
+  "locality": "Akraneskaupstaður"
+ },
+ "64.31118,-20.23383": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.31305,-20.30053": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.31388,-20.29954": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.31989,-22.04508": {
+  "region": "Vesturland",
+  "county": "",
+  "locality": "Akraneskaupstaður"
+ },
+ "64.32192,-22.07028": {
+  "region": "Vesturland",
+  "county": "",
+  "locality": "Akraneskaupstaður"
+ },
+ "64.32555,-20.12953": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.32567,-20.41821": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.32586,-20.12659": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.32607,-22.06751": {
+  "region": "Vesturland",
+  "county": "",
+  "locality": "Akraneskaupstaður"
+ },
+ "64.32737,-20.12135": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.33794,-19.19554": {
+  "region": "Suðurland",
+  "county": "Skeiða- og Gnúpverjahreppur",
+  "locality": ""
+ },
+ "64.38449,-21.28835": {
+  "region": "Vesturland",
+  "county": "Hvalfjarðarsveit",
+  "locality": ""
+ },
+ "64.39168,-21.25057": {
+  "region": "Vesturland",
+  "county": "Hvalfjarðarsveit",
+  "locality": ""
+ },
+ "64.39931,-23.02734": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "64.40613,-15.40695": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Hornafjörður",
+  "locality": ""
+ },
+ "64.41043,-21.61137": {
+  "region": "Vesturland",
+  "county": "Hvalfjarðarsveit",
+  "locality": ""
+ },
+ "64.47333,-14.93": {
+  "region": "Suðurland",
+  "county": "Sveitarfélagið Hornafjörður",
+  "locality": ""
+ },
+ "64.53566,-21.92356": {
+  "region": "Vesturland",
+  "county": "",
+  "locality": "Borgarbyggð"
+ },
+ "64.64405,-14.51658": {
+  "region": "Austurland",
+  "county": "Múlaþing",
+  "locality": ""
+ },
+ "64.65078,-20.58265": {
+  "region": "Vesturland",
+  "county": "",
+  "locality": "Borgarbyggð"
+ },
+ "64.65501,-20.24378": {
+  "region": "Vesturland",
+  "county": "",
+  "locality": "Borgarbyggð"
+ },
+ "64.65619,-20.15315": {
+  "region": "Suðurland",
+  "county": "Bláskógabyggð",
+  "locality": ""
+ },
+ "64.66503,-21.2911": {
+  "region": "Vesturland",
+  "county": "",
+  "locality": "Borgarbyggð"
+ },
+ "64.68921,-21.59292": {
+  "region": "Vesturland",
+  "county": "",
+  "locality": "Borgarbyggð"
+ },
+ "64.70221,-20.9776": {
+  "region": "Vesturland",
+  "county": "",
+  "locality": "Borgarbyggð"
+ },
+ "64.73545,-23.77562": {
+  "region": "Vesturland",
+  "county": "Snæfellsbær",
+  "locality": ""
+ },
+ "64.7458,-23.67584": {
+  "region": "Vesturland",
+  "county": "Snæfellsbær",
+  "locality": ""
+ },
+ "64.74772,-23.81787": {
+  "region": "Vesturland",
+  "county": "Snæfellsbær",
+  "locality": ""
+ },
+ "64.75031,-20.80191": {
+  "region": "Vesturland",
+  "county": "",
+  "locality": "Borgarbyggð"
+ },
+ "64.75036,-23.91487": {
+  "region": "Vesturland",
+  "county": "Snæfellsbær",
+  "locality": ""
+ },
+ "64.76912,-23.6259": {
+  "region": "Vesturland",
+  "county": "Snæfellsbær",
+  "locality": ""
+ },
+ "64.77881,-18.50098": {
+  "region": "Suðurland",
+  "county": "Skeiða- og Gnúpverjahreppur",
+  "locality": ""
+ },
+ "64.78151,-20.72382": {
+  "region": "Vesturland",
+  "county": "",
+  "locality": "Borgarbyggð"
+ },
+ "64.78154,-23.67835": {
+  "region": "Vesturland",
+  "county": "Snæfellsbær",
+  "locality": ""
+ },
+ "64.79621,-22.32113": {
+  "region": "Vesturland",
+  "county": "",
+  "locality": "Borgarbyggð"
+ },
+ "64.79923,-23.64682": {
+  "region": "Vesturland",
+  "county": "Snæfellsbær",
+  "locality": ""
+ },
+ "64.8057,-23.7731": {
+  "region": "Vesturland",
+  "county": "Snæfellsbær",
+  "locality": ""
+ },
+ "64.81879,-22.41597": {
+  "region": "Vesturland",
+  "county": "Eyja- og Miklaholtshreppur",
+  "locality": ""
+ },
+ "64.8232,-23.38461": {
+  "region": "Vesturland",
+  "county": "Snæfellsbær",
+  "locality": ""
+ },
+ "64.82662,-13.8248": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "64.83284,-13.86165": {
+  "region": "Austurland",
+  "county": "Fjarðabyggð",
+  "locality": ""
+ },
+ "64.83547,-13.88052": {
+  "region": "Austurland",
+  "county": "Fjarðabyggð",
+  "locality": ""
+ },
+ "64.83646,-22.97561": {
+  "region": "Vesturland",
+  "county": "Snæfellsbær",
+  "locality": ""
+ },
+ "64.85128,-22.3704": {
+  "region": "Vesturland",
+  "county": "Eyja- og Miklaholtshreppur",
+  "locality": ""
+ },
+ "64.85162,-23.92655": {
+  "region": "Vesturland",
+  "county": "Snæfellsbær",
+  "locality": ""
+ },
+ "64.85485,-13.96568": {
+  "region": "Austurland",
+  "county": "Fjarðabyggð",
+  "locality": ""
+ },
+ "64.86371,-24.03907": {
+  "region": "Vesturland",
+  "county": "Snæfellsbær",
+  "locality": ""
+ },
+ "64.86725,-19.55": {
+  "region": "Norðurland vestra",
+  "county": "Húnabyggð",
+  "locality": ""
+ },
+ "64.87592,-14.00469": {
+  "region": "Austurland",
+  "county": "Fjarðabyggð",
+  "locality": ""
+ },
+ "64.88276,-23.23883": {
+  "region": "Vesturland",
+  "county": "",
+  "locality": "Grundarfjarðarbær"
+ },
+ "64.88927,-23.68773": {
+  "region": "Vesturland",
+  "county": "Snæfellsbær",
+  "locality": ""
+ },
+ "64.89558,-22.33875": {
+  "region": "Vesturland",
+  "county": "Eyja- og Miklaholtshreppur",
+  "locality": ""
+ },
+ "64.89605,-23.70603": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "64.91257,-23.88908": {
+  "region": "Vesturland",
+  "county": "Snæfellsbær",
+  "locality": ""
+ },
+ "64.91629,-23.87568": {
+  "region": "Vesturland",
+  "county": "Snæfellsbær",
+  "locality": ""
+ },
+ "64.92341,-13.965": {
+  "region": "Austurland",
+  "county": "Fjarðabyggð",
+  "locality": ""
+ },
+ "64.92467,-23.26041": {
+  "region": "Vesturland",
+  "county": "",
+  "locality": "Grundarfjarðarbær"
+ },
+ "64.92616,-23.3114": {
+  "region": "Vesturland",
+  "county": "",
+  "locality": "Grundarfjarðarbær"
+ },
+ "64.92798,-23.25742": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "64.93659,-14.03585": {
+  "region": "Austurland",
+  "county": "Fjarðabyggð",
+  "locality": ""
+ },
+ "64.94167,-23.30694": {
+  "region": "Vesturland",
+  "county": "",
+  "locality": "Grundarfjarðarbær"
+ },
+ "65.01216,-16.74866": {
+  "region": "Norðurland eystra",
+  "county": "Þingeyjarsveit",
+  "locality": ""
+ },
+ "65.03437,-14.24107": {
+  "region": "Austurland",
+  "county": "Fjarðabyggð",
+  "locality": ""
+ },
+ "65.03609,-19.58374": {
+  "region": "Norðurland vestra",
+  "county": "Húnabyggð",
+  "locality": ""
+ },
+ "65.03816,-14.20875": {
+  "region": "Austurland",
+  "county": "Fjarðabyggð",
+  "locality": ""
+ },
+ "65.04133,-14.33124": {
+  "region": "Austurland",
+  "county": "Fjarðabyggð",
+  "locality": ""
+ },
+ "65.04142,-14.95327": {
+  "region": "Austurland",
+  "county": "Fljótsdalshreppur",
+  "locality": ""
+ },
+ "65.04441,-14.00726": {
+  "region": "Austurland",
+  "county": "Fjarðabyggð",
+  "locality": ""
+ },
+ "65.062,-13.5537": {
+  "region": "Austurland",
+  "county": "Fjarðabyggð",
+  "locality": ""
+ },
+ "65.06468,-13.7075": {
+  "region": "Austurland",
+  "county": "Fjarðabyggð",
+  "locality": ""
+ },
+ "65.0729,-22.73573": {
+  "region": "Vesturland",
+  "county": "Sveitarfélagið Stykkishólmur",
+  "locality": ""
+ },
+ "65.07863,-14.03182": {
+  "region": "Austurland",
+  "county": "Fjarðabyggð",
+  "locality": ""
+ },
+ "65.09555,-14.89047": {
+  "region": "Austurland",
+  "county": "Fljótsdalshreppur",
+  "locality": ""
+ },
+ "65.1083,-21.76364": {
+  "region": "Vesturland",
+  "county": "Dalabyggð",
+  "locality": ""
+ },
+ "65.14728,-13.68863": {
+  "region": "Austurland",
+  "county": "Fjarðabyggð",
+  "locality": ""
+ },
+ "65.14991,-13.65939": {
+  "region": "Austurland",
+  "county": "Fjarðabyggð",
+  "locality": ""
+ },
+ "65.15094,-13.65543": {
+  "region": "Austurland",
+  "county": "Fjarðabyggð",
+  "locality": ""
+ },
+ "65.15095,-13.67918": {
+  "region": "Austurland",
+  "county": "Fjarðabyggð",
+  "locality": ""
+ },
+ "65.16508,-15.31533": {
+  "region": "Austurland",
+  "county": "Múlaþing",
+  "locality": ""
+ },
+ "65.17525,-16.34079": {
+  "region": "Norðurland eystra",
+  "county": "Þingeyjarsveit",
+  "locality": ""
+ },
+ "65.17946,-14.0813": {
+  "region": "Austurland",
+  "county": "Fjarðabyggð",
+  "locality": ""
+ },
+ "65.18849,-23.51003": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "65.19751,-13.88307": {
+  "region": "Austurland",
+  "county": "Fjarðabyggð",
+  "locality": ""
+ },
+ "65.24602,-21.80404": {
+  "region": "Vesturland",
+  "county": "Dalabyggð",
+  "locality": ""
+ },
+ "65.24634,-21.80383": {
+  "region": "Vesturland",
+  "county": "Dalabyggð",
+  "locality": ""
+ },
+ "65.25985,-14.01012": {
+  "region": "Austurland",
+  "county": "Múlaþing",
+  "locality": ""
+ },
+ "65.25991,-14.01251": {
+  "region": "Austurland",
+  "county": "Múlaþing",
+  "locality": ""
+ },
+ "65.26126,-14.0029": {
+  "region": "Austurland",
+  "county": "Múlaþing",
+  "locality": ""
+ },
+ "65.26153,-13.99864": {
+  "region": "Austurland",
+  "county": "Múlaþing",
+  "locality": ""
+ },
+ "65.26221,-14.01592": {
+  "region": "Austurland",
+  "county": "Múlaþing",
+  "locality": ""
+ },
+ "65.26257,-14.39639": {
+  "region": "Austurland",
+  "county": "Múlaþing",
+  "locality": ""
+ },
+ "65.26492,-14.38083": {
+  "region": "Austurland",
+  "county": "Múlaþing",
+  "locality": ""
+ },
+ "65.26512,-13.99211": {
+  "region": "Austurland",
+  "county": "Múlaþing",
+  "locality": ""
+ },
+ "65.27017,-13.57567": {
+  "region": "Austurland",
+  "county": "Fjarðabyggð",
+  "locality": ""
+ },
+ "65.33145,-15.6837": {
+  "region": "Austurland",
+  "county": "Múlaþing",
+  "locality": ""
+ },
+ "65.33248,-20.5699": {
+  "region": "Norðurland vestra",
+  "county": "Húnaþing vestra",
+  "locality": ""
+ },
+ "65.36646,-17.33694": {
+  "region": "Norðurland eystra",
+  "county": "Þingeyjarsveit",
+  "locality": ""
+ },
+ "65.36815,-15.91769": {
+  "region": "Austurland",
+  "county": "Múlaþing",
+  "locality": ""
+ },
+ "65.39565,-20.94861": {
+  "region": "Norðurland vestra",
+  "county": "Húnaþing vestra",
+  "locality": ""
+ },
+ "65.4023,-20.9295": {
+  "region": "Norðurland vestra",
+  "county": "Húnaþing vestra",
+  "locality": ""
+ },
+ "65.438,-22.2679": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "65.44628,-22.20206": {
+  "region": "Vestfirðir",
+  "county": "Reykhólahreppur",
+  "locality": ""
+ },
+ "65.4501,-22.20388": {
+  "region": "Vestfirðir",
+  "county": "Reykhólahreppur",
+  "locality": ""
+ },
+ "65.47502,-20.59518": {
+  "region": "Norðurland vestra",
+  "county": "Húnaþing vestra",
+  "locality": ""
+ },
+ "65.47508,-23.99161": {
+  "region": "Vestfirðir",
+  "county": "Vesturbyggð",
+  "locality": ""
+ },
+ "65.47982,-17.10929": {
+  "region": "Norðurland eystra",
+  "county": "Þingeyjarsveit",
+  "locality": ""
+ },
+ "65.49635,-20.37904": {
+  "region": "Norðurland vestra",
+  "county": "Húnabyggð",
+  "locality": ""
+ },
+ "65.50255,-24.53247": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "65.51396,-14.56694": {
+  "region": "Austurland",
+  "county": "Múlaþing",
+  "locality": ""
+ },
+ "65.51443,-13.99064": {
+  "region": "Austurland",
+  "county": "Múlaþing",
+  "locality": ""
+ },
+ "65.51962,-23.40534": {
+  "region": "Vestfirðir",
+  "county": "Vesturbyggð",
+  "locality": ""
+ },
+ "65.52109,-24.10447": {
+  "region": "Vestfirðir",
+  "county": "Vesturbyggð",
+  "locality": ""
+ },
+ "65.52658,-13.8182": {
+  "region": "Austurland",
+  "county": "Múlaþing",
+  "locality": ""
+ },
+ "65.52946,-19.38263": {
+  "region": "Norðurland vestra",
+  "county": "Skagafjörður",
+  "locality": ""
+ },
+ "65.55521,-16.72252": {
+  "region": "Norðurland eystra",
+  "county": "Þingeyjarsveit",
+  "locality": ""
+ },
+ "65.57738,-23.17265": {
+  "region": "Vestfirðir",
+  "county": "Vesturbyggð",
+  "locality": ""
+ },
+ "65.58604,-16.91431": {
+  "region": "Norðurland eystra",
+  "county": "Þingeyjarsveit",
+  "locality": ""
+ },
+ "65.60386,-16.99611": {
+  "region": "Norðurland eystra",
+  "county": "Þingeyjarsveit",
+  "locality": ""
+ },
+ "65.60631,-20.63524": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "65.62303,-24.13479": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "65.62614,-16.86056": {
+  "region": "Norðurland eystra",
+  "county": "Þingeyjarsveit",
+  "locality": ""
+ },
+ "65.62643,-16.88248": {
+  "region": "Norðurland eystra",
+  "county": "Þingeyjarsveit",
+  "locality": ""
+ },
+ "65.62647,-23.82954": {
+  "region": "Vestfirðir",
+  "county": "Vesturbyggð",
+  "locality": ""
+ },
+ "65.62883,-16.99506": {
+  "region": "Norðurland eystra",
+  "county": "Þingeyjarsveit",
+  "locality": ""
+ },
+ "65.63093,-16.84796": {
+  "region": "Norðurland eystra",
+  "county": "Þingeyjarsveit",
+  "locality": ""
+ },
+ "65.64093,-16.80934": {
+  "region": "Norðurland eystra",
+  "county": "Þingeyjarsveit",
+  "locality": ""
+ },
+ "65.64193,-18.0981": {
+  "region": "Norðurland eystra",
+  "county": "Akureyrarbær",
+  "locality": "Akureyrarbær"
+ },
+ "65.65116,-18.07517": {
+  "region": "Norðurland eystra",
+  "county": "Akureyrarbær",
+  "locality": "Akureyrarbær"
+ },
+ "65.66084,-21.32272": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "65.66126,-18.08035": {
+  "region": "Norðurland eystra",
+  "county": "Akureyrarbær",
+  "locality": "Akureyrarbær"
+ },
+ "65.66665,-18.08626": {
+  "region": "Norðurland eystra",
+  "county": "Akureyrarbær",
+  "locality": "Akureyrarbær"
+ },
+ "65.68031,-18.09193": {
+  "region": "Norðurland eystra",
+  "county": "Akureyrarbær",
+  "locality": "Akureyrarbær"
+ },
+ "65.68299,-17.55082": {
+  "region": "Norðurland eystra",
+  "county": "Þingeyjarsveit",
+  "locality": ""
+ },
+ "65.683,-17.55082": {
+  "region": "Norðurland eystra",
+  "county": "Þingeyjarsveit",
+  "locality": ""
+ },
+ "65.68564,-18.07943": {
+  "region": "Norðurland eystra",
+  "county": "Akureyrarbær",
+  "locality": "Akureyrarbær"
+ },
+ "65.68667,-23.59769": {
+  "region": "Vestfirðir",
+  "county": "Vesturbyggð",
+  "locality": ""
+ },
+ "65.68849,-18.12617": {
+  "region": "Norðurland eystra",
+  "county": "Akureyrarbær",
+  "locality": "Akureyrarbær"
+ },
+ "65.69038,-21.45545": {
+  "region": "Vestfirðir",
+  "county": "Kaldrananeshreppur",
+  "locality": ""
+ },
+ "65.69105,-21.44274": {
+  "region": "Vestfirðir",
+  "county": "Kaldrananeshreppur",
+  "locality": ""
+ },
+ "65.69149,-21.43697": {
+  "region": "Vestfirðir",
+  "county": "Kaldrananeshreppur",
+  "locality": ""
+ },
+ "65.7012,-18.15361": {
+  "region": "Norðurland eystra",
+  "county": "Hörgársveit",
+  "locality": ""
+ },
+ "65.70317,-16.77518": {
+  "region": "Norðurland eystra",
+  "county": "Þingeyjarsveit",
+  "locality": ""
+ },
+ "65.70654,-21.66565": {
+  "region": "Vestfirðir",
+  "county": "Strandabyggð",
+  "locality": ""
+ },
+ "65.71143,-18.09517": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "65.73281,-23.19984": {
+  "region": "Vestfirðir",
+  "county": "Ísafjarðarbær",
+  "locality": ""
+ },
+ "65.74611,-19.63944": {
+  "region": "Norðurland vestra",
+  "county": "Skagafjörður",
+  "locality": ""
+ },
+ "65.74888,-19.64764": {
+  "region": "Norðurland vestra",
+  "county": "Skagafjörður",
+  "locality": ""
+ },
+ "65.74929,-18.07502": {
+  "region": "Norðurland eystra",
+  "county": "Svalbarðsstrandarhreppur",
+  "locality": ""
+ },
+ "65.75109,-19.64971": {
+  "region": "Norðurland vestra",
+  "county": "Skagafjörður",
+  "locality": ""
+ },
+ "65.75495,-14.8272": {
+  "region": "Austurland",
+  "county": "Vopnafjarðarhreppur",
+  "locality": ""
+ },
+ "65.77749,-24.00373": {
+  "region": "Vestfirðir",
+  "county": "Vesturbyggð",
+  "locality": ""
+ },
+ "65.81467,-16.38458": {
+  "region": "Norðurland eystra",
+  "county": "Norðurþing",
+  "locality": ""
+ },
+ "65.82229,-20.30419": {
+  "region": "Norðurland vestra",
+  "county": "Sveitarfélagið Skagaströnd",
+  "locality": ""
+ },
+ "65.8252,-20.2952": {
+  "region": "Norðurland vestra",
+  "county": "Sveitarfélagið Skagaströnd",
+  "locality": ""
+ },
+ "65.82919,-20.31472": {
+  "region": "Norðurland vestra",
+  "county": "Sveitarfélagið Skagaströnd",
+  "locality": ""
+ },
+ "65.84396,-22.68005": {
+  "region": "Vestfirðir",
+  "county": "Súðavíkurhreppur",
+  "locality": ""
+ },
+ "65.84548,-20.24261": {
+  "region": "Norðurland vestra",
+  "county": "Sveitarfélagið Skagaströnd",
+  "locality": ""
+ },
+ "65.85944,-21.29306": {
+  "region": "Vestfirðir",
+  "county": "Kaldrananeshreppur",
+  "locality": ""
+ },
+ "65.87986,-23.49546": {
+  "region": "Vestfirðir",
+  "county": "Ísafjarðarbær",
+  "locality": ""
+ },
+ "65.88842,-17.32085": {
+  "region": "Norðurland eystra",
+  "county": "Norðurþing",
+  "locality": ""
+ },
+ "65.89418,-18.07245": {
+  "region": "Norðurland eystra",
+  "county": "Grýtubakkahreppur",
+  "locality": ""
+ },
+ "65.89578,-19.41087": {
+  "region": "Norðurland vestra",
+  "county": "Skagafjörður",
+  "locality": ""
+ },
+ "65.9239,-18.56873": {
+  "region": "Norðurland eystra",
+  "county": "Dalvíkurbyggð",
+  "locality": ""
+ },
+ "65.9274,-22.42782": {
+  "region": "Vestfirðir",
+  "county": "Súðavíkurhreppur",
+  "locality": ""
+ },
+ "65.96716,-23.08558": {
+  "region": "Vestfirðir",
+  "county": "Súðavíkurhreppur",
+  "locality": ""
+ },
+ "65.9707,-18.53269": {
+  "region": "Norðurland eystra",
+  "county": "Dalvíkurbyggð",
+  "locality": ""
+ },
+ "66.00286,-22.78908": {
+  "region": "Vestfirðir",
+  "county": "Súðavíkurhreppur",
+  "locality": ""
+ },
+ "66.01809,-16.50563": {
+  "region": "Norðurland eystra",
+  "county": "Norðurþing",
+  "locality": ""
+ },
+ "66.03049,-22.9917": {
+  "region": "Vestfirðir",
+  "county": "Súðavíkurhreppur",
+  "locality": ""
+ },
+ "66.04784,-17.34435": {
+  "region": "Norðurland eystra",
+  "county": "Norðurþing",
+  "locality": ""
+ },
+ "66.05176,-17.3465": {
+  "region": "Norðurland eystra",
+  "county": "Norðurþing",
+  "locality": ""
+ },
+ "66.05462,-23.18012": {
+  "region": "Vestfirðir",
+  "county": "Ísafjarðarbær",
+  "locality": ""
+ },
+ "66.05626,-21.50853": {
+  "region": "Vestfirðir",
+  "county": "Árneshreppur",
+  "locality": ""
+ },
+ "66.05977,-23.2304": {
+  "region": "Vestfirðir",
+  "county": "Ísafjarðarbær",
+  "locality": ""
+ },
+ "66.06132,-23.1789": {
+  "region": "Vestfirðir",
+  "county": "Ísafjarðarbær",
+  "locality": ""
+ },
+ "66.06277,-23.1518": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "66.06331,-23.18373": {
+  "region": "Vestfirðir",
+  "county": "Ísafjarðarbær",
+  "locality": ""
+ },
+ "66.07,-23.24139": {
+  "region": "Vestfirðir",
+  "county": "Ísafjarðarbær",
+  "locality": ""
+ },
+ "66.07119,-18.64893": {
+  "region": "Norðurland eystra",
+  "county": "Fjallabyggð",
+  "locality": ""
+ },
+ "66.08003,-18.72483": {
+  "region": "Norðurland eystra",
+  "county": "Fjallabyggð",
+  "locality": ""
+ },
+ "66.11769,-15.20608": {
+  "region": "Norðurland eystra",
+  "county": "Langanesbyggð",
+  "locality": ""
+ },
+ "66.11957,-16.39628": {
+  "region": "Norðurland eystra",
+  "county": "Norðurþing",
+  "locality": ""
+ },
+ "66.12329,-18.45558": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "66.14699,-18.91323": {
+  "region": "Norðurland eystra",
+  "county": "Fjallabyggð",
+  "locality": ""
+ },
+ "66.14952,-18.90878": {
+  "region": "Norðurland eystra",
+  "county": "Fjallabyggð",
+  "locality": ""
+ },
+ "66.14959,-18.91268": {
+  "region": "Norðurland eystra",
+  "county": "Fjallabyggð",
+  "locality": ""
+ },
+ "66.15501,-23.25336": {
+  "region": "Vestfirðir",
+  "county": "",
+  "locality": "Bolungarvíkurkaupstaður"
+ },
+ "66.15512,-23.25598": {
+  "region": "Vestfirðir",
+  "county": "",
+  "locality": "Bolungarvíkurkaupstaður"
+ },
+ "66.17078,-23.28346": {
+  "region": "Vestfirðir",
+  "county": "",
+  "locality": "Bolungarvíkurkaupstaður"
+ },
+ "66.19742,-15.33508": {
+  "region": "Norðurland eystra",
+  "county": "Langanesbyggð",
+  "locality": ""
+ },
+ "66.20072,-15.33754": {
+  "region": "Norðurland eystra",
+  "county": "Langanesbyggð",
+  "locality": ""
+ },
+ "66.25469,-22.08628": {
+  "region": "Vestfirðir",
+  "county": "Ísafjarðarbær",
+  "locality": ""
+ },
+ "66.30108,-16.45998": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "66.36918,-17.54528": {
+  "region": "",
+  "county": "",
+  "locality": ""
+ },
+ "66.38181,-22.69034": {
+  "region": "Vestfirðir",
+  "county": "Ísafjarðarbær",
+  "locality": ""
+ },
+ "66.3859,-14.85699": {
+  "region": "Norðurland eystra",
+  "county": "Langanesbyggð",
+  "locality": ""
+ },
+ "65.88223,-19.73654": {
+  "region": "Norðurland vestra",
+  "county": "Skagafjörður",
+  "locality": ""
+ }
+}

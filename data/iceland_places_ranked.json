@@ -1871,8 +1871,8 @@
   "lat": 65.7510859,
   "lon": -19.6497067,
   "maps_url": "https://www.google.com/maps?q=65.7510859,-19.6497067",
-  "spots_within_25km": 3,
-  "spots_within_50km": 9
+  "spots_within_25km": 4,
+  "spots_within_50km": 10
  },
  {
   "name": "Motorcycle Museum of Iceland",
@@ -1922,7 +1922,7 @@
   "lon": -21.6656455,
   "maps_url": "https://www.google.com/maps?q=65.7065374,-21.6656455",
   "spots_within_25km": 3,
-  "spots_within_50km": 11
+  "spots_within_50km": 10
  },
  {
   "name": "Museum of Prophecies",
@@ -1947,7 +1947,7 @@
   "lon": -20.3041859,
   "maps_url": "https://www.google.com/maps?q=65.822295,-20.3041859",
   "spots_within_25km": 2,
-  "spots_within_50km": 11
+  "spots_within_50km": 12
  },
  {
   "name": "Neskaupstaður's Museum House",
@@ -2171,8 +2171,8 @@
   "lat": 65.746111,
   "lon": -19.639444,
   "maps_url": "https://www.google.com/maps?q=65.746111,-19.639444",
-  "spots_within_25km": 3,
-  "spots_within_50km": 9
+  "spots_within_25km": 4,
+  "spots_within_50km": 10
  },
  {
   "name": "Skriduklaustur",
@@ -2272,7 +2272,7 @@
   "lon": -18.913227,
   "maps_url": "https://www.google.com/maps?q=66.146992,-18.913227",
   "spots_within_25km": 3,
-  "spots_within_50km": 7
+  "spots_within_50km": 8
  },
  {
   "name": "The Exploration Museum",
@@ -3296,8 +3296,8 @@
   "lat": 65.8454775,
   "lon": -20.2426052777778,
   "maps_url": "https://www.google.com/maps?q=65.8454775,-20.2426052777778",
-  "spots_within_25km": 2,
-  "spots_within_50km": 10
+  "spots_within_25km": 3,
+  "spots_within_50km": 11
  },
  {
   "name": "Stakkholtsgjá",
@@ -3547,7 +3547,7 @@
   "lon": -21.4427376,
   "maps_url": "https://www.google.com/maps?q=65.6910487,-21.4427376",
   "spots_within_25km": 3,
-  "spots_within_50km": 10
+  "spots_within_50km": 9
  },
  {
   "name": "Geothermal pool in Hofsós",
@@ -3571,8 +3571,8 @@
   "lat": 65.8957829,
   "lon": -19.410865,
   "maps_url": "https://www.google.com/maps?q=65.8957829,-19.410865",
-  "spots_within_25km": 3,
-  "spots_within_50km": 12
+  "spots_within_25km": 4,
+  "spots_within_50km": 13
  },
  {
   "name": "Gudrunarlaug Natural Pool",
@@ -3597,7 +3597,7 @@
   "lon": -21.8040418,
   "maps_url": "https://www.google.com/maps?q=65.2460168,-21.8040418",
   "spots_within_25km": 1,
-  "spots_within_50km": 7
+  "spots_within_50km": 6
  },
  {
   "name": "Hotel Heydalur",
@@ -3622,7 +3622,7 @@
   "lon": -22.6800456,
   "maps_url": "https://www.google.com/maps?q=65.8439566,-22.6800456",
   "spots_within_25km": 3,
-  "spots_within_50km": 19
+  "spots_within_50km": 18
  },
  {
   "name": "Hotel Reykjanes",
@@ -3796,8 +3796,8 @@
   "lat": 65.4500958,
   "lon": -22.2038841,
   "maps_url": "https://www.google.com/maps?q=65.4500958,-22.2038841",
-  "spots_within_25km": 1,
-  "spots_within_50km": 9
+  "spots_within_25km": 0,
+  "spots_within_50km": 8
  },
  {
   "name": "Reykjafjörður Hot Pool",
@@ -4472,7 +4472,7 @@
   "lon": -23.172655,
   "maps_url": "https://www.google.com/maps?q=65.577382,-23.172655",
   "spots_within_25km": 3,
-  "spots_within_50km": 12
+  "spots_within_50km": 11
  },
  {
   "name": "Friðheimar",
@@ -4628,10 +4628,10 @@
   "name": "Grettislaug",
   "category": "Points of Interest",
   "attraction_type": "Points of Interest",
-  "region": "Westfjords",
+  "region": "Northwest",
   "tourist_area": "",
   "locality": "",
-  "municipality": "Reykhólahreppur",
+  "municipality": "Skagafjörður",
   "tier": "Unranked",
   "popularity": "Not assessed",
   "accessibility": "Not assessed",
@@ -4643,11 +4643,11 @@
   "photography": "Not assessed",
   "confidence": "not assessed",
   "is_route": "",
-  "lat": 65.44628,
-  "lon": -22.20206,
-  "maps_url": "https://www.google.com/maps?q=65.44628,-22.20206",
-  "spots_within_25km": 1,
-  "spots_within_50km": 9
+  "lat": 65.8822262,
+  "lon": -19.7365364,
+  "maps_url": "https://www.google.com/maps?q=65.8822262,-19.7365364",
+  "spots_within_25km": 5,
+  "spots_within_50km": 10
  },
  {
   "name": "Grindavík",
@@ -5422,7 +5422,7 @@
   "lon": -21.803827,
   "maps_url": "https://www.google.com/maps?q=65.24634,-21.803827",
   "spots_within_25km": 1,
-  "spots_within_50km": 7
+  "spots_within_50km": 6
  },
  {
   "name": "Londrangar Basalt Cliffs",
@@ -5871,8 +5871,8 @@
   "lat": 65.748881,
   "lon": -19.647642,
   "maps_url": "https://www.google.com/maps?q=65.748881,-19.647642",
-  "spots_within_25km": 3,
-  "spots_within_50km": 9
+  "spots_within_25km": 4,
+  "spots_within_50km": 10
  },
  {
   "name": "Saxa Sea Geysir",
@@ -6022,7 +6022,7 @@
   "lon": -18.90878,
   "maps_url": "https://www.google.com/maps?q=66.149516,-18.90878",
   "spots_within_25km": 3,
-  "spots_within_50km": 7
+  "spots_within_50km": 8
  },
  {
   "name": "Skagaströnd",
@@ -6047,7 +6047,7 @@
   "lon": -20.295203,
   "maps_url": "https://www.google.com/maps?q=65.825203,-20.295203",
   "spots_within_25km": 2,
-  "spots_within_50km": 10
+  "spots_within_50km": 11
  },
  {
   "name": "Skjól",
@@ -6222,7 +6222,7 @@
   "lon": -22.7357311,
   "maps_url": "https://www.google.com/maps?q=65.0728985,-22.7357311",
   "spots_within_25km": 0,
-  "spots_within_50km": 17
+  "spots_within_50km": 16
  },
  {
   "name": "Stóri-Karl",
@@ -7247,7 +7247,7 @@
   "lon": -19.3826294,
   "maps_url": "https://www.google.com/maps?q=65.5294645,-19.3826294",
   "spots_within_25km": 0,
-  "spots_within_50km": 5
+  "spots_within_50km": 6
  },
  {
   "name": "Ocean dive",
@@ -7647,7 +7647,7 @@
   "lon": -21.3227216,
   "maps_url": "https://www.google.com/maps?q=65.6608416,-21.3227216",
   "spots_within_25km": 3,
-  "spots_within_50km": 12
+  "spots_within_50km": 11
  },
  {
   "name": "Whales in North Iceland - Dalvík",

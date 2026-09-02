@@ -233,16 +233,17 @@ NORTH = [
                ("Húsavík harbour", "split"), ("Góðafoss", "sight")],
      "night": "Vaglaskógur"},
     {"day": 5, "title": "The Tröllaskagi coast",
-     "summary": "Akureyri, then the north coast road instead of Route 1 — Siglufjörður and a swim.",
+     "summary": "Akureyri, then the north coast road instead of Route 1 — Siglufjörður and a soak.",
      "note": "Route 1 does Akureyri to Blönduós in two hours and shows you nothing. The coast "
              "road costs about 78 km and 1.4 h more and is the cheapest unseen ground on the "
-             "trip. Hofsós is 1,400 ISK a head and runs 07:00–20:00 on weekdays until "
-             "20 September — after that it shuts 13:00–17:00 and this stop stops working. "
-             "Bring your own towels; rental is 852 ISK each. No Vatnsnes today: Hvítserkur is a "
-             "68 km spur and you cannot have both peninsulas in one day. v4 takes that one.",
+             "trip. Grettislaug is two stone pots on the shore at Reykir facing Drangey, 17 km "
+             "up a dead-end road past Sauðárkrókur — the pool Grettir swam ashore to in the "
+             "saga. No closing time to race, unlike the municipal pool at Hofsós. Bring your "
+             "own towels. No Vatnsnes today: Hvítserkur is a 68 km spur and you cannot have "
+             "both peninsulas in one day. v4 takes that one.",
      "stops": [("Akureyri", "town"), ("Dalvik", "town"), ("Ólafsfjarðar", "quick"),
-               ("Siglufjördur", "sight"), ("Geothermal pool in Hofsós", "swim"),
-               ("Sauðárkrókur", "town"), ("Borgarnes", "town")],
+               ("Siglufjördur", "sight"), ("Sauðárkrókur", "town"),
+               ("Grettislaug", "swim"), ("Borgarnes", "town")],
      "night": "Tjaldsvæðið Borgarnesi"},
     {"day": 6, "title": "Snæfellsnes, unhurried",
      "summary": "The whole peninsula with time to stop — Stykkishólmur, Kirkjufell, a lava tube.",
@@ -277,8 +278,8 @@ VARIANTS = {
               "start": REYKJAVIK,
               "note": "No Golden Circle in this one, and no Vatnsnes. Those hours go north "
                       "instead — Ásbyrgi, which is eleven minutes of driving, and the "
-                      "Tröllaskagi coast with Siglufjörður and the Hofsós pool. Starts in "
-                      "Reykjavík, and Snæfellsnes gets a day and a morning rather than one "
+                      "Tröllaskagi coast with Siglufjörður and a soak at Grettislaug. Starts "
+                      "in Reykjavík, and Snæfellsnes gets a day and a morning rather than one "
                       "long push, so nothing finishes in the dark."},
 }
 
@@ -370,9 +371,19 @@ def main():
         for r in csv.DictReader(fh):
             ranked[nkey(r["name"])] = r
 
+    # Coordinates come from the raw scrape, so the same corrections build_places.py
+    # applies have to be honoured here too -- otherwise a name the geocoder resolved
+    # to the wrong real place silently routes the car there. Grettislaug is the case
+    # that caught this: there is a hot spring of that name on Reykjaströnd and a
+    # municipal pool of the same name in Reykhólar, 200 km apart.
+    coord_fixes = json.loads(
+        (DATA / "curated_places.json").read_text(encoding="utf-8"))["coord_fixes"]
+
     def coord(name):
         if name in EXTRA:
             return EXTRA[name]
+        if name in coord_fixes:
+            return tuple(coord_fixes[name])
         if name in places:
             return (float(places[name]["lat"]), float(places[name]["lon"]))
         raise SystemExit(f"no coordinates for stop: {name!r}")

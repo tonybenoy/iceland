@@ -102,7 +102,9 @@ def main():
         name = r["name"].strip()
         lat = float(r["lat"]) if r["lat"] else None
         lon = float(r["lon"]) if r["lon"] else None
-        if lat is None and name in coord_fixes:
+        # coord_fixes wins outright: it covers both the linear features that have
+        # no point at all, and names the geocoder resolved to the wrong real place.
+        if name in coord_fixes:
             lat, lon = coord_fixes[name]
 
         # The source map pins several places twice, up to ~1.1 km apart.

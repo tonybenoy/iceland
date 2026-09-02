@@ -100,8 +100,8 @@ airport, and spends the Golden Circle's hours on the north instead.
 Strokkur, Gullfoss, Brúarhlöð, Kerið) and all of Vatnsnes (Vatnsdalshólar,
 Borgarvirki, Hvítserkur, Kolugljúfur).
 
-**In:** Ásbyrgi, Dalvík, Ólafsfjörður, Siglufjörður, the Hofsós pool,
-Sauðárkrókur, Stykkishólmur and Vatnshellir. 47 stops are common to both.
+**In:** Ásbyrgi, Dalvík, Ólafsfjörður, Siglufjörður, Sauðárkrókur, Grettislaug,
+Stykkishólmur and Vatnshellir. 47 stops are common to both.
 
 ### Why those two swaps
 
@@ -110,8 +110,26 @@ Sauðárkrókur, Stykkishólmur and Vatnshellir. 47 stops are common to both.
   and Ásbyrgi is on the exit. It costs **7.5 km and eleven minutes**.
 - **Tröllaskagi is the cheapest unseen ground on the island.** Route 1 does
   Akureyri to Blönduós in 143 km and shows you nothing; the coast road through
-  Siglufjörður and Hofsós does it in 219 km. **+76 km, +1.4 h** for a fjord town
-  and a seaside pool.
+  Siglufjörður and Skagafjörður does it in 219 km. **+76 km, +1.4 h** for a
+  fjord town and a hot pot on the shore.
+
+### Grettislaug, and a name that means two places
+
+Day 5 ends its northern run at **Grettislaug** — two stone pots on the beach at
+Reykir facing Drangey, 17 km up a dead-end road past Sauðárkrókur, where Grettir
+came ashore in the saga. It costs **+28 km / +0.5 h** over going straight on.
+
+It is also a data trap. There are two real places called Grettislaug: the hot
+spring on Reykjaströnd (`65.8822, -19.7365`) and a municipal pool in Reykhólar
+in the Westfjords (`65.4459, -22.2011`), 200 km apart. The scrape geocoded to
+the second, so the raw `iceland_places.csv` still points at the Westfjords. Two
+consequences worth knowing:
+
+- `coord_fixes` in `curated_places.json` now **overrides** a wrong coordinate,
+  not just fills a missing one, and carries the correct position.
+- `build_route.py` reads coordinates from the *raw* scrape, so it now applies
+  `coord_fixes` too. Without that the day routed to Reykhólar and the day came
+  out 200 km long — silently, because a wrong coordinate still routes fine.
 - **Vatnsnes had to go.** Hvítserkur is a 68 km spur, and bolted onto the
   Tröllaskagi day it pushed Wednesday to 11.0 h. You cannot have both
   peninsulas in one day; v4 takes Vatnsnes, v5 takes Tröllaskagi.
